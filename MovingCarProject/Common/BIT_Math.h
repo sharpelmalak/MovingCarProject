@@ -18,4 +18,10 @@
 #define TOGGLE_BIT(REG,BIT_NUMBER) 	(REG ^=(1<<BIT_NUMBER))
 
 
+
+#define SetBit(Reg , Bit)		((Reg) |= (1 << (Bit)))
+#define ClrBit(Reg , Bit)		((Reg) &= ~(1 << (Bit)))
+#define GetBit(Reg , Bit)		( ((Reg) >> (Bit)) & 1 )
+#define TogBit(Reg , Bit)	   	((Reg) ^= (1 << (Bit)))
+
 #endif /* SERVIES_BIT_MATH_H_ */

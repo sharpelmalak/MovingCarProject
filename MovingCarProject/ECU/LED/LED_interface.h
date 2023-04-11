@@ -10,8 +10,8 @@
 
 #include"LED_config.h"
 #include"../../MCAL/DIO/DIO_interface.h"
-#include"../../SERVICES/BIT_Math.h"
-#include"../../SERVICES/STD_Types.h"
+#include"../../Common/BIT_Math.h"
+#include"../../Common/STD_Types.h"
 
 
  Std_ReturnType LED_initialize(const ST_led_t *led);
