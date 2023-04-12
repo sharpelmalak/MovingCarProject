@@ -7,8 +7,8 @@
 
 #include "pwm_normal.h"
 
-uint32_t FLAG_OVF = 0;
-uint8_t comp_VAL = 0;
+Uint32_t FLAG_OVF = 0;
+Uchar8_t comp_VAL = 0;
 
 void timer2_init(void)
 {
@@ -32,7 +32,7 @@ void timer2_stop(void)
 	TCCR2 = 0x00;
 }
 
-void timer2_set_pwm_normal(uint8_t a_dutycycle)
+void timer2_set_pwm_normal(Uchar8_t a_dutycycle)
 {
 	
 	comp_VAL = ((a_dutycycle*256)/100)-1;
@@ -46,13 +46,13 @@ ISR(TIMER2_OVF_vect)
 	
 	if(FLAG_OVF==0)
 	{
-		LED_off(DIO_PIN0,DIO_PORTA);
+		//LED_off(DIO_PIN0,DIO_PORTA);
 		FLAG_OVF=1;
 		TCNT2 =comp_VAL;
 	}
 	else if(FLAG_OVF == 1)
 	{
-		LED_on(DIO_PIN0,DIO_PORTA);
+		//LED_on(DIO_PIN0,DIO_PORTA);
 		FLAG_OVF=0;
 		TCNT2 =256 - comp_VAL;
 	}
