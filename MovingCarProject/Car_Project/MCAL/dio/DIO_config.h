@@ -8,8 +8,6 @@
 #ifndef MCAL_DIO_DIO_CONFIG_H_
 #define MCAL_DIO_DIO_CONFIG_H_
 
-#include"../../SERVICES/STD_Types.h"
-
 #define CONFIG_ENABLE  1
 #define CONFIG_DISABLE  0
 
