@@ -8,10 +8,11 @@
 #ifndef MCAL_DIO_DIO_INTERFACE_H_
 #define MCAL_DIO_DIO_INTERFACE_H_
 
-#include"../../SERVICES/STD_Types.h"
-#include"DIO_config.h"
-#include"DIO_private.h"
-#include"../../SERVICES/BIT_Math.h"
+#include"../../Common/STD_Types.h"
+#include"../../Common/BIT_Math.h"
+#include"dio_private.h"
+#include"dio_config.h"
+
 
 
 

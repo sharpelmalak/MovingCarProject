@@ -5,7 +5,7 @@
  *      Author: 20101
  */
 
-#include"DIO_interface.h"
+#include"dio_interface.h"
 
 
 #if GPIO_CONFIGURATIONS == CONFIG_ENABLE
