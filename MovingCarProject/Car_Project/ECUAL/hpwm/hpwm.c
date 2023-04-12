@@ -10,8 +10,8 @@
  ************************************************************************************************************/
 #include "../../Common/STD_Types.h"
 #include "../../Common/Bit_Math.h"
-#include "../../MCAL/pwm/PWM_Interface.h"
-#include "../../MCAL/DIO/DIO_Interface.h"
+#include "../../MCAL/pwm/pwm_interface.h"
+#include "../../MCAL/dio/dio_interface.h"
 #include "hpwm_cfg.h"
 #include "hpwm.h"
 /*************************************************************************************************************

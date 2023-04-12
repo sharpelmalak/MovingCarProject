@@ -2,12 +2,10 @@
 #include "../../Common/STD_Types.h"
 #include "../../Common/BIT_Math.h"
 
-#include "../../SYSTEM/INT/int.h"
-
-#include "register.h"
-#include "private.h"
-#include "config.h"
-#include "interface.h"
+#include "tim0_register.h"
+#include "tim0_private.h"
+#include "tim0_config.h"
+#include "tim0_interface.h"
 
 /*========================= Global Variables ========================*/
 /* prescaler options */
