@@ -8,8 +8,6 @@
 #ifndef ECU_PUSH_BUTTON_PB_CONFIG_H_
 #define ECU_PUSH_BUTTON_PB_CONFIG_H_
 
-#include"../../MCAL/DIO/DIO_interface.h"
-
 typedef enum
 {
     PUSH_BTN_STATE_PRESSED = 0,
