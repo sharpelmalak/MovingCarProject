@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
-    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <ProjectGuid>{34211579-730c-4cc0-a439-f34d37f9331a}</ProjectGuid>
     <avrdevice>ATmega32A</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -12,18 +12,18 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>MovingCarProject</AssemblyName>
-    <Name>MovingCarProject</Name>
-    <RootNamespace>MovingCarProject</RootNamespace>
+    <AssemblyName>Car_Project</AssemblyName>
+    <Name>Car_Project</Name>
+    <RootNamespace>Car_Project</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
@@ -40,6 +40,19 @@
   </dependencies>
 </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9502</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -120,9 +133,110 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\BIT_Math.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Common\STD_Types.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\button\PB_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\button\PB_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\button\PB_prog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\hpwm\hpwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\hpwm\hpwm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\hpwm\hpwm_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\led\LED_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\led\LED_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\led\LED_prog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\motor\motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\motor\motor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\motor\motor_handler.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\dio\interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\register.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\extint\Ext_Interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\extint\Ext_Interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm\PWM_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm\PWM_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm\PWM_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm\PWM_Source.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm_normal_mode\pwm_normal.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\pwm_normal_mode\pwm_normal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\timer0\interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\timer0\private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\timer0\program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\timer0\register.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="ECUAL\" />
+    <Folder Include="ECUAL\button\" />
+    <Folder Include="ECUAL\hpwm\" />
+    <Folder Include="ECUAL\led\" />
+    <Folder Include="ECUAL\motor\" />
+    <Folder Include="MCAL\" />
+    <Folder Include="MCAL\dio\" />
+    <Folder Include="MCAL\extint\" />
+    <Folder Include="MCAL\pwm_normal_mode" />
+    <Folder Include="MCAL\pwm\" />
+    <Folder Include="MCAL\timer0\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

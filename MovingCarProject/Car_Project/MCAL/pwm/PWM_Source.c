@@ -86,7 +86,7 @@ enu_timer1Status_t Timer1_enuInit (enu_timer1Mode_t copy_enTmerMode)
 enu_timer1Status_t Timer1_enuSetPrescallar(enu_timer1Prescalar_t copy_enTimerPrescaller)
 {
 	enu_timer1Status_t errorStatus = TIMER1_OK;
-	Uint8_t temp_reg;
+	Uchar8_t temp_reg;
 	if(copy_enTimerPrescaller < TIMER1_PRESCALR_INVALID)
 	{
 		temp_reg = TCCR1B_REG;
@@ -110,7 +110,7 @@ enu_timer1Status_t Timer1_enuSetPrescallar(enu_timer1Prescalar_t copy_enTimerPre
 enu_timer1Status_t Timer1_enuFastPWMInit(enu_pwm1Mode_t copy_enPWMMode)
 {
 	enu_timer1Status_t errorStatus = TIMER1_OK;
-	Uint8_t local_u8Temp;
+	Uchar8_t local_u8Temp;
 
 	if(copy_enPWMMode < TIMER1_PWM_INVALID)
 	{
@@ -249,7 +249,7 @@ enu_timer2Status_t Timer2_enuInit (enu_timer2Mode_t copy_enTmerMode)
 		case TIMER2_FAST_PWM_MODE 			: SetBit(TCCR2_REG, WGM21);SetBit(TCCR2_REG, WGM20); break;
 		default 					: errorStatus = TIMER2_NOK; break;
 		}
-		TCNT2_REG = (Uint8_t)0;
+		TCNT2_REG = (Uchar8_t)0;
 	}else
 	{
 		errorStatus = TIMER2_NOK;
@@ -269,7 +269,7 @@ enu_timer2Status_t Timer2_enuInit (enu_timer2Mode_t copy_enTmerMode)
 enu_timer2Status_t Timer2_enuSetPrescallar(enu_timerPrescalar_t copy_enTimerPrescaller)
 {
 	enu_timer2Status_t errorStatus = TIMER2_OK;
-	Uint8_t temp_reg;
+	Uchar8_t temp_reg;
 	if(copy_enTimerPrescaller < TIMER2_PRESCALR_INVALID)
 	{
 		temp_reg = TCCR2_REG;
@@ -297,7 +297,7 @@ enu_timer2Status_t Timer2_enuSetPrescallar(enu_timerPrescalar_t copy_enTimerPres
 enu_timer2Status_t Timer2_enuFastPWMInit(enu_pwmMode_t copy_enPWMMode)
 {
 	enu_timer2Status_t errorStatus = TIMER2_OK;
-	Uint8_t local_u8Temp;
+	Uchar8_t local_u8Temp;
 
 	if(copy_enPWMMode < TIMER2_PWM_INVALID)
 	{

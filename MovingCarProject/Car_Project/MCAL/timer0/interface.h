@@ -73,7 +73,7 @@ void TIM0_Stop();
  * 
  * \return void
  */
-void TIM0_SetValue(Uint8_t u8_a_startValue);
+void TIM0_SetValue(Uchar8_t u8_a_startValue);
 
 
 /**

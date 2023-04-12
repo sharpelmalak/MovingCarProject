@@ -1,0 +1,469 @@
+
+Car_Project.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001f6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000001f6  0000026a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000276  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002a8  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000090  00000000  00000000  000002e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000d13  00000000  00000000  00000374  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000007b7  00000000  00000000  00001087  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000045d  00000000  00000000  0000183e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000c0  00000000  00000000  00001c9c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000584  00000000  00000000  00001d5c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000287  00000000  00000000  000022e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  00002567  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 ef       	ldi	r30, 0xF6	; 246
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ac 36       	cpi	r26, 0x6C	; 108
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 7e 00 	call	0xfc	; 0xfc <main>
+  7a:	0c 94 f9 00 	jmp	0x1f2	; 0x1f2 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <DCM_Init>:
+* \param pst_a_Motor reference to desired motor
+*
+* \return en_MotorError_t
+*/
+en_MotorError_t DCM_Init(st_Motor_t *pst_a_Motor)
+{
+  82:	cf 93       	push	r28
+  84:	df 93       	push	r29
+	if(pst_a_Motor != NULL)
+  86:	00 97       	sbiw	r24, 0x00	; 0
+  88:	69 f0       	breq	.+26     	; 0xa4 <DCM_Init+0x22>
+  8a:	ec 01       	movw	r28, r24
+	{
+		/* Initialize motor pins as output pins */
+		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_OUT);
+  8c:	41 e0       	ldi	r20, 0x01	; 1
+  8e:	69 81       	ldd	r22, Y+1	; 0x01
+  90:	88 81       	ld	r24, Y
+  92:	0e 94 87 00 	call	0x10e	; 0x10e <DIO_SetPinDir>
+		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_OUT);
+  96:	41 e0       	ldi	r20, 0x01	; 1
+  98:	6a 81       	ldd	r22, Y+2	; 0x02
+  9a:	88 81       	ld	r24, Y
+  9c:	0e 94 87 00 	call	0x10e	; 0x10e <DIO_SetPinDir>
+	else
+	{
+		return MOTOR_ERROR;
+	}
+	
+	return MOTOR_OK;
+  a0:	80 e0       	ldi	r24, 0x00	; 0
+  a2:	01 c0       	rjmp	.+2      	; 0xa6 <DCM_Init+0x24>
+		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_OUT);
+		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_OUT);
+	}
+	else
+	{
+		return MOTOR_ERROR;
+  a4:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	
+	return MOTOR_OK;
+}
+  a6:	df 91       	pop	r29
+  a8:	cf 91       	pop	r28
+  aa:	08 95       	ret
+
+000000ac <DCM_Start>:
+* \param pst_a_Motor reference to desired motor
+*
+* \return en_MotorError_t
+*/
+en_MotorError_t DCM_Start(st_Motor_t *pst_a_Motor)
+{
+  ac:	cf 93       	push	r28
+  ae:	df 93       	push	r29
+	if(pst_a_Motor != NULL)
+  b0:	00 97       	sbiw	r24, 0x00	; 0
+  b2:	f1 f0       	breq	.+60     	; 0xf0 <DCM_Start+0x44>
+  b4:	ec 01       	movw	r28, r24
+	{
+		if(pst_a_Motor->Dir == MOTOR_CW)
+  b6:	8b 81       	ldd	r24, Y+3	; 0x03
+  b8:	81 11       	cpse	r24, r1
+  ba:	0c c0       	rjmp	.+24     	; 0xd4 <DCM_Start+0x28>
+		{
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_HIGH);
+  bc:	41 e0       	ldi	r20, 0x01	; 1
+  be:	69 81       	ldd	r22, Y+1	; 0x01
+  c0:	88 81       	ld	r24, Y
+  c2:	0e 94 c0 00 	call	0x180	; 0x180 <DIO_SetPinVal>
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_LOW);
+  c6:	40 e0       	ldi	r20, 0x00	; 0
+  c8:	6a 81       	ldd	r22, Y+2	; 0x02
+  ca:	88 81       	ld	r24, Y
+  cc:	0e 94 c0 00 	call	0x180	; 0x180 <DIO_SetPinVal>
+	else
+	{
+		return MOTOR_ERROR;
+	}
+	
+	return MOTOR_OK;
+  d0:	80 e0       	ldi	r24, 0x00	; 0
+  d2:	11 c0       	rjmp	.+34     	; 0xf6 <DCM_Start+0x4a>
+		if(pst_a_Motor->Dir == MOTOR_CW)
+		{
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_HIGH);
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_LOW);
+		}
+		else if(pst_a_Motor->Dir == MOTOR_CCW)
+  d4:	81 30       	cpi	r24, 0x01	; 1
+  d6:	71 f4       	brne	.+28     	; 0xf4 <DCM_Start+0x48>
+		{
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_HIGH);
+  d8:	41 e0       	ldi	r20, 0x01	; 1
+  da:	6a 81       	ldd	r22, Y+2	; 0x02
+  dc:	88 81       	ld	r24, Y
+  de:	0e 94 c0 00 	call	0x180	; 0x180 <DIO_SetPinVal>
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_LOW);
+  e2:	40 e0       	ldi	r20, 0x00	; 0
+  e4:	69 81       	ldd	r22, Y+1	; 0x01
+  e6:	88 81       	ld	r24, Y
+  e8:	0e 94 c0 00 	call	0x180	; 0x180 <DIO_SetPinVal>
+	else
+	{
+		return MOTOR_ERROR;
+	}
+	
+	return MOTOR_OK;
+  ec:	80 e0       	ldi	r24, 0x00	; 0
+  ee:	03 c0       	rjmp	.+6      	; 0xf6 <DCM_Start+0x4a>
+			return MOTOR_ERROR;
+		}
+	}
+	else
+	{
+		return MOTOR_ERROR;
+  f0:	81 e0       	ldi	r24, 0x01	; 1
+  f2:	01 c0       	rjmp	.+2      	; 0xf6 <DCM_Start+0x4a>
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_HIGH);
+			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_LOW);
+		}
+		else
+		{
+			return MOTOR_ERROR;
+  f4:	81 e0       	ldi	r24, 0x01	; 1
+	{
+		return MOTOR_ERROR;
+	}
+	
+	return MOTOR_OK;
+}
+  f6:	df 91       	pop	r29
+  f8:	cf 91       	pop	r28
+  fa:	08 95       	ret
+
+000000fc <main>:
+extern st_Motor_t st_g_Motor3;
+extern st_Motor_t st_g_Motor4;
+
+int main(void)
+{
+	DCM_Init(&st_g_Motor1);
+  fc:	80 e6       	ldi	r24, 0x60	; 96
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	0e 94 41 00 	call	0x82	; 0x82 <DCM_Init>
+	DCM_Start(&st_g_Motor1);
+ 104:	80 e6       	ldi	r24, 0x60	; 96
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	0e 94 56 00 	call	0xac	; 0xac <DCM_Start>
+ 10c:	ff cf       	rjmp	.-2      	; 0x10c <main+0x10>
+
+0000010e <DIO_SetPinDir>:
+* @param u8_a_Direction desired direction to configure the pin
+* @return error status
+*/
+EN_DIOErrorState_t DIO_SetPinDir(en_DIOPort_t u8_a_Port, en_DIOPin_t u8_a_Pin, en_PinDirection_t u8_a_Direction)
+{
+	if(u8_a_Port <= DIO_PORT_D)
+ 10e:	84 30       	cpi	r24, 0x04	; 4
+ 110:	88 f5       	brcc	.+98     	; 0x174 <DIO_SetPinDir+0x66>
+	{
+		if(u8_a_Pin <= DIO_PIN_7)
+ 112:	68 30       	cpi	r22, 0x08	; 8
+ 114:	88 f5       	brcc	.+98     	; 0x178 <DIO_SetPinDir+0x6a>
+		{
+			if(u8_a_Direction == DIO_PIN_OUT)
+ 116:	41 30       	cpi	r20, 0x01	; 1
+ 118:	a9 f4       	brne	.+42     	; 0x144 <DIO_SetPinDir+0x36>
+			{
+				SET_BIT(arr_gs_Ports[u8_a_Port]->DIR, u8_a_Pin);
+ 11a:	e8 2f       	mov	r30, r24
+ 11c:	f0 e0       	ldi	r31, 0x00	; 0
+ 11e:	ee 0f       	add	r30, r30
+ 120:	ff 1f       	adc	r31, r31
+ 122:	ec 59       	subi	r30, 0x9C	; 156
+ 124:	ff 4f       	sbci	r31, 0xFF	; 255
+ 126:	01 90       	ld	r0, Z+
+ 128:	f0 81       	ld	r31, Z
+ 12a:	e0 2d       	mov	r30, r0
+ 12c:	21 81       	ldd	r18, Z+1	; 0x01
+ 12e:	81 e0       	ldi	r24, 0x01	; 1
+ 130:	90 e0       	ldi	r25, 0x00	; 0
+ 132:	02 c0       	rjmp	.+4      	; 0x138 <DIO_SetPinDir+0x2a>
+ 134:	88 0f       	add	r24, r24
+ 136:	99 1f       	adc	r25, r25
+ 138:	6a 95       	dec	r22
+ 13a:	e2 f7       	brpl	.-8      	; 0x134 <DIO_SetPinDir+0x26>
+ 13c:	82 2b       	or	r24, r18
+ 13e:	81 83       	std	Z+1, r24	; 0x01
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+ 140:	80 e0       	ldi	r24, 0x00	; 0
+ 142:	08 95       	ret
+		{
+			if(u8_a_Direction == DIO_PIN_OUT)
+			{
+				SET_BIT(arr_gs_Ports[u8_a_Port]->DIR, u8_a_Pin);
+			}
+			else if(u8_a_Direction == DIO_PIN_IN)
+ 144:	41 11       	cpse	r20, r1
+ 146:	1a c0       	rjmp	.+52     	; 0x17c <DIO_SetPinDir+0x6e>
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->DIR, u8_a_Pin);
+ 148:	e8 2f       	mov	r30, r24
+ 14a:	f0 e0       	ldi	r31, 0x00	; 0
+ 14c:	ee 0f       	add	r30, r30
+ 14e:	ff 1f       	adc	r31, r31
+ 150:	ec 59       	subi	r30, 0x9C	; 156
+ 152:	ff 4f       	sbci	r31, 0xFF	; 255
+ 154:	01 90       	ld	r0, Z+
+ 156:	f0 81       	ld	r31, Z
+ 158:	e0 2d       	mov	r30, r0
+ 15a:	21 81       	ldd	r18, Z+1	; 0x01
+ 15c:	81 e0       	ldi	r24, 0x01	; 1
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	02 c0       	rjmp	.+4      	; 0x166 <DIO_SetPinDir+0x58>
+ 162:	88 0f       	add	r24, r24
+ 164:	99 1f       	adc	r25, r25
+ 166:	6a 95       	dec	r22
+ 168:	e2 f7       	brpl	.-8      	; 0x162 <DIO_SetPinDir+0x54>
+ 16a:	80 95       	com	r24
+ 16c:	82 23       	and	r24, r18
+ 16e:	81 83       	std	Z+1, r24	; 0x01
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+ 170:	80 e0       	ldi	r24, 0x00	; 0
+ 172:	08 95       	ret
+			}
+			else {return DIO_Error;}
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+ 174:	81 e0       	ldi	r24, 0x01	; 1
+ 176:	08 95       	ret
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->DIR, u8_a_Pin);
+			}
+			else {return DIO_Error;}
+		}
+		else {return InvalidPin;}
+ 178:	82 e0       	ldi	r24, 0x02	; 2
+ 17a:	08 95       	ret
+			}
+			else if(u8_a_Direction == DIO_PIN_IN)
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->DIR, u8_a_Pin);
+			}
+			else {return DIO_Error;}
+ 17c:	83 e0       	ldi	r24, 0x03	; 3
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+}
+ 17e:	08 95       	ret
+
+00000180 <DIO_SetPinVal>:
+ * @param u8_a_Value desired value to set the pin to
+ * @return error status
+ */
+EN_DIOErrorState_t DIO_SetPinVal(en_DIOPort_t u8_a_Port, en_DIOPin_t u8_a_Pin, en_PinValue_t u8_a_Value)
+{
+	if(u8_a_Port <= DIO_PORT_D)
+ 180:	84 30       	cpi	r24, 0x04	; 4
+ 182:	88 f5       	brcc	.+98     	; 0x1e6 <DIO_SetPinVal+0x66>
+	{
+		if(u8_a_Pin <= DIO_PIN_7)
+ 184:	68 30       	cpi	r22, 0x08	; 8
+ 186:	88 f5       	brcc	.+98     	; 0x1ea <DIO_SetPinVal+0x6a>
+		{
+			if(u8_a_Value == DIO_PIN_HIGH)
+ 188:	41 30       	cpi	r20, 0x01	; 1
+ 18a:	a9 f4       	brne	.+42     	; 0x1b6 <DIO_SetPinVal+0x36>
+			{
+				SET_BIT(arr_gs_Ports[u8_a_Port]->PORT, u8_a_Pin);
+ 18c:	e8 2f       	mov	r30, r24
+ 18e:	f0 e0       	ldi	r31, 0x00	; 0
+ 190:	ee 0f       	add	r30, r30
+ 192:	ff 1f       	adc	r31, r31
+ 194:	ec 59       	subi	r30, 0x9C	; 156
+ 196:	ff 4f       	sbci	r31, 0xFF	; 255
+ 198:	01 90       	ld	r0, Z+
+ 19a:	f0 81       	ld	r31, Z
+ 19c:	e0 2d       	mov	r30, r0
+ 19e:	22 81       	ldd	r18, Z+2	; 0x02
+ 1a0:	81 e0       	ldi	r24, 0x01	; 1
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	02 c0       	rjmp	.+4      	; 0x1aa <DIO_SetPinVal+0x2a>
+ 1a6:	88 0f       	add	r24, r24
+ 1a8:	99 1f       	adc	r25, r25
+ 1aa:	6a 95       	dec	r22
+ 1ac:	e2 f7       	brpl	.-8      	; 0x1a6 <DIO_SetPinVal+0x26>
+ 1ae:	82 2b       	or	r24, r18
+ 1b0:	82 83       	std	Z+2, r24	; 0x02
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+ 1b2:	80 e0       	ldi	r24, 0x00	; 0
+ 1b4:	08 95       	ret
+		{
+			if(u8_a_Value == DIO_PIN_HIGH)
+			{
+				SET_BIT(arr_gs_Ports[u8_a_Port]->PORT, u8_a_Pin);
+			}
+			else if(u8_a_Value == DIO_PIN_LOW)
+ 1b6:	41 11       	cpse	r20, r1
+ 1b8:	1a c0       	rjmp	.+52     	; 0x1ee <DIO_SetPinVal+0x6e>
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->PORT, u8_a_Pin);
+ 1ba:	e8 2f       	mov	r30, r24
+ 1bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1be:	ee 0f       	add	r30, r30
+ 1c0:	ff 1f       	adc	r31, r31
+ 1c2:	ec 59       	subi	r30, 0x9C	; 156
+ 1c4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c6:	01 90       	ld	r0, Z+
+ 1c8:	f0 81       	ld	r31, Z
+ 1ca:	e0 2d       	mov	r30, r0
+ 1cc:	22 81       	ldd	r18, Z+2	; 0x02
+ 1ce:	81 e0       	ldi	r24, 0x01	; 1
+ 1d0:	90 e0       	ldi	r25, 0x00	; 0
+ 1d2:	02 c0       	rjmp	.+4      	; 0x1d8 <DIO_SetPinVal+0x58>
+ 1d4:	88 0f       	add	r24, r24
+ 1d6:	99 1f       	adc	r25, r25
+ 1d8:	6a 95       	dec	r22
+ 1da:	e2 f7       	brpl	.-8      	; 0x1d4 <DIO_SetPinVal+0x54>
+ 1dc:	80 95       	com	r24
+ 1de:	82 23       	and	r24, r18
+ 1e0:	82 83       	std	Z+2, r24	; 0x02
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+ 1e2:	80 e0       	ldi	r24, 0x00	; 0
+ 1e4:	08 95       	ret
+			}
+			else {return DIO_Error;}
+		}
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+ 1e6:	81 e0       	ldi	r24, 0x01	; 1
+ 1e8:	08 95       	ret
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->PORT, u8_a_Pin);
+			}
+			else {return DIO_Error;}
+		}
+		else {return InvalidPin;}
+ 1ea:	82 e0       	ldi	r24, 0x02	; 2
+ 1ec:	08 95       	ret
+			}
+			else if(u8_a_Value == DIO_PIN_LOW)
+			{
+				CLEAR_BIT(arr_gs_Ports[u8_a_Port]->PORT, u8_a_Pin);
+			}
+			else {return DIO_Error;}
+ 1ee:	83 e0       	ldi	r24, 0x03	; 3
+		else {return InvalidPin;}
+	}
+	else {return InvalidPort;}
+	
+	return DIO_OK;
+}
+ 1f0:	08 95       	ret
+
+000001f2 <_exit>:
+ 1f2:	f8 94       	cli
+
+000001f4 <__stop_program>:
+ 1f4:	ff cf       	rjmp	.-2      	; 0x1f4 <__stop_program>

@@ -222,7 +222,7 @@ enu_timer1Status_t Timer1_enuFastPWMInit(enu_pwm1Mode_t );
  * Arguments			: copy_u8DutyCycle  {1 ~ 100}
  * Return 				: enu_timer1Status_t {TIMER1_OK or TIMER1_NOK}
  */
-enu_timer1Status_t Timer1_enuPWMGenerate(Uint8_t);
+enu_timer1Status_t Timer1_enuPWMGenerate(Uchar8_t);
 
 
 
@@ -262,6 +262,6 @@ enu_timer2Status_t Timer2_enuFastPWMInit(enu_pwmMode_t );
  * Arguments			: copy_u8DutyCycle  {1 ~ 100}
  * Return 				: enu_timer2Status_t {TIMER2_OK or TIMER2_NOK}
  */
-enu_timer2Status_t Timer2_enuPWMGenerate(Uint8_t);
+enu_timer2Status_t Timer2_enuPWMGenerate(Uchar8_t);
 
 #endif /* MCAL_PWM_PWM_INTERFACE_H_ */

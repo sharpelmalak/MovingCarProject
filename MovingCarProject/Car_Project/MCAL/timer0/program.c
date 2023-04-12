@@ -1,26 +1,26 @@
 /*============================== Includes ==============================*/
-#include "../../Services/STD_TYPES.h"
-#include "../../Services/BIT_MATH.h"
+#include "../../Common/STD_Types.h"
+#include "../../Common/BIT_Math.h"
 
 #include "../../SYSTEM/INT/int.h"
 
-#include "TIM_register.h"
-#include "TIM_private.h"
-#include "TIM_config.h"
-#include "TIM_interface.h"
+#include "register.h"
+#include "private.h"
+#include "config.h"
+#include "interface.h"
 
 /*========================= Global Variables ========================*/
 /* prescaler options */
 static Uint16_t arr_gs_prescalers[] = {1,8,64,265,1024};
 	
-static Uint8_t u8_gs_OVFCount = 0, u8_gs_TotalOVF = 0, u8_gs_delayStatusFlag = DELAY_IDLE;
+static Uchar8_t u8_gs_OVFCount = 0, u8_gs_TotalOVF = 0, u8_gs_delayStatusFlag = DELAY_IDLE;
 
 void (*TIM0_OVFCallbackFn)(void) = NULL;
 
 /*========================= Function Implementation ========================*/
 en_TIMErrorState_t TIM0_voidInit(en_TIMMode_t u8_a_Mode)
 {
-	Uint8_t u8_l_T0Mode;
+	Uchar8_t u8_l_T0Mode;
 	
 	switch(u8_a_Mode)
 	{
@@ -65,14 +65,14 @@ void TIM0_Stop()
 	TCCR0 &= TIM0_CLK_MASK;
 }
 
-void TIM0_SetValue(Uint8_t u8_a_startValue)
+void TIM0_SetValue(Uchar8_t u8_a_startValue)
 {
 	TCNT0 = u8_a_startValue;
 }
 
 en_TIMErrorState_t TIM0_SyncDelay(Uint32_t u32_a_delay, en_timeUnits_t Copy_timeUnit)
 {
-	Uint8_t u8_l_prescaler, Local_TotalOverFlows, Local_OverFlowCounter=0;
+	Uchar8_t u8_l_prescaler, Local_TotalOverFlows, Local_OverFlowCounter=0;
 	Uint16_t Local_TotalTicks;
 	float Local_TickTime;
 	
@@ -120,7 +120,7 @@ en_TIMErrorState_t TIM0_SyncDelay(Uint32_t u32_a_delay, en_timeUnits_t Copy_time
 
 en_TIMErrorState_t TIM0_AsyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_timeUnit, void (*Copy_pvCallbackFn)(void))
 {
-	Uint8_t u8_l_prescaler;
+	Uchar8_t u8_l_prescaler;
 	Uint16_t u8_l_TotalTicks;
 	float Local_TickTime;
 	
