@@ -5,7 +5,7 @@
  *      Author: 20101
  */
 
-#include"PB_interface.h"
+#include"pb_interface.h"
 
 Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
 {

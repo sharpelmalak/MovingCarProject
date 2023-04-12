@@ -8,8 +8,6 @@
 #ifndef ECU_LED_LED_CONFIG_H_
 #define ECU_LED_LED_CONFIG_H_
 
-#include"../../SERVICES/STD_Types.h"
-
 typedef enum
 {
     LED_STATUS_OFF = 0,
