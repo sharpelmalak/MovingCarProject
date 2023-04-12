@@ -33,9 +33,8 @@ typedef enum
 
 typedef struct
 {
-	en_DIOPort_t Port;
-	en_DIOPin_t Pin1;
-	en_DIOPin_t Pin2;
+	ST_pin_config_t* Pin1;
+	ST_pin_config_t* Pin2;
 	en_MotorDirection_t Dir;
 }st_Motor_t;
 

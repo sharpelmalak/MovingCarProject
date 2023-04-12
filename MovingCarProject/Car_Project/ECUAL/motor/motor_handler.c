@@ -5,12 +5,12 @@
  *  Author: ME
  */ 
 
-#include "../../MCAL/dio/interface.h"
+#include "../../MCAL/dio/dio_interface.h"
 
 #include "motor.h"
 
-st_Motor_t st_g_Motor1 = {DIO_PORT_A, DIO_PIN_0, DIO_PIN_1, MOTOR_CW};
-st_Motor_t st_g_Motor2 = {DIO_PORT_A, DIO_PIN_2, DIO_PIN_3, MOTOR_CW};
-st_Motor_t st_g_Motor3 = {DIO_PORT_B, DIO_PIN_0, DIO_PIN_1, MOTOR_CW};
-st_Motor_t st_g_Motor4 = {DIO_PORT_B, DIO_PIN_2, DIO_PIN_3, MOTOR_CW};
+st_Motor_t st_g_Motor1 = {&st_g_Motor1Pin1, &st_g_Motor1Pin2, MOTOR_CW};
+st_Motor_t st_g_Motor2 = {&st_g_Motor2Pin1, &st_g_Motor2Pin2, MOTOR_CW};
+st_Motor_t st_g_Motor3 = {&st_g_Motor3Pin1, &st_g_Motor3Pin2, MOTOR_CW};
+st_Motor_t st_g_Motor4 = {&st_g_Motor4Pin1, &st_g_Motor4Pin2, MOTOR_CW};
 	

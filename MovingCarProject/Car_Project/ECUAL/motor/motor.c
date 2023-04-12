@@ -7,11 +7,25 @@
 
 #include "../../Common/STD_Types.h"
 
-#include "../../MCAL/dio/interface.h"
+#include "../../MCAL/dio/dio_interface.h"
 
 #include "motor.h"
 
-/*======================== Function Implementation ========================*/
+/*========================================= Global Variables =========================================*/
+
+ST_pin_config_t st_g_Motor1Pin1 = {GPIO_PORTA_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+ST_pin_config_t st_g_Motor1Pin2 = {GPIO_PORTA_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+	
+ST_pin_config_t st_g_Motor2Pin1 = {GPIO_PORTB_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+ST_pin_config_t st_g_Motor2Pin2 = {GPIO_PORTB_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};	
+	
+ST_pin_config_t st_g_Motor3Pin1 = {GPIO_PORTC_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+ST_pin_config_t st_g_Motor3Pin2 = {GPIO_PORTC_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+	
+ST_pin_config_t st_g_Motor4Pin1 = {GPIO_PORTD_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+ST_pin_config_t st_g_Motor4Pin2 = {GPIO_PORTD_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+	
+/*===================================== Function Implementation =====================================*/
 
 /**
 * \brief initialize motor pins
@@ -25,8 +39,8 @@ en_MotorError_t DCM_Init(st_Motor_t *pst_a_Motor)
 	if(pst_a_Motor != NULL)
 	{
 		/* Initialize motor pins as output pins */
-		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_OUT);
-		DIO_SetPinDir(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_OUT);
+		GPIO_pin_intialize(pst_a_Motor->Pin1);
+		GPIO_pin_intialize(pst_a_Motor->Pin2);
 	}
 	else
 	{
@@ -49,13 +63,13 @@ en_MotorError_t DCM_Start(st_Motor_t *pst_a_Motor)
 	{
 		if(pst_a_Motor->Dir == MOTOR_CW)
 		{
-			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_HIGH);
-			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_LOW);
+			GPIO_pin_write_logic(pst_a_Motor->Pin1, GPIO_LOGIC_HIGH);
+			GPIO_pin_write_logic(pst_a_Motor->Pin2, GPIO_LOGIC_LOW);
 		}
 		else if(pst_a_Motor->Dir == MOTOR_CCW)
 		{
-			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_HIGH);
-			DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_LOW);
+			GPIO_pin_write_logic(pst_a_Motor->Pin2, GPIO_LOGIC_HIGH);
+			GPIO_pin_write_logic(pst_a_Motor->Pin1, GPIO_LOGIC_LOW);
 		}
 		else
 		{
@@ -82,8 +96,8 @@ en_MotorError_t DCM_Stop(st_Motor_t *pst_a_Motor)
 {
 	if(pst_a_Motor != NULL)
 	{
-		DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin1, DIO_PIN_LOW);
-		DIO_SetPinVal(pst_a_Motor->Port, pst_a_Motor->Pin2, DIO_PIN_LOW);
+		GPIO_pin_write_logic(pst_a_Motor->Pin1, GPIO_LOGIC_LOW);
+		GPIO_pin_write_logic(pst_a_Motor->Pin2, GPIO_LOGIC_LOW);
 	}
 	else
 	{
