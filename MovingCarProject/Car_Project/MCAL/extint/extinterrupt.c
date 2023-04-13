@@ -16,9 +16,9 @@ EN_EXTINT_ERROR SET_GLOBAL_INTERRUPT(EN_GLOBAL_INT state)
 {
 	
 	if(state == ENABLE)
-	SET_BIT(SREG,7);
+	sei();
     else if (state == DISABLE)
-	CLEAR_BIT(SREG,7);
+	cli();
 	else return EXTINT_NOT_OK;
 	return EXTINT_OK;
 }
@@ -32,75 +32,75 @@ EN_EXTINT_ERROR EXTINT_init(EN_EXINT_NUMBER INTx ,EN_Sence_Control INTxSense)
 		case EXTINT0:
 		  if(INTxSense == LOW_LEVEL)
 		  {
-			  CLEAR_BIT(MCUCR,0);
-			  CLEAR_BIT(MCUCR,1);
+			  CLEAR_BIT(MCUCR,ISC00);
+			  CLEAR_BIT(MCUCR,ISC01);
 		  }
 		  else if(INTxSense == FALLING_EDGE)
 		  {
-			  CLEAR_BIT(MCUCR,0);
-			  SET_BIT(MCUCR,1);
+			  CLEAR_BIT(MCUCR,ISC00);
+			  SET_BIT(MCUCR,ISC01);
 		  }
 		  else if(INTxSense == RISING_EDGE)
 		  {
-			  SET_BIT(MCUCR,0);
-			  SET_BIT(MCUCR,1);
+			  SET_BIT(MCUCR,ISC00);
+			  SET_BIT(MCUCR,ISC01);
 		  }
 		  else if(INTxSense == ANY_LOGICAL_CHANGE)
 		  {
-			  SET_BIT(MCUCR,0);
-			  CLEAR_BIT(MCUCR,1);
+			  SET_BIT(MCUCR,ISC00);
+			  CLEAR_BIT(MCUCR,ISC01);
 		  }
 		  else   // handle sense option error
 		  {
 			  SET_GLOBAL_INTERRUPT(DISABLE);
 			   return EXTINT_NOT_OK;
 		  }	   
-		  SET_BIT(GICR,6); //Enable External INT0  (PIE)
+		  SET_BIT(GICR,INT0); //Enable External INT0  (PIE)
 		  break;
 		case EXTINT1:
 		  if(INTxSense == LOW_LEVEL)
 		  {
-			  CLEAR_BIT(MCUCR,2);
-			  CLEAR_BIT(MCUCR,3);
+			  CLEAR_BIT(MCUCR,ISC10);
+			  CLEAR_BIT(MCUCR,ISC11);
 		  }
 		  else if(INTxSense == FALLING_EDGE)
 		  {
-			  CLEAR_BIT(MCUCR,2);
-			  SET_BIT(MCUCR,3);
+			  CLEAR_BIT(MCUCR,ISC10);
+			  SET_BIT(MCUCR,ISC11);
 		  }
 		  else if(INTxSense == RISING_EDGE)
 		  {
-			  SET_BIT(MCUCR,2);
-			  SET_BIT(MCUCR,3);
+			  SET_BIT(MCUCR,ISC10);
+			  SET_BIT(MCUCR,ISC11);
 		  }
 		  else if(INTxSense == ANY_LOGICAL_CHANGE)
 		  {
-			  SET_BIT(MCUCR,2);
-			  CLEAR_BIT(MCUCR,3);
+			  SET_BIT(MCUCR,ISC10);
+			  CLEAR_BIT(MCUCR,ISC11);
 		  }
 		  else   // handle sense option error
 		  {
 		 	 SET_GLOBAL_INTERRUPT(DISABLE);
 		 	 return EXTINT_NOT_OK;
 		  }
-		  SET_BIT(GICR,7); //Enable External INT1  (PIE)
+		  SET_BIT(GICR,INT1); //Enable External INT1  (PIE)
 		  break;
 		case EXTINT2:
 		 
 		  if(INTxSense == FALLING_EDGE)
 		  {
-			  CLEAR_BIT(MCUCSR,6);
+			  CLEAR_BIT(MCUCSR,ISC2);
 		  }
 		  else if(INTxSense == RISING_EDGE)
 		  {
-			  SET_BIT(MCUCSR,6);
+			  SET_BIT(MCUCSR,ISC2);
 		  }
 		  else   // handle sense option error
 		  {
 		 	 SET_GLOBAL_INTERRUPT(DISABLE);
 		 	 return EXTINT_NOT_OK;
 		  }
-		  SET_BIT(GICR,5); //Enable External INT1  (PIE)
+		  SET_BIT(GICR,INT2); //Enable External INT1  (PIE)
 		  break;
 		default: // handle wrong Choose for EXT Interrupt Number
 		  SET_GLOBAL_INTERRUPT(DISABLE);

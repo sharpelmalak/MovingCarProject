@@ -1,6 +1,7 @@
 main.d main.o: .././main.c .././APP/app.h \
  .././APP/../MCAL/pwm_normal_mode/pwm_normal.h \
  .././APP/../MCAL/pwm_normal_mode/../../Common/vect_table.h \
+ .././APP/../MCAL/pwm_normal_mode/../../Common/STD_Types.h \
  .././APP/../MCAL/pwm_normal_mode/../../MCAL/dio/dio_interface.h \
  .././APP/../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/STD_Types.h \
  .././APP/../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/BIT_Math.h \
@@ -27,6 +28,8 @@ main.d main.o: .././main.c .././APP/app.h \
 .././APP/../MCAL/pwm_normal_mode/pwm_normal.h:
 
 .././APP/../MCAL/pwm_normal_mode/../../Common/vect_table.h:
+
+.././APP/../MCAL/pwm_normal_mode/../../Common/STD_Types.h:
 
 .././APP/../MCAL/pwm_normal_mode/../../MCAL/dio/dio_interface.h:
 

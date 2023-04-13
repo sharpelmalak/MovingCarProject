@@ -32,31 +32,33 @@ ST_pin_config_t pwm_right_pin =
 void timer2_init(void)
 {
 	//Select Normal Mode
-	TCCR2 = 0x00;
+	TCCR2 = NORMAL_MODE;
 	
 	// Enable Interrupt
-	SREG  |=(1<<7); // global
-	TIMSK |=(1<<6); // overflow interrupt for timer 2
+	sei(); // global
+	SET_BIT(TIMSK,TOIE2); // overflow interrupt for timer 2
 	
 }
 void timer2_start(void)
 {
 	
 // clkio/1024 prescaler 
-  TCCR2 |= (1<<0) | (1<<1) | (1<<2);
+  SET_BIT(TCCR2,CS20);
+  SET_BIT(TCCR2,CS21);
+  SET_BIT(TCCR2,CS22);
 }
 void timer2_stop(void)
 {
 	// stop the timer
-	TCCR2 = 0x00;
+	TCCR2 = NORMAL_MODE;
 }
 
 void timer2_set_pwm_normal(Uchar8_t a_dutycycle)
 {
 	GPIO_pin_intialize(&pwm_left_pin);
 	GPIO_pin_intialize(&pwm_right_pin);
-	comp_VAL = ((a_dutycycle*256)/100)-1;
-	TCNT2 = 256 - comp_VAL;
+	comp_VAL = ((a_dutycycle*REG_SIZE)/PERCENT)-ONE_BIT;
+	TCNT2 = REG_SIZE - comp_VAL;
 }
 
 
@@ -64,19 +66,21 @@ ISR(TIM2_OVF_INT)
 {
 	
 	
-	if(FLAG_OVF==0)
+	if(FLAG_OVF==ON_TIME)
 	{
+		// switch level of cycle to LOW
 		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_LOW);
 		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_LOW);
-		FLAG_OVF=1;
+		FLAG_OVF=OFF_TIME;
 		TCNT2 =comp_VAL;
 	}
-	else if(FLAG_OVF == 1)
+	else if(FLAG_OVF == OFF_TIME)
 	{
+		// switch level of cycle to HIGH
 		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_HIGH);
 		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_HIGH);
-		FLAG_OVF=0;
-		TCNT2 =256 - comp_VAL;
+		FLAG_OVF=ON_TIME;
+		TCNT2 =REG_SIZE - comp_VAL;
 	}
 	
 }

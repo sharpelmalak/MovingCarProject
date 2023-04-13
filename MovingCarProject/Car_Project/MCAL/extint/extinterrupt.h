@@ -40,9 +40,27 @@ typedef enum EN_GLOBAL_INT{
 }EN_GLOBAL_INT;
 
 // EXT_INT prototypes
+
+/*
+Description : This function initializes the GLOBAL_INTERRUPT
+ARGS        : takes the state ( ENABLE OR DISABLE )
+return      : return EXTINT_OK if the PIN initializes correctly, EXTINT_NOT_OK otherwise
+*/
 EN_EXTINT_ERROR SET_GLOBAL_INTERRUPT(EN_GLOBAL_INT state);
 
+
+/*
+Description : This function initializes the external interrupt number and it's detecting type
+ARGS        : takes the EXINT_NUMBER( INT0,INT1 OR INT2) and sense control.
+return      : return EXTINT_OK if the EXINT_NUMBER initializes correctly, EXTINT_NOT_OK otherwise
+*/
 EN_EXTINT_ERROR EXTINT_init(EN_EXINT_NUMBER INTx ,EN_Sence_Control INTxSense);
+
+/*
+Description : This function takes the external interrupt number and initialize call back function.
+ARGS        : takes the EXINT_NUMBER( INT0,INT1 OR INT2) and pointer to the function we want to execute.
+return      : return EXTINT_OK if the EXINT_NUMBER initializes correctly, EXTINT_NOT_OK otherwise
+*/
 EN_EXTINT_ERROR EXTINT_CallBack(EN_EXINT_NUMBER INTx,void(*ptrfunc)(void));
 
 #endif /* EXT_INTERRUPT_H_ */

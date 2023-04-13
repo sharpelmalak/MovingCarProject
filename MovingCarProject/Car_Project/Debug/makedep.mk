@@ -8,6 +8,10 @@ ECUAL\button\pb_prog.c
 
 ECUAL\htimer0\htimer0.c
 
+ECUAL\h_ext_int\h_ext_int.c
+
+ECUAL\h_pwm_normal\h_pwm_normal.c
+
 ECUAL\led\led_prog.c
 
 ECUAL\motor\motor.c
