@@ -9,9 +9,9 @@
 #ifndef APP_H_
 #define APP_H_
 
-#include "../MCAL/pwm_normal_mode/pwm_normal.h"
+#include "../ECUAL/h_pwm_normal/h_pwm_normal.h"
 #include "../ECUAL/htimer0/htimer0.h"
-#include "../MCAL/extint/extinterrupt.h"
+#include "../ECUAL/h_ext_int/h_ext_int.h"
 #include "../ECUAL/led/led_interface.h"
 #include "../ECUAL/button/pb_interface.h"
 #include "../ECUAL/motor/motor.h"

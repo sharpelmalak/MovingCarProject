@@ -45,13 +45,16 @@ void initMain(void)
 	DCM_Init(&st_g_Motor3);
 	
 	/* Initialize PWM Timer */
-	timer2_init();
+	H_PWM_NORMAL_init();
+	//timer2_init();
 	
 	/* Initialize External Interrupts */
-	EXTINT_init(EXTINT1,LOW_LEVEL);
-	EXTINT_CallBack(EXTINT1,btn0_callback);
-	EXTINT_init(EXTINT0,LOW_LEVEL);
-	EXTINT_CallBack(EXTINT0,btn1_callback);
+	H_EXTINT_create(EXTINT0, LOW_LEVEL, btn1_callback);
+	H_EXTINT_create(EXTINT1, LOW_LEVEL, btn0_callback);
+	//EXTINT_init(EXTINT1,LOW_LEVEL);
+	//EXTINT_CallBack(EXTINT1,btn0_callback);
+	//EXTINT_init(EXTINT0,LOW_LEVEL);
+	//EXTINT_CallBack(EXTINT0,btn1_callback);
 }
 
 void btn0_callback(void)
@@ -107,8 +110,9 @@ void appMain(void)
 		{
 			u8_g_state = APP_RotateState;
 			LED_turn_off(&stop);
-			timer2_set_pwm_normal(50);
-			timer2_start();
+			H_PWM_NORMAL_setDutyCycle(50);
+			//timer2_set_pwm_normal(50);
+			//timer2_start();
 			LED_turn_on(&longSide);
 			APP_moveForward();
 			TIM0_SyncDelay(3,Seconds);
@@ -132,8 +136,9 @@ void appMain(void)
 		{
 			u8_g_state = APP_RotateState;
 			LED_turn_off(&stop);
-			timer2_set_pwm_normal(30);
-			timer2_start();
+			H_PWM_NORMAL_setDutyCycle(30);
+			//timer2_set_pwm_normal(30);
+			//timer2_start();
 			LED_turn_on(&shortSide);
 			APP_moveForward();
 			TIM0_SyncDelay(2,Seconds);

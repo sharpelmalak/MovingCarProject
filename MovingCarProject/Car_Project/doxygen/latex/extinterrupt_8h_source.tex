@@ -44,11 +44,29 @@
 \DoxyCodeLine{00040\ \}EN\_GLOBAL\_INT;}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \textcolor{comment}{//\ EXT\_INT\ prototypes}}
-\DoxyCodeLine{00043\ EN\_EXTINT\_ERROR\ SET\_GLOBAL\_INTERRUPT(EN\_GLOBAL\_INT\ state);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ EN\_EXTINT\_ERROR\ EXTINT\_init(EN\_EXINT\_NUMBER\ INTx\ ,EN\_Sence\_Control\ INTxSense);}
-\DoxyCodeLine{00046\ EN\_EXTINT\_ERROR\ EXTINT\_CallBack(EN\_EXINT\_NUMBER\ INTx,\textcolor{keywordtype}{void}(*ptrfunc)(\textcolor{keywordtype}{void}));}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXT\_INTERRUPT\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00045\ \textcolor{comment}{Description\ :\ This\ function\ initializes\ the\ GLOBAL\_INTERRUPT}}
+\DoxyCodeLine{00046\ \textcolor{comment}{ARGS\ \ \ \ \ \ \ \ :\ takes\ the\ state\ (\ ENABLE\ OR\ DISABLE\ )}}
+\DoxyCodeLine{00047\ \textcolor{comment}{return\ \ \ \ \ \ :\ return\ EXTINT\_OK\ if\ the\ PIN\ initializes\ correctly,\ EXTINT\_NOT\_OK\ otherwise}}
+\DoxyCodeLine{00048\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00049\ EN\_EXTINT\_ERROR\ SET\_GLOBAL\_INTERRUPT(EN\_GLOBAL\_INT\ state);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00053\ \textcolor{comment}{Description\ :\ This\ function\ initializes\ the\ external\ interrupt\ number\ and\ it's\ detecting\ type}}
+\DoxyCodeLine{00054\ \textcolor{comment}{ARGS\ \ \ \ \ \ \ \ :\ takes\ the\ EXINT\_NUMBER(\ INT0,INT1\ OR\ INT2)\ and\ sense\ control.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{return\ \ \ \ \ \ :\ return\ EXTINT\_OK\ if\ the\ EXINT\_NUMBER\ initializes\ correctly,\ EXTINT\_NOT\_OK\ otherwise}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00057\ EN\_EXTINT\_ERROR\ EXTINT\_init(EN\_EXINT\_NUMBER\ INTx\ ,EN\_Sence\_Control\ INTxSense);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00060\ \textcolor{comment}{Description\ :\ This\ function\ takes\ the\ external\ interrupt\ number\ and\ initialize\ call\ back\ function.}}
+\DoxyCodeLine{00061\ \textcolor{comment}{ARGS\ \ \ \ \ \ \ \ :\ takes\ the\ EXINT\_NUMBER(\ INT0,INT1\ OR\ INT2)\ and\ pointer\ to\ the\ function\ we\ want\ to\ execute.}}
+\DoxyCodeLine{00062\ \textcolor{comment}{return\ \ \ \ \ \ :\ return\ EXTINT\_OK\ if\ the\ EXINT\_NUMBER\ initializes\ correctly,\ EXTINT\_NOT\_OK\ otherwise}}
+\DoxyCodeLine{00063\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00064\ EN\_EXTINT\_ERROR\ EXTINT\_CallBack(EN\_EXINT\_NUMBER\ INTx,\textcolor{keywordtype}{void}(*ptrfunc)(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXT\_INTERRUPT\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}
