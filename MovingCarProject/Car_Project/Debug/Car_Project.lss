@@ -13,23 +13,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000d74  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000002c0  00000000  00000000  00000db0  2**0
+  5 .debug_aranges 00000298  00000000  00000000  00000db0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002d32  00000000  00000000  00001070  2**0
+  6 .debug_info   00002b8d  00000000  00000000  00001048  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000119b  00000000  00000000  00003da2  2**0
+  7 .debug_abbrev 0000119b  00000000  00000000  00003bd5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000220b  00000000  00000000  00004f3d  2**0
+  8 .debug_line   0000211b  00000000  00000000  00004d70  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000664  00000000  00000000  00007148  2**2
+  9 .debug_frame  00000614  00000000  00000000  00006e8c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00004644  00000000  00000000  000077ac  2**0
+ 10 .debug_str    00004629  00000000  00000000  000074a0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001962  00000000  00000000  0000bdf0  2**0
+ 11 .debug_loc    000016fb  00000000  00000000  0000bac9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000200  00000000  00000000  0000d752  2**0
+ 12 .debug_ranges 000001d8  00000000  00000000  0000d1c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  000012a7  00000000  00000000  0000d952  2**0
+ 13 .debug_macro  00001285  00000000  00000000  0000d39c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -444,8 +444,8 @@ void APP_moveForward(void)
  204:	08 95       	ret
 
 00000206 <PUSH_BTN_intialize>:
-#include"pb_interface.h"
-
+ * \return Std_ReturnType
+ */
 Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -476,12 +476,6 @@ Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
  210:	08 95       	ret
 
 00000212 <TIM0_SyncDelay>:
-	
-	/* Start Timer */
-	TIM0_Start(u8_l_prescaler);
-	
-	return TIM_OK;
-}
  212:	cf 92       	push	r12
  214:	df 92       	push	r13
  216:	ef 92       	push	r14
@@ -611,12 +605,6 @@ Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
  30e:	08 95       	ret
 
 00000310 <TIM0_AsyncEndDelay>:
- * 
- * \return void
- */
-void TIM0_AsyncEndDelay()
-{
-	TIM0_Stop();
  310:	18 c3       	rjmp	.+1584   	; 0x942 <TIM0_Stop>
  312:	08 95       	ret
 
@@ -645,19 +633,32 @@ void TIM0_AsyncEndDelay()
  33e:	08 95       	ret
 
 00000340 <H_PWM_NORMAL_init>:
+ARGS        : void
+return      : void
+*/
+void H_PWM_NORMAL_stop(void)
+{
+	timer2_stop();
  340:	57 c2       	rjmp	.+1198   	; 0x7f0 <timer2_init>
  342:	08 95       	ret
 
 00000344 <H_PWM_NORMAL_setDutyCycle>:
+ARGS        : takes the duty cycle
+return      : void
+*/
+void H_PWM_NORMAL_setDutyCycle(Uchar8_t dutycycle)
+{
+	timer2_set_pwm_normal(dutycycle);
  344:	65 d2       	rcall	.+1226   	; 0x810 <timer2_set_pwm_normal>
+	timer2_start();
  346:	5a c2       	rjmp	.+1204   	; 0x7fc <timer2_start>
  348:	08 95       	ret
 
 0000034a <LED_initialize>:
+ * \param ST_LED_t *led
+ * 
+ * \return Std_ReturnType
  */
-
-#include"led_interface.h"
-
 Std_ReturnType LED_initialize(const ST_led_t *led)
 {
  34a:	cf 93       	push	r28
@@ -738,6 +739,10 @@ Std_ReturnType LED_initialize(const ST_led_t *led)
  38a:	08 95       	ret
 
 0000038c <LED_turn_on>:
+ * \param ST_led_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_turn_on(const ST_led_t *led)
 {
  38c:	cf 93       	push	r28
@@ -819,6 +824,10 @@ Std_ReturnType LED_turn_on(const ST_led_t *led)
  3ce:	08 95       	ret
 
 000003d0 <LED_turn_off>:
+ * \param ST_led_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_turn_off(const ST_led_t *led)
 {
  3d0:	cf 93       	push	r28
@@ -1550,6 +1559,12 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  7ee:	18 95       	reti
 
 000007f0 <timer2_init>:
+  SET_BIT(TCCR2,CS22);
+}
+void timer2_stop(void)
+{
+	// stop the timer
+	TCCR2 = NORMAL_MODE;
  7f0:	15 bc       	out	0x25, r1	; 37
  7f2:	78 94       	sei
  7f4:	89 b7       	in	r24, 0x39	; 57
@@ -1570,14 +1585,21 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  80e:	08 95       	ret
 
 00000810 <timer2_set_pwm_normal>:
+}
+
+void timer2_set_pwm_normal(Uchar8_t a_dutycycle)
+{
  810:	cf 93       	push	r28
  812:	c8 2f       	mov	r28, r24
+	GPIO_pin_intialize(&pwm_left_pin);
  814:	8a e8       	ldi	r24, 0x8A	; 138
  816:	90 e0       	ldi	r25, 0x00	; 0
  818:	cf de       	rcall	.-610    	; 0x5b8 <GPIO_pin_intialize>
+	GPIO_pin_intialize(&pwm_right_pin);
  81a:	89 e8       	ldi	r24, 0x89	; 137
  81c:	90 e0       	ldi	r25, 0x00	; 0
  81e:	cc de       	rcall	.-616    	; 0x5b8 <GPIO_pin_intialize>
+	comp_VAL = ((a_dutycycle*REG_SIZE)/PERCENT)-ONE_BIT;
  820:	9c 2f       	mov	r25, r28
  822:	80 e0       	ldi	r24, 0x00	; 0
  824:	64 e6       	ldi	r22, 0x64	; 100
@@ -1585,12 +1607,18 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  828:	e5 d1       	rcall	.+970    	; 0xbf4 <__divmodhi4>
  82a:	61 50       	subi	r22, 0x01	; 1
  82c:	60 93 9c 00 	sts	0x009C, r22	; 0x80009c <comp_VAL>
+	TCNT2 = REG_SIZE - comp_VAL;
  830:	61 95       	neg	r22
  832:	64 bd       	out	0x24, r22	; 36
+}
  834:	cf 91       	pop	r28
  836:	08 95       	ret
 
 00000838 <__vector_5>:
+
+
+ISR(TIM2_OVF_INT)
+{
  838:	1f 92       	push	r1
  83a:	0f 92       	push	r0
  83c:	0f b6       	in	r0, 0x3f	; 63
@@ -1608,6 +1636,9 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  854:	bf 93       	push	r27
  856:	ef 93       	push	r30
  858:	ff 93       	push	r31
+	
+	
+	if(FLAG_OVF==ON_TIME)
  85a:	80 91 9d 00 	lds	r24, 0x009D	; 0x80009d <FLAG_OVF>
  85e:	90 91 9e 00 	lds	r25, 0x009E	; 0x80009e <FLAG_OVF+0x1>
  862:	a0 91 9f 00 	lds	r26, 0x009F	; 0x80009f <FLAG_OVF+0x2>
@@ -1616,14 +1647,19 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  86c:	a1 05       	cpc	r26, r1
  86e:	b1 05       	cpc	r27, r1
  870:	c1 f4       	brne	.+48     	; 0x8a2 <__stack+0x43>
+	{
+		// switch level of cycle to LOW
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_LOW);
  872:	60 e0       	ldi	r22, 0x00	; 0
  874:	89 e8       	ldi	r24, 0x89	; 137
  876:	90 e0       	ldi	r25, 0x00	; 0
  878:	5d de       	rcall	.-838    	; 0x534 <GPIO_pin_write_logic>
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_LOW);
  87a:	60 e0       	ldi	r22, 0x00	; 0
  87c:	8a e8       	ldi	r24, 0x8A	; 138
  87e:	90 e0       	ldi	r25, 0x00	; 0
  880:	59 de       	rcall	.-846    	; 0x534 <GPIO_pin_write_logic>
+		FLAG_OVF=OFF_TIME;
  882:	81 e0       	ldi	r24, 0x01	; 1
  884:	90 e0       	ldi	r25, 0x00	; 0
  886:	a0 e0       	ldi	r26, 0x00	; 0
@@ -1632,28 +1668,40 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  88e:	90 93 9e 00 	sts	0x009E, r25	; 0x80009e <FLAG_OVF+0x1>
  892:	a0 93 9f 00 	sts	0x009F, r26	; 0x80009f <FLAG_OVF+0x2>
  896:	b0 93 a0 00 	sts	0x00A0, r27	; 0x8000a0 <FLAG_OVF+0x3>
+		TCNT2 =comp_VAL;
  89a:	80 91 9c 00 	lds	r24, 0x009C	; 0x80009c <comp_VAL>
  89e:	84 bd       	out	0x24, r24	; 36
  8a0:	18 c0       	rjmp	.+48     	; 0x8d2 <__stack+0x73>
+	}
+	else if(FLAG_OVF == OFF_TIME)
  8a2:	01 97       	sbiw	r24, 0x01	; 1
  8a4:	a1 05       	cpc	r26, r1
  8a6:	b1 05       	cpc	r27, r1
  8a8:	a1 f4       	brne	.+40     	; 0x8d2 <__stack+0x73>
+	{
+		// switch level of cycle to HIGH
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_HIGH);
  8aa:	61 e0       	ldi	r22, 0x01	; 1
  8ac:	89 e8       	ldi	r24, 0x89	; 137
  8ae:	90 e0       	ldi	r25, 0x00	; 0
  8b0:	41 de       	rcall	.-894    	; 0x534 <GPIO_pin_write_logic>
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_HIGH);
  8b2:	61 e0       	ldi	r22, 0x01	; 1
  8b4:	8a e8       	ldi	r24, 0x8A	; 138
  8b6:	90 e0       	ldi	r25, 0x00	; 0
  8b8:	3d de       	rcall	.-902    	; 0x534 <GPIO_pin_write_logic>
+		FLAG_OVF=ON_TIME;
  8ba:	10 92 9d 00 	sts	0x009D, r1	; 0x80009d <FLAG_OVF>
  8be:	10 92 9e 00 	sts	0x009E, r1	; 0x80009e <FLAG_OVF+0x1>
  8c2:	10 92 9f 00 	sts	0x009F, r1	; 0x80009f <FLAG_OVF+0x2>
  8c6:	10 92 a0 00 	sts	0x00A0, r1	; 0x8000a0 <FLAG_OVF+0x3>
+		TCNT2 =REG_SIZE - comp_VAL;
  8ca:	80 91 9c 00 	lds	r24, 0x009C	; 0x80009c <comp_VAL>
  8ce:	81 95       	neg	r24
  8d0:	84 bd       	out	0x24, r24	; 36
+	}
+	
+}
  8d2:	ff 91       	pop	r31
  8d4:	ef 91       	pop	r30
  8d6:	bf 91       	pop	r27
@@ -1673,12 +1721,6 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
  8f2:	18 95       	reti
 
 000008f4 <TIM0_voidInit>:
-/*========================= Function Implementation ========================*/
-en_TIMErrorState_t TIM0_voidInit(en_TIMMode_t u8_a_Mode)
-{
-	Uchar8_t u8_l_T0Mode;
-	
-	switch(u8_a_Mode)
  8f4:	81 30       	cpi	r24, 0x01	; 1
  8f6:	31 f0       	breq	.+12     	; 0x904 <TIM0_voidInit+0x10>
  8f8:	58 f0       	brcs	.+22     	; 0x910 <TIM0_voidInit+0x1c>
@@ -1687,229 +1729,88 @@ en_TIMErrorState_t TIM0_voidInit(en_TIMMode_t u8_a_Mode)
  8fe:	83 30       	cpi	r24, 0x03	; 3
  900:	29 f0       	breq	.+10     	; 0x90c <TIM0_voidInit+0x18>
  902:	0f c0       	rjmp	.+30     	; 0x922 <TIM0_voidInit+0x2e>
-	{
-		case NormalMode:   u8_l_T0Mode = TIM0_NORMAL;	 break;
-		case PWM_Mode:     u8_l_T0Mode = TIM0_PWM;	     break;
  904:	20 e4       	ldi	r18, 0x40	; 64
  906:	05 c0       	rjmp	.+10     	; 0x912 <TIM0_voidInit+0x1e>
-		case CTC_Mode:	   u8_l_T0Mode = TIM0_CTC;		 break;
  908:	28 e0       	ldi	r18, 0x08	; 8
  90a:	03 c0       	rjmp	.+6      	; 0x912 <TIM0_voidInit+0x1e>
-		case FastPWM_Mode: u8_l_T0Mode = TIM0_FAST_PWM; break;
  90c:	28 e4       	ldi	r18, 0x48	; 72
  90e:	01 c0       	rjmp	.+2      	; 0x912 <TIM0_voidInit+0x1e>
-{
-	Uchar8_t u8_l_T0Mode;
-	
-	switch(u8_a_Mode)
-	{
-		case NormalMode:   u8_l_T0Mode = TIM0_NORMAL;	 break;
  910:	20 e0       	ldi	r18, 0x00	; 0
-		case FastPWM_Mode: u8_l_T0Mode = TIM0_FAST_PWM; break;
-		default: return TIM_NOK;
-	}
-	
-	/* Clear the timer0 mode bit */
-	TCCR0 &= TIMER0_MODE_MASK;
  912:	93 b7       	in	r25, 0x33	; 51
  914:	97 7b       	andi	r25, 0xB7	; 183
  916:	93 bf       	out	0x33, r25	; 51
-	/* Set the bits to the given value */
-	TCCR0 |= u8_l_T0Mode;
  918:	83 b7       	in	r24, 0x33	; 51
  91a:	82 2b       	or	r24, r18
  91c:	83 bf       	out	0x33, r24	; 51
-	
-	return TIM_OK;
  91e:	80 e0       	ldi	r24, 0x00	; 0
  920:	08 95       	ret
-	{
-		case NormalMode:   u8_l_T0Mode = TIM0_NORMAL;	 break;
-		case PWM_Mode:     u8_l_T0Mode = TIM0_PWM;	     break;
-		case CTC_Mode:	   u8_l_T0Mode = TIM0_CTC;		 break;
-		case FastPWM_Mode: u8_l_T0Mode = TIM0_FAST_PWM; break;
-		default: return TIM_NOK;
  922:	81 e0       	ldi	r24, 0x01	; 1
-	TCCR0 &= TIMER0_MODE_MASK;
-	/* Set the bits to the given value */
-	TCCR0 |= u8_l_T0Mode;
-	
-	return TIM_OK;
-}
  924:	08 95       	ret
 
 00000926 <TIM0_Start>:
-en_TIMErrorState_t TIM0_Start(en_TIM_CLK_SELECT_t u8_a_prescaler)
-{
-	en_TIMErrorState_t u8_l_ErrorState = TIM_OK;
-	
-	/* Check that prescaler is valid */
-	if(u8_a_prescaler > TIM_NO_CLOCK && u8_a_prescaler <= TIM_EXTERNAL_RISING_EDGE)
  926:	9f ef       	ldi	r25, 0xFF	; 255
  928:	98 0f       	add	r25, r24
  92a:	97 30       	cpi	r25, 0x07	; 7
  92c:	40 f4       	brcc	.+16     	; 0x93e <TIM0_Start+0x18>
-	{
-		/* Clear the prescaler bits */
-		TCCR0 &= TIM0_CLK_MASK;
  92e:	93 b7       	in	r25, 0x33	; 51
  930:	98 7f       	andi	r25, 0xF8	; 248
  932:	93 bf       	out	0x33, r25	; 51
-		/* Set prescaler value */
-		TCCR0 |= u8_a_prescaler;
  934:	93 b7       	in	r25, 0x33	; 51
  936:	89 2b       	or	r24, r25
  938:	83 bf       	out	0x33, r24	; 51
-	return TIM_OK;
-}
-
-en_TIMErrorState_t TIM0_Start(en_TIM_CLK_SELECT_t u8_a_prescaler)
-{
-	en_TIMErrorState_t u8_l_ErrorState = TIM_OK;
  93a:	80 e0       	ldi	r24, 0x00	; 0
  93c:	08 95       	ret
-		/* Set prescaler value */
-		TCCR0 |= u8_a_prescaler;
-	}
-	else
-	{
-		u8_l_ErrorState = TIM_NOK;
  93e:	81 e0       	ldi	r24, 0x01	; 1
-	}
-	
-	return u8_l_ErrorState;
-}
  940:	08 95       	ret
 
 00000942 <TIM0_Stop>:
-
-void TIM0_Stop()
-{
-	/* Clear the prescaler bits */
-	TCCR0 &= TIM0_CLK_MASK;
  942:	83 b7       	in	r24, 0x33	; 51
  944:	88 7f       	andi	r24, 0xF8	; 248
  946:	83 bf       	out	0x33, r24	; 51
-	TCNT0 = 0;
  948:	12 be       	out	0x32, r1	; 50
-	CLEAR_BIT(TIFR, TIFR_TOV0);
  94a:	88 b7       	in	r24, 0x38	; 56
  94c:	8e 7f       	andi	r24, 0xFE	; 254
  94e:	88 bf       	out	0x38, r24	; 56
  950:	08 95       	ret
 
 00000952 <TIM0_SetValue>:
-}
-
-void TIM0_SetValue(Uchar8_t u8_a_startValue)
-{
-	TCNT0 = u8_a_startValue;
  952:	82 bf       	out	0x32, r24	; 50
  954:	08 95       	ret
 
 00000956 <TIM0_GetOVF>:
-* \param u8_a_FlagValue reference to a variable to store flag value
-*
-* \return en_TIMErrorState_t
-*/
-en_TIMErrorState_t TIM0_GetOVF(Uchar8_t* u8_a_FlagValue)
-{
  956:	fc 01       	movw	r30, r24
-	if(u8_a_FlagValue != NULL)
  958:	89 2b       	or	r24, r25
  95a:	29 f0       	breq	.+10     	; 0x966 <TIM0_GetOVF+0x10>
-	{
-		*u8_a_FlagValue = GET_BIT(TIFR, TIFR_TOV0);
  95c:	98 b7       	in	r25, 0x38	; 56
  95e:	91 70       	andi	r25, 0x01	; 1
  960:	90 83       	st	Z, r25
-	else
-	{
-		return TIM_NOK;
-	}
-	
-	return TIM_OK;
  962:	80 e0       	ldi	r24, 0x00	; 0
  964:	08 95       	ret
-	{
-		*u8_a_FlagValue = GET_BIT(TIFR, TIFR_TOV0);
-	}
-	else
-	{
-		return TIM_NOK;
  966:	81 e0       	ldi	r24, 0x01	; 1
-	}
-	
-	return TIM_OK;
-}
  968:	08 95       	ret
 
 0000096a <TIM0_ClearOVF>:
- *
- * \return void
- */
-void TIM0_ClearOVF(void)
-{
-	SET_BIT(TIFR, TIFR_TOV0);
  96a:	88 b7       	in	r24, 0x38	; 56
  96c:	81 60       	ori	r24, 0x01	; 1
  96e:	88 bf       	out	0x38, r24	; 56
  970:	08 95       	ret
 
 00000972 <TIM0_GetState>:
-*
-* \return en_TIMErrorState_t
-*/
-en_TIMErrorState_t TIM0_GetState(en_TIMState_t* u8_a_State)
-{
-	if(u8_a_State != NULL)
  972:	00 97       	sbiw	r24, 0x00	; 0
  974:	61 f0       	breq	.+24     	; 0x98e <TIM0_GetState+0x1c>
-	{
-		if (TCCR0 & 0b00000111 != 0) 
  976:	03 b6       	in	r0, 0x33	; 51
  978:	00 fe       	sbrs	r0, 0
  97a:	05 c0       	rjmp	.+10     	; 0x986 <TIM0_GetState+0x14>
-		{
-			*u8_a_State = TIM0_RUNNING;
  97c:	21 e0       	ldi	r18, 0x01	; 1
  97e:	fc 01       	movw	r30, r24
  980:	20 83       	st	Z, r18
-	else
-	{
-		return TIM_NOK;
-	}
-	
-	return TIM_OK;
  982:	80 e0       	ldi	r24, 0x00	; 0
  984:	08 95       	ret
-		{
-			*u8_a_State = TIM0_RUNNING;
-		}
-		else
-		{
-			*u8_a_State = TIM0_STOPPED;
  986:	fc 01       	movw	r30, r24
  988:	10 82       	st	Z, r1
-	else
-	{
-		return TIM_NOK;
-	}
-	
-	return TIM_OK;
  98a:	80 e0       	ldi	r24, 0x00	; 0
  98c:	08 95       	ret
-			*u8_a_State = TIM0_STOPPED;
-		}
-	}
-	else
-	{
-		return TIM_NOK;
  98e:	81 e0       	ldi	r24, 0x01	; 1
-	}
-	
-	return TIM_OK;
-}
  990:	08 95       	ret
 
 00000992 <__divsf3>:

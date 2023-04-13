@@ -7,6 +7,13 @@
 
 #include"pb_interface.h"
 
+/**
+ * \brief : This Function Use To Initialize Button Pin And Port 
+ * 
+ * \param ST_PUSH_BTN_t  *btn
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -21,6 +28,14 @@ Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
 	return ret;
 }
 
+/**
+ * \brief : This Function Will Use To Read Button Statues If It Is Pressed Or Releassed 
+ * 
+ * \param ST_PUSH_BTN_t  *btn
+ * \param EN_PUSH_BTN_state_t  *btn_state
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType PUSH_BTN_read_state(const ST_PUSH_BTN_t *btn , EN_PUSH_BTN_state_t *btn_state)
 {
 	Std_ReturnType ret = E_NOT_OK;

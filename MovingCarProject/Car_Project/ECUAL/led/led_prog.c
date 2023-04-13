@@ -7,6 +7,15 @@
 
 #include"led_interface.h"
 
+
+
+/**
+ * \brief : This Function Is Used To Initialize Pin And Port Led
+ * 
+ * \param ST_LED_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_initialize(const ST_led_t *led)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -27,6 +36,15 @@ Std_ReturnType LED_initialize(const ST_led_t *led)
 	}
 	return ret;
 }
+
+
+/**
+ * \brief : This Function Used To Turn Led On 
+ * 
+ * \param ST_led_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_turn_on(const ST_led_t *led)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -47,6 +65,14 @@ Std_ReturnType LED_turn_on(const ST_led_t *led)
 	}
 	return ret;
 }
+
+/**
+ * \brief : This Function Used To Turn Led Off 
+ * 
+ * \param ST_led_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_turn_off(const ST_led_t *led)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -67,6 +93,14 @@ Std_ReturnType LED_turn_off(const ST_led_t *led)
 	}
 	return ret;
 }
+
+/**
+ * \brief : This Function Used To Toggle Led 
+ * 
+ * \param ST_led_t *led
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType LED_toggle(const ST_led_t *led)
 {
 	Std_ReturnType ret = E_NOT_OK;

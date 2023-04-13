@@ -27,11 +27,11 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config);
 
 
 
-Std_ReturnType GPIO_port_direction_intialize(EN_port_index_t port , Uchar8_t direction);
-Std_ReturnType GPIO_port_get_direction_status(EN_port_index_t port , Uchar8_t *direction_status);
-Std_ReturnType GPIO_port_write_logic(EN_port_index_t port , Uchar8_t logic);
-Std_ReturnType GPIO_port_read_logic(EN_port_index_t port , Uchar8_t *logic_status);
-Std_ReturnType GPIO_port_toggle_logic(EN_port_index_t port);
+//Std_ReturnType GPIO_port_direction_intialize(EN_port_index_t port , Uchar8_t direction);
+//Std_ReturnType GPIO_port_get_direction_status(EN_port_index_t port , Uchar8_t *direction_status);
+//Std_ReturnType GPIO_port_write_logic(EN_port_index_t port , Uchar8_t logic);
+//Std_ReturnType GPIO_port_read_logic(EN_port_index_t port , Uchar8_t *logic_status);
+//Std_ReturnType GPIO_port_toggle_logic(EN_port_index_t port);
 
 
 

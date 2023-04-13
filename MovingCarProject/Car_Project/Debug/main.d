@@ -4,8 +4,8 @@ main.d main.o: .././main.c .././APP/app.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../Common/vect_table.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../Common/STD_Types.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/dio_interface.h \
- e:\automotive_bootcamp\movingcarproject\movingcarproject\car_project\common\std_types.h \
- e:\automotive_bootcamp\movingcarproject\movingcarproject\car_project\common\bit_math.h \
+ .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/STD_Types.h \
+ .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/BIT_Math.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/dio_private.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/dio_config.h \
  .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/pwm_config.h \
@@ -37,9 +37,9 @@ main.d main.o: .././main.c .././APP/app.h \
 
 .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/dio_interface.h:
 
-e:\automotive_bootcamp\movingcarproject\movingcarproject\car_project\common\std_types.h:
+.././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/STD_Types.h:
 
-e:\automotive_bootcamp\movingcarproject\movingcarproject\car_project\common\bit_math.h:
+.././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/../../Common/BIT_Math.h:
 
 .././APP/../ECUAL/h_pwm_normal/../../MCAL/pwm_normal_mode/../../MCAL/dio/dio_private.h:
 

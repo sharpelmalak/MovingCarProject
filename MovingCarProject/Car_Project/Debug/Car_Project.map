@@ -71,6 +71,7 @@ Discarded input sections
  .text.PUSH_BTN_read_state
                 0x00000000       0x76 ECUAL/button/pb_prog.o
  .debug_macro   0x00000000      0xa4e ECUAL/button/pb_prog.o
+ .debug_macro   0x00000000       0x22 ECUAL/button/pb_prog.o
  .debug_macro   0x00000000       0x28 ECUAL/button/pb_prog.o
  .debug_macro   0x00000000       0x52 ECUAL/button/pb_prog.o
  .debug_macro   0x00000000       0x2e ECUAL/button/pb_prog.o
@@ -177,7 +178,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x2e ECUAL/motor/motor_handler.o
  .debug_macro   0x00000000       0x52 ECUAL/motor/motor_handler.o
  .debug_line    0x00000000       0xe1 ECUAL/motor/motor_handler.o
- .debug_str     0x00000000     0x3084 ECUAL/motor/motor_handler.o
+ .debug_str     0x00000000     0x30ad ECUAL/motor/motor_handler.o
  .comment       0x00000000       0x31 ECUAL/motor/motor_handler.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
@@ -214,16 +215,6 @@ Discarded input sections
                 0x00000000       0x4a MCAL/dio/dio_prog.o
  .text.GPIO_pin_toggle_logic
                 0x00000000       0x52 MCAL/dio/dio_prog.o
- .text.GPIO_port_direction_intialize
-                0x00000000       0x20 MCAL/dio/dio_prog.o
- .text.GPIO_port_get_direction_status
-                0x00000000       0x2e MCAL/dio/dio_prog.o
- .text.GPIO_port_write_logic
-                0x00000000       0x20 MCAL/dio/dio_prog.o
- .text.GPIO_port_read_logic
-                0x00000000       0x2e MCAL/dio/dio_prog.o
- .text.GPIO_port_toggle_logic
-                0x00000000       0x24 MCAL/dio/dio_prog.o
  .data.pin_registers
                 0x00000000        0x8 MCAL/dio/dio_prog.o
  .debug_macro   0x00000000      0xa4e MCAL/dio/dio_prog.o
@@ -998,7 +989,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x2c0
+.debug_aranges  0x00000000      0x298
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x40 APP/app.o
@@ -1017,18 +1008,18 @@ END GROUP
  .debug_aranges
                 0x00000158       0x20 main.o
  .debug_aranges
-                0x00000178       0x70 MCAL/dio/dio_prog.o
+                0x00000178       0x48 MCAL/dio/dio_prog.o
  .debug_aranges
-                0x000001e8       0x48 MCAL/extint/extinterrupt.o
+                0x000001c0       0x48 MCAL/extint/extinterrupt.o
  .debug_aranges
-                0x00000230       0x40 MCAL/pwm_normal_mode/pwm_normal.o
+                0x00000208       0x40 MCAL/pwm_normal_mode/pwm_normal.o
  .debug_aranges
-                0x00000270       0x50 MCAL/timer0/tim0_program.o
+                0x00000248       0x50 MCAL/timer0/tim0_program.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2d32
+.debug_info     0x00000000     0x2b8d
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_info    0x000004e6      0x71c APP/app.o
@@ -1039,10 +1030,10 @@ END GROUP
  .debug_info    0x000016e1      0x421 ECUAL/led/led_prog.o
  .debug_info    0x00001b02      0x397 ECUAL/motor/motor.o
  .debug_info    0x00001e99       0xce main.o
- .debug_info    0x00001f67      0x526 MCAL/dio/dio_prog.o
- .debug_info    0x0000248d      0x302 MCAL/extint/extinterrupt.o
- .debug_info    0x0000278f      0x321 MCAL/pwm_normal_mode/pwm_normal.o
- .debug_info    0x00002ab0      0x282 MCAL/timer0/tim0_program.o
+ .debug_info    0x00001f67      0x381 MCAL/dio/dio_prog.o
+ .debug_info    0x000022e8      0x302 MCAL/extint/extinterrupt.o
+ .debug_info    0x000025ea      0x321 MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_info    0x0000290b      0x282 MCAL/timer0/tim0_program.o
 
 .debug_abbrev   0x00000000     0x119b
  *(.debug_abbrev)
@@ -1060,23 +1051,23 @@ END GROUP
  .debug_abbrev  0x00000f9a      0x113 MCAL/pwm_normal_mode/pwm_normal.o
  .debug_abbrev  0x000010ad       0xee MCAL/timer0/tim0_program.o
 
-.debug_line     0x00000000     0x220b
+.debug_line     0x00000000     0x211b
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_line    0x00000116      0x603 APP/app.o
- .debug_line    0x00000719      0x1bb ECUAL/button/pb_prog.o
- .debug_line    0x000008d4      0x2d1 ECUAL/htimer0/htimer0.o
- .debug_line    0x00000ba5      0x11f ECUAL/h_ext_int/h_ext_int.o
- .debug_line    0x00000cc4      0x228 ECUAL/h_pwm_normal/h_pwm_normal.o
- .debug_line    0x00000eec      0x218 ECUAL/led/led_prog.o
- .debug_line    0x00001104      0x1c5 ECUAL/motor/motor.o
- .debug_line    0x000012c9      0x4a9 main.o
- .debug_line    0x00001772      0x379 MCAL/dio/dio_prog.o
- .debug_line    0x00001aeb      0x2f6 MCAL/extint/extinterrupt.o
- .debug_line    0x00001de1      0x22d MCAL/pwm_normal_mode/pwm_normal.o
- .debug_line    0x0000200e      0x1fd MCAL/timer0/tim0_program.o
+ .debug_line    0x00000116      0x60b APP/app.o
+ .debug_line    0x00000721      0x1bb ECUAL/button/pb_prog.o
+ .debug_line    0x000008dc      0x2d1 ECUAL/htimer0/htimer0.o
+ .debug_line    0x00000bad      0x11f ECUAL/h_ext_int/h_ext_int.o
+ .debug_line    0x00000ccc      0x228 ECUAL/h_pwm_normal/h_pwm_normal.o
+ .debug_line    0x00000ef4      0x219 ECUAL/led/led_prog.o
+ .debug_line    0x0000110d      0x1c5 ECUAL/motor/motor.o
+ .debug_line    0x000012d2      0x4b3 main.o
+ .debug_line    0x00001785      0x276 MCAL/dio/dio_prog.o
+ .debug_line    0x000019fb      0x2f6 MCAL/extint/extinterrupt.o
+ .debug_line    0x00001cf1      0x22d MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_line    0x00001f1e      0x1fd MCAL/timer0/tim0_program.o
 
-.debug_frame    0x00000000      0x664
+.debug_frame    0x00000000      0x614
  *(.debug_frame)
  .debug_frame   0x00000000       0x64 APP/app.o
  .debug_frame   0x00000064       0x58 ECUAL/button/pb_prog.o
@@ -1086,40 +1077,40 @@ END GROUP
  .debug_frame   0x000001f0       0x94 ECUAL/led/led_prog.o
  .debug_frame   0x00000284       0x68 ECUAL/motor/motor.o
  .debug_frame   0x000002ec       0x24 main.o
- .debug_frame   0x00000310       0xd0 MCAL/dio/dio_prog.o
- .debug_frame   0x000003e0      0x14c MCAL/extint/extinterrupt.o
- .debug_frame   0x0000052c       0xb4 MCAL/pwm_normal_mode/pwm_normal.o
- .debug_frame   0x000005e0       0x84 MCAL/timer0/tim0_program.o
+ .debug_frame   0x00000310       0x80 MCAL/dio/dio_prog.o
+ .debug_frame   0x00000390      0x14c MCAL/extint/extinterrupt.o
+ .debug_frame   0x000004dc       0xb4 MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_frame   0x00000590       0x84 MCAL/timer0/tim0_program.o
 
-.debug_str      0x00000000     0x4644
+.debug_str      0x00000000     0x4629
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196     0x387b APP/app.o
-                               0x3943 (size before relaxing)
- .debug_str     0x00003a11      0x168 ECUAL/button/pb_prog.o
-                               0x31ea (size before relaxing)
- .debug_str     0x00003b79      0x39a ECUAL/htimer0/htimer0.o
+ .debug_str     0x00000196     0x38a4 APP/app.o
+                               0x396c (size before relaxing)
+ .debug_str     0x00003a3a      0x168 ECUAL/button/pb_prog.o
+                               0x3213 (size before relaxing)
+ .debug_str     0x00003ba2      0x3e5 ECUAL/htimer0/htimer0.o
                                0x30f5 (size before relaxing)
- .debug_str     0x00003f13       0xd7 ECUAL/h_ext_int/h_ext_int.o
+ .debug_str     0x00003f87       0xd7 ECUAL/h_ext_int/h_ext_int.o
                                0x31bb (size before relaxing)
- .debug_str     0x00003fea       0x72 ECUAL/h_pwm_normal/h_pwm_normal.o
-                               0x33bf (size before relaxing)
- .debug_str     0x0000405c       0x77 ECUAL/led/led_prog.o
-                               0x317b (size before relaxing)
- .debug_str     0x000040d3       0x88 ECUAL/motor/motor.o
-                               0x3291 (size before relaxing)
- .debug_str     0x0000415b       0x11 main.o
-                               0x35ca (size before relaxing)
- .debug_str     0x0000416c      0x131 MCAL/dio/dio_prog.o
-                               0x31b7 (size before relaxing)
- .debug_str     0x0000429d       0x61 MCAL/extint/extinterrupt.o
+ .debug_str     0x0000405e       0x72 ECUAL/h_pwm_normal/h_pwm_normal.o
+                               0x33d6 (size before relaxing)
+ .debug_str     0x000040d0       0x77 ECUAL/led/led_prog.o
+                               0x31a4 (size before relaxing)
+ .debug_str     0x00004147       0x88 ECUAL/motor/motor.o
+                               0x32ba (size before relaxing)
+ .debug_str     0x000041cf       0x11 main.o
+                               0x35f3 (size before relaxing)
+ .debug_str     0x000041e0       0xa2 MCAL/dio/dio_prog.o
+                               0x310d (size before relaxing)
+ .debug_str     0x00004282       0x61 MCAL/extint/extinterrupt.o
                                0x3216 (size before relaxing)
- .debug_str     0x000042fe       0x5e MCAL/pwm_normal_mode/pwm_normal.o
-                               0x34de (size before relaxing)
- .debug_str     0x0000435c      0x2e8 MCAL/timer0/tim0_program.o
+ .debug_str     0x000042e3       0x5e MCAL/pwm_normal_mode/pwm_normal.o
+                               0x34f5 (size before relaxing)
+ .debug_str     0x00004341      0x2e8 MCAL/timer0/tim0_program.o
                                0x33c9 (size before relaxing)
 
-.debug_loc      0x00000000     0x1962
+.debug_loc      0x00000000     0x16fb
  *(.debug_loc)
  .debug_loc     0x00000000      0x1d7 ECUAL/button/pb_prog.o
  .debug_loc     0x000001d7      0x3ff ECUAL/htimer0/htimer0.o
@@ -1127,10 +1118,10 @@ END GROUP
  .debug_loc     0x00000695       0x21 ECUAL/h_pwm_normal/h_pwm_normal.o
  .debug_loc     0x000006b6      0x348 ECUAL/led/led_prog.o
  .debug_loc     0x000009fe      0x17d ECUAL/motor/motor.o
- .debug_loc     0x00000b7b      0x6c0 MCAL/dio/dio_prog.o
- .debug_loc     0x0000123b      0x4a4 MCAL/extint/extinterrupt.o
- .debug_loc     0x000016df      0x116 MCAL/pwm_normal_mode/pwm_normal.o
- .debug_loc     0x000017f5      0x16d MCAL/timer0/tim0_program.o
+ .debug_loc     0x00000b7b      0x459 MCAL/dio/dio_prog.o
+ .debug_loc     0x00000fd4      0x4a4 MCAL/extint/extinterrupt.o
+ .debug_loc     0x00001478      0x116 MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_loc     0x0000158e      0x16d MCAL/timer0/tim0_program.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1150,7 +1141,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x200
+.debug_ranges   0x00000000      0x1d8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x30 APP/app.o
  .debug_ranges  0x00000030       0x18 ECUAL/button/pb_prog.o
@@ -1160,12 +1151,12 @@ END GROUP
  .debug_ranges  0x000000a0       0x28 ECUAL/led/led_prog.o
  .debug_ranges  0x000000c8       0x20 ECUAL/motor/motor.o
  .debug_ranges  0x000000e8       0x10 main.o
- .debug_ranges  0x000000f8       0x60 MCAL/dio/dio_prog.o
- .debug_ranges  0x00000158       0x38 MCAL/extint/extinterrupt.o
- .debug_ranges  0x00000190       0x30 MCAL/pwm_normal_mode/pwm_normal.o
- .debug_ranges  0x000001c0       0x40 MCAL/timer0/tim0_program.o
+ .debug_ranges  0x000000f8       0x38 MCAL/dio/dio_prog.o
+ .debug_ranges  0x00000130       0x38 MCAL/extint/extinterrupt.o
+ .debug_ranges  0x00000168       0x30 MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_ranges  0x00000198       0x40 MCAL/timer0/tim0_program.o
 
-.debug_macro    0x00000000     0x12a7
+.debug_macro    0x00000000     0x1285
  *(.debug_macro)
  .debug_macro   0x00000000       0xe7 APP/app.o
  .debug_macro   0x000000e7      0xa4e APP/app.o
@@ -1178,20 +1169,19 @@ END GROUP
  .debug_macro   0x00000cf1       0x58 APP/app.o
  .debug_macro   0x00000d49       0x52 APP/app.o
  .debug_macro   0x00000d9b       0x57 ECUAL/button/pb_prog.o
- .debug_macro   0x00000df2       0x22 ECUAL/button/pb_prog.o
- .debug_macro   0x00000e14       0x3f ECUAL/htimer0/htimer0.o
- .debug_macro   0x00000e53       0x16 ECUAL/htimer0/htimer0.o
- .debug_macro   0x00000e69       0x34 ECUAL/htimer0/htimer0.o
- .debug_macro   0x00000e9d       0x49 ECUAL/h_ext_int/h_ext_int.o
- .debug_macro   0x00000ee6       0x69 ECUAL/h_pwm_normal/h_pwm_normal.o
- .debug_macro   0x00000f4f       0x57 ECUAL/led/led_prog.o
- .debug_macro   0x00000fa6       0x4c ECUAL/motor/motor.o
- .debug_macro   0x00000ff2       0xe7 main.o
- .debug_macro   0x000010d9       0x3f MCAL/dio/dio_prog.o
- .debug_macro   0x00001118       0x3f MCAL/extint/extinterrupt.o
- .debug_macro   0x00001157       0x5f MCAL/pwm_normal_mode/pwm_normal.o
- .debug_macro   0x000011b6       0x47 MCAL/timer0/tim0_program.o
- .debug_macro   0x000011fd       0x7c MCAL/timer0/tim0_program.o
- .debug_macro   0x00001279       0x2e MCAL/timer0/tim0_program.o
+ .debug_macro   0x00000df2       0x3f ECUAL/htimer0/htimer0.o
+ .debug_macro   0x00000e31       0x16 ECUAL/htimer0/htimer0.o
+ .debug_macro   0x00000e47       0x34 ECUAL/htimer0/htimer0.o
+ .debug_macro   0x00000e7b       0x49 ECUAL/h_ext_int/h_ext_int.o
+ .debug_macro   0x00000ec4       0x69 ECUAL/h_pwm_normal/h_pwm_normal.o
+ .debug_macro   0x00000f2d       0x57 ECUAL/led/led_prog.o
+ .debug_macro   0x00000f84       0x4c ECUAL/motor/motor.o
+ .debug_macro   0x00000fd0       0xe7 main.o
+ .debug_macro   0x000010b7       0x3f MCAL/dio/dio_prog.o
+ .debug_macro   0x000010f6       0x3f MCAL/extint/extinterrupt.o
+ .debug_macro   0x00001135       0x5f MCAL/pwm_normal_mode/pwm_normal.o
+ .debug_macro   0x00001194       0x47 MCAL/timer0/tim0_program.o
+ .debug_macro   0x000011db       0x7c MCAL/timer0/tim0_program.o
+ .debug_macro   0x00001257       0x2e MCAL/timer0/tim0_program.o
 OUTPUT(Car_Project.elf elf32-avr)
 LOAD linker stubs

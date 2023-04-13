@@ -14,6 +14,15 @@ volatile Uchar8_t *ddr_registers[] = {&DDRA_REG,&DDRB_REG,&DDRC_REG,&DDRD_REG};
 volatile Uchar8_t *port_registers[] = {&PORTA_REG,&PORTB_REG,&PORTC_REG,&PORTD_REG};
 volatile Uchar8_t *pin_registers[] = {&PINA_REG,&PINB_REG,&PINC_REG,&PIND_REG};
 
+
+
+/**
+ * \brief : This Function Use To Initialize Pin Direction Input Or Output
+ * 
+ * \param ST_pin_config_t _pin_config
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_direction_intialize(const ST_pin_config_t *_pin_config)
 {
 	Std_ReturnType ret = E_NOT_OK;
@@ -46,6 +55,14 @@ Std_ReturnType GPIO_pin_direction_intialize(const ST_pin_config_t *_pin_config)
 }
 
 
+/**
+ * \brief : This Function USe To Get Direction Of The Pin
+ * 
+ * \param  ST_pin_config_t  _pin_config
+ * \param EN_direction_t  direction_status
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_get_direction_status(const ST_pin_config_t *_pin_config , EN_direction_t *direction_status)
 {
     Std_ReturnType ret = E_NOT_OK;
@@ -61,6 +78,16 @@ Std_ReturnType GPIO_pin_get_direction_status(const ST_pin_config_t *_pin_config 
     }
     return ret;
 }
+
+
+/**
+ * \brief : This Function Use To Write Logic On The Pin 
+ * 
+ * \param ST_pin_config_t _pin_config
+ * \param EN_logic_t logic
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_write_logic(const ST_pin_config_t *_pin_config , EN_logic_t logic)
 {
 	 Std_ReturnType ret = E_NOT_OK;
@@ -91,6 +118,14 @@ Std_ReturnType GPIO_pin_write_logic(const ST_pin_config_t *_pin_config , EN_logi
 	    return ret;
 
 }
+/**
+ * \brief : This Function Use To Read Logic On The Pin 
+ * 
+ * \param ST_pin_config_t _pin_config
+ * \param EN_logic_t logic
+ * 
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_read_logic(const ST_pin_config_t *_pin_config , EN_logic_t *logic_status)
 {
     Std_ReturnType ret = E_NOT_OK;
@@ -107,6 +142,13 @@ Std_ReturnType GPIO_pin_read_logic(const ST_pin_config_t *_pin_config , EN_logic
 
     return ret;
 }
+
+/**
+ * \brief : This Function Use To Toggle Logic On The Pin 
+ * 
+ * \param ST_pin_config_t _pin_config
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_toggle_logic(const ST_pin_config_t *_pin_config)
 {
     Std_ReturnType ret = E_NOT_OK;
@@ -123,6 +165,12 @@ Std_ReturnType GPIO_pin_toggle_logic(const ST_pin_config_t *_pin_config)
 
     return ret;
 }
+
+/**
+ * \brief : This Function Use To Write Direction And Logic On The Pin
+ * \param ST_pin_config_t _pin_config
+ * \return Std_ReturnType
+ */
 Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
 {
     Std_ReturnType ret = E_NOT_OK;
@@ -142,80 +190,80 @@ Std_ReturnType GPIO_pin_intialize(const ST_pin_config_t *_pin_config)
 
 
 
-Std_ReturnType GPIO_port_direction_intialize(EN_port_index_t port , Uchar8_t direction)
-{
-    Std_ReturnType ret = E_NOT_OK;
-    if(port > PORT_MAX_NUMBER)
-    {
-      ret = E_NOT_OK;
-    }
-    else
-    {
-        *ddr_registers[port] = direction;
-        ret = E_OK;
-    }
-    return ret;
-}
-Std_ReturnType GPIO_port_get_direction_status(EN_port_index_t port , Uchar8_t *direction_status)
-{
-    Std_ReturnType ret = E_NOT_OK;
-
-    if(NULL == direction_status || port > PORT_MAX_NUMBER)
-    {
-        ret = E_NOT_OK;
-    }
-    else
-    {
-        *direction_status = *ddr_registers[port];
-        ret = E_OK;
-    }
-
-    return ret;
-}
-Std_ReturnType GPIO_port_write_logic(EN_port_index_t port , Uchar8_t logic)
-{
-    Std_ReturnType ret = E_NOT_OK;
-    if(port > PORT_MAX_NUMBER)
-    {
-        ret = E_NOT_OK;
-    }
-    else
-    {
-        *port_registers[port] = logic;
-        ret = E_OK;
-    }
-    return ret;
-}
-Std_ReturnType GPIO_port_read_logic(EN_port_index_t port , Uchar8_t *logic_status)
-{
-    Std_ReturnType ret = E_NOT_OK;
-
-    if(NULL == logic_status || port > PORT_MAX_NUMBER)
-    {
-        ret = E_NOT_OK;
-    }
-    else
-    {
-        *logic_status = *pin_registers[port];
-        ret = E_OK;
-    }
-
-    return ret;
-}
-Std_ReturnType GPIO_port_toggle_logic(EN_port_index_t port)
-{
-	   Std_ReturnType ret = E_NOT_OK;
-	       if(port > PORT_MAX_NUMBER)
-	    {
-	        ret = E_NOT_OK;
-	    }
-	    else
-	    {
-	           *port_registers[port] ^= PORT_TOOGLE_MASK;
-	           ret = E_OK;
-	    }
-	    return ret;
-}
+//Std_ReturnType GPIO_port_direction_intialize(EN_port_index_t port , Uchar8_t direction)
+//{
+    //Std_ReturnType ret = E_NOT_OK;
+    //if(port > PORT_MAX_NUMBER)
+    //{
+      //ret = E_NOT_OK;
+    //}
+    //else
+    //{
+        //*ddr_registers[port] = direction;
+        //ret = E_OK;
+    //}
+    //return ret;
+//}
+//Std_ReturnType GPIO_port_get_direction_status(EN_port_index_t port , Uchar8_t *direction_status)
+//{
+    //Std_ReturnType ret = E_NOT_OK;
+//
+    //if(NULL == direction_status || port > PORT_MAX_NUMBER)
+    //{
+        //ret = E_NOT_OK;
+    //}
+    //else
+    //{
+        //*direction_status = *ddr_registers[port];
+        //ret = E_OK;
+    //}
+//
+    //return ret;
+//}
+//Std_ReturnType GPIO_port_write_logic(EN_port_index_t port , Uchar8_t logic)
+//{
+    //Std_ReturnType ret = E_NOT_OK;
+    //if(port > PORT_MAX_NUMBER)
+    //{
+        //ret = E_NOT_OK;
+    //}
+    //else
+    //{
+        //*port_registers[port] = logic;
+        //ret = E_OK;
+    //}
+    //return ret;
+//}
+//Std_ReturnType GPIO_port_read_logic(EN_port_index_t port , Uchar8_t *logic_status)
+//{
+    //Std_ReturnType ret = E_NOT_OK;
+//
+    //if(NULL == logic_status || port > PORT_MAX_NUMBER)
+    //{
+        //ret = E_NOT_OK;
+    //}
+    //else
+    //{
+        //*logic_status = *pin_registers[port];
+        //ret = E_OK;
+    //}
+//
+    //return ret;
+//}
+//Std_ReturnType GPIO_port_toggle_logic(EN_port_index_t port)
+//{
+	   //Std_ReturnType ret = E_NOT_OK;
+	       //if(port > PORT_MAX_NUMBER)
+	    //{
+	        //ret = E_NOT_OK;
+	    //}
+	    //else
+	    //{
+	           //*port_registers[port] ^= PORT_TOOGLE_MASK;
+	           //ret = E_OK;
+	    //}
+	    //return ret;
+//}
 
 #endif
 
