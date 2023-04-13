@@ -39,6 +39,8 @@ SUBDIRS :=  \
 ../ECUAL/led/ \
 ../ECUAL/motor/ \
 ../ECUAL/htimer0 \
+../ECUAL/h_ext_int \
+../ECUAL/h_pwm_normal \
 ../MCAL/ \
 ../MCAL/dio/ \
 ../MCAL/extint/ \
@@ -52,6 +54,8 @@ C_SRCS +=  \
 ../APP/app.c \
 ../ECUAL/button/pb_prog.c \
 ../ECUAL/htimer0/htimer0.c \
+../ECUAL/h_ext_int/h_ext_int.c \
+../ECUAL/h_pwm_normal/h_pwm_normal.c \
 ../ECUAL/led/led_prog.c \
 ../ECUAL/motor/motor.c \
 ../ECUAL/motor/motor_handler.c \
@@ -72,6 +76,8 @@ OBJS +=  \
 APP/app.o \
 ECUAL/button/pb_prog.o \
 ECUAL/htimer0/htimer0.o \
+ECUAL/h_ext_int/h_ext_int.o \
+ECUAL/h_pwm_normal/h_pwm_normal.o \
 ECUAL/led/led_prog.o \
 ECUAL/motor/motor.o \
 ECUAL/motor/motor_handler.o \
@@ -85,6 +91,8 @@ OBJS_AS_ARGS +=  \
 APP/app.o \
 ECUAL/button/pb_prog.o \
 ECUAL/htimer0/htimer0.o \
+ECUAL/h_ext_int/h_ext_int.o \
+ECUAL/h_pwm_normal/h_pwm_normal.o \
 ECUAL/led/led_prog.o \
 ECUAL/motor/motor.o \
 ECUAL/motor/motor_handler.o \
@@ -98,6 +106,8 @@ C_DEPS +=  \
 APP/app.d \
 ECUAL/button/pb_prog.d \
 ECUAL/htimer0/htimer0.d \
+ECUAL/h_ext_int/h_ext_int.d \
+ECUAL/h_pwm_normal/h_pwm_normal.d \
 ECUAL/led/led_prog.d \
 ECUAL/motor/motor.d \
 ECUAL/motor/motor_handler.d \
@@ -111,6 +121,8 @@ C_DEPS_AS_ARGS +=  \
 APP/app.d \
 ECUAL/button/pb_prog.d \
 ECUAL/htimer0/htimer0.d \
+ECUAL/h_ext_int/h_ext_int.d \
+ECUAL/h_pwm_normal/h_pwm_normal.d \
 ECUAL/led/led_prog.d \
 ECUAL/motor/motor.d \
 ECUAL/motor/motor_handler.d \
@@ -149,6 +161,20 @@ ECUAL/button/pb_prog.o: ../ECUAL/button/pb_prog.c
 	
 
 ECUAL/htimer0/htimer0.o: ../ECUAL/htimer0/htimer0.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/h_ext_int/h_ext_int.o: ../ECUAL/h_ext_int/h_ext_int.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/h_pwm_normal/h_pwm_normal.o: ../ECUAL/h_pwm_normal/h_pwm_normal.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
