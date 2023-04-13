@@ -44,6 +44,6 @@ Description : This function calculate the on time based on duty cycle we need .
 ARGS        : takes the duty cycle
 return      : void
 */
-void timer2_set_pwm_normal(Uchar8_t dutycycle);
+void timer2_set_pwm_normal(Uchar8_t a_dutycycle);
 
 #endif /*  PWM_NORMAL_H_ */
