@@ -1,0 +1,46 @@
+\hypertarget{hpwm_8h_source}{}\doxysection{hpwm.\+h}
+\label{hpwm_8h_source}\index{ECUAL/hpwm/hpwm.h@{ECUAL/hpwm/hpwm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ hpwm.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Apr\ 10,\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ hp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ HAL\_HPWM\_HPWM\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ HAL\_HPWM\_HPWM\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{comment}{/*************************************************************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ User\ defined\ data\ type}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ ************************************************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ PWM\_OK,}
+\DoxyCodeLine{00016\ \ \ \ \ PWM\_NOK,}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \}enu\_pwmStatus\_t;}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*************************************************************************************************************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Function\ Prototype}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ ************************************************************************************************************/}}
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ pwm\_enInit}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ Function\ Description\ :\ Initialize\ PWM\ to\ be\ fast\ PWM,\ set\ prescaller,\ Set\ PWM\ Mode}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ void}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_pwmStatus\_t\ \{PWM\_OK\ or\ PWM\_NOK\}}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ enu\_pwmStatus\_t\ pwm\_enInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00030\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ pwm\_enGenerate}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Function\ Description\ :\ Generate\ PWM\ signal}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_u8PWMDutyCycle}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_pwmStatus\_t\ \{PWM\_OK\ or\ PWM\_NOK\}}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ enu\_pwmStatus\_t\ pwm\_enGenerate(Uchar8\_t\ copy\_u8PWMDutyCycle);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_HPWM\_HPWM\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

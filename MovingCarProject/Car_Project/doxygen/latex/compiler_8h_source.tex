@@ -1,0 +1,258 @@
+\hypertarget{compiler_8h_source}{}\doxysection{compiler.\+h}
+\label{compiler_8h_source}\index{src/ASF/mega/utils/compiler.h@{src/ASF/mega/utils/compiler.h}}
+\mbox{\hyperlink{compiler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ UTILS\_COMPILER\_H}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ UTILS\_COMPILER\_H}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#\ \ \ include\ <avr/io.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#elif\ defined(\_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#\ \ \ include\ <ioavr.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#\ \ \ include\ <intrinsics.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Unsupported\ compiler."{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{parts_8h}{parts.h}}>}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifdef\ \_\_ICCAVR\_\_}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ \_\_asm\_\_\ \ \ \ \ \ \ \ \ \ \ \ \ \ asm}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ \_\_inline\_\_\ \ \ \ \ \ \ \ \ \ \ inline}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ \_\_volatile\_\_}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ UNUSED(v)\ \ \ \ \ \ \ \ \ \ (void)(v)}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ unused(v)\ \ \ \ \ \ \ \ \ \ do\ \{\ (void)(v);\ \}\ while(0)}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#\ \ define\ barrier()\ \ \ \ \ \ \ \ asm\ volatile("{}"{}}\ :::\ "{}memory"{})}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#\ \ define\ barrier()\ \ \ \ \ \ \ \ asm\ ("{}"{}})}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *\ AVR\ arch\ does\ not\ care\ about\ alignment\ anyway.}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ COMPILER\_PACK\_RESET(alignment)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ COMPILER\_PACK\_SET(alignment)}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{//\_\_\_\_\_\ M\ A\ C\ R\ O\ S\ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#\ \ \ define\ \_\_always\_inline\ \ \ inline\ \_\_attribute\_\_((\_\_always\_inline\_\_))}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#\ \ \ define\ \_\_always\_inline\ \ \ \_Pragma("{}inline=forced"{}})}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_always\_optimize\ \ \ \_\_attribute\_\_((optimize(3)))}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_always\_optimize\ \ \ \_Pragma("{}optimize=high"{}})}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#if\ defined(\_ASSERT\_ENABLE\_)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#\ \ if\ defined(TEST\_SUITE\_DEFINE\_ASSERT\_MACRO)}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Assert()\ is\ defined\ in\ unit\_test/suite.h}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}unit\_test/suite.h"{}}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#\ \ \ \ define\ Assert(expr)\ \(\backslash\)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \{\(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (!(expr))\ while\ (true);\(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#\ \ define\ Assert(expr)\ ((void)\ 0)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ MSB(u16)\ \ \ \ \ \ \ \ \ \ \ \ \ (((uint8\_t*\ )\&u16)[1])}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ LSB(u16)\ \ \ \ \ \ \ \ \ \ \ \ \ (((uint8\_t*\ )\&u16)[0])}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interrupt_8h}{interrupt.h}}"{}}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{progmem_8h}{progmem.h}}"{}}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \#define\ SHORTENUM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_\ ((packed))}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \#define\ SHORTENUM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \#define\ FUNC\_PTR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ void\ *}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#if\ (FLASHEND\ >\ 0x1FFFF)\ \ \ \ }\textcolor{comment}{//\ Required\ for\ program\ code\ larger\ than\ 128K}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \#define\ FUNC\_PTR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ void\ \_\_farflash\ *}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \#define\ FUNC\_PTR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ void\ *}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ ENABLE\_FAR\_FLASH\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \#define\ FLASH\_DECLARE(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ x\ \_\_attribute\_\_((\_\_progmem\_\_))}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \#define\ FLASH\_DECLARE(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ \_\_flash\ x}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \#define\ FLASH\_EXTERN(x)\ extern\ const\ x}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \#define\ FLASH\_EXTERN(x)\ extern\ const\ \_\_flash\ x}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{/*Defines\ the\ Flash\ Storage\ for\ the\ request\ and\ response\ of\ MAC*/}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ CMD\_ID\_OCTET\ \ \ \ (0)}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{comment}{/*\ Converting\ of\ values\ from\ CPU\ endian\ to\ little\ endian.\ */}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ CPU\_ENDIAN\_TO\_LE16(x)\ \ \ (x)}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ CPU\_ENDIAN\_TO\_LE32(x)\ \ \ (x)}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ CPU\_ENDIAN\_TO\_LE64(x)\ \ \ (x)}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{comment}{/*\ Converting\ of\ values\ from\ little\ endian\ to\ CPU\ endian.\ */}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ LE16\_TO\_CPU\_ENDIAN(x)\ \ \ (x)}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ LE32\_TO\_CPU\_ENDIAN(x)\ \ \ (x)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ LE64\_TO\_CPU\_ENDIAN(x)\ \ \ (x)}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{comment}{/*\ Converting\ of\ constants\ from\ little\ endian\ to\ CPU\ endian.\ */}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ CLE16\_TO\_CPU\_ENDIAN(x)\ \ (x)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ CLE32\_TO\_CPU\_ENDIAN(x)\ \ (x)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ CLE64\_TO\_CPU\_ENDIAN(x)\ \ (x)}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{comment}{/*\ Converting\ of\ constants\ from\ CPU\ endian\ to\ little\ endian.\ */}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ CCPU\_ENDIAN\_TO\_LE16(x)\ \ (x)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ CCPU\_ENDIAN\_TO\_LE32(x)\ \ (x)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ CCPU\_ENDIAN\_TO\_LE64(x)\ \ (x)}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \#define\ ADDR\_COPY\_DST\_SRC\_16(dst,\ src)\ \ memcpy((\&(dst)),\ (\&(src)),\ sizeof(uint16\_t))}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \#define\ ADDR\_COPY\_DST\_SRC\_64(dst,\ src)\ \ memcpy((\&(dst)),\ (\&(src)),\ sizeof(uint64\_t))}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{/*\ Converts\ a\ 2\ Byte\ array\ into\ a\ 16-\/Bit\ value\ */}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_16\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ (*(uint16\_t\ *)(data))}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{comment}{/*\ Converts\ a\ 4\ Byte\ array\ into\ a\ 32-\/Bit\ value\ */}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_32\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ (*(uint32\_t\ *)(data))}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{comment}{/*\ Converts\ a\ 8\ Byte\ array\ into\ a\ 64-\/Bit\ value\ */}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_64\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ (*(uint64\_t\ *)(data))}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{comment}{/*\ Converts\ a\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ convert\_16\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{comment}{/*\ Converts\ spec\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ convert\_spec\_16\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{comment}{/*\ Converts\ spec\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ convert\_16\_bit\_to\_byte\_address(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{comment}{/*\ Converts\ a\ 32-\/Bit\ value\ into\ a\ 4\ Byte\ array\ */}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ convert\_32\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ ((*(uint32\_t\ *)(data))\ =\ (uint32\_t)(value))}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{comment}{/*\ Converts\ a\ 64-\/Bit\ value\ into\ \ a\ 8\ Byte\ array\ */}}
+\DoxyCodeLine{00247\ \textcolor{comment}{/*\ Here\ memcpy\ requires\ much\ less\ footprint\ */}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ convert\_64\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ memcpy((data),\ (\&(value)),\ sizeof(uint64\_t))}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \#define\ ADDR\_COPY\_DST\_SRC\_16(dst,\ src)\ \ ((dst)\ =\ (src))}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \#define\ ADDR\_COPY\_DST\_SRC\_64(dst,\ src)\ \ ((dst)\ =\ (src))}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{comment}{/*\ Converts\ a\ 2\ Byte\ array\ into\ a\ 16-\/Bit\ value\ */}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_16\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \ \ (*(uint16\_t\ *)(data))}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{/*\ Converts\ a\ 4\ Byte\ array\ into\ a\ 32-\/Bit\ value\ */}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_32\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ (*(uint32\_t\ *)(data))}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{comment}{/*\ Converts\ a\ 8\ Byte\ array\ into\ a\ 64-\/Bit\ value\ */}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ convert\_byte\_array\_to\_64\_bit(data)\ \(\backslash\)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ (*(uint64\_t\ *)(data))}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{comment}{/*\ Converts\ a\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ convert\_16\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{comment}{/*\ Converts\ spec\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ convert\_spec\_16\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{comment}{/*\ Converts\ spec\ 16-\/Bit\ value\ into\ a\ 2\ Byte\ array\ */}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ convert\_16\_bit\_to\_byte\_address(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ ((*(uint16\_t\ *)(data))\ =\ (uint16\_t)(value))}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{comment}{/*\ Converts\ a\ 32-\/Bit\ value\ into\ a\ 4\ Byte\ array\ */}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#define\ convert\_32\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \ \ ((*(uint32\_t\ *)(data))\ =\ (uint32\_t)(value))}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{comment}{/*\ Converts\ a\ 64-\/Bit\ value\ into\ \ a\ 8\ Byte\ array\ */}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#define\ convert\_64\_bit\_to\_byte\_array(value,\ data)\ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ ((*(uint64\_t\ *)(data))\ =\ (uint64\_t)(value))}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#define\ MEMCPY\_ENDIAN\ memcpy}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ PGM\_READ\_BLOCK(dst,\ src,\ len)\ memcpy\_P((dst),\ (src),\ (len))}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \#define\ PGM\_READ\_BYTE(x)\ pgm\_read\_byte(x)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \#define\ PGM\_READ\_WORD(x)\ pgm\_read\_word(x)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \#define\ PGM\_READ\_BYTE(x)\ *(x)}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\ \ \#define\ PGM\_READ\_WORD(x)\ *(x)}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{keyword}{typedef}\ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compiler_8h_aa63ef7b996d5487ce35a5a66601f3e73}{U8}}\ ;\ \ }
+\DoxyCodeLine{00301\ \textcolor{keyword}{typedef}\ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}{U16}};\ \ }
+\DoxyCodeLine{00302\ \textcolor{keyword}{typedef}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}};\ \ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}};\ \ }
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ Swap16(u16)\ ((U16)(((U16)(u16)\ >>\ 8)\ |\(\backslash\)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((U16)(u16)\ <<\ 8)))}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#define\ Swap32(u32)\ ((U32)(((U32)Swap16((U32)(u32)\ >>\ 16))\ |\(\backslash\)}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((U32)Swap16((U32)(u32))\ <<\ 16)))}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#define\ Swap64(u64)\ ((U64)(((U64)Swap32((U64)(u64)\ >>\ 32))\ |\(\backslash\)}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((U64)Swap32((U64)(u64))\ <<\ 32)))}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \#define\ nop()\ do\ \{\ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}nop"{}});\ \}\ while\ (0)}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \#define\ nop()\ \_\_no\_operation()}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#if\ (defined\ \_\_GNUC\_\_)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ FORCE\_INLINE(type,\ name,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ static\ inline\ type\ name(\_\_VA\_ARGS\_\_)\ \_\_attribute\_\_((always\_inline));\ \(\backslash\)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\ \ \ \ static\ inline\ type\ name(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#elif\ (defined\ \_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#define\ FORCE\_INLINE(type,\ name,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\ \ \ \ PRAGMA(inline=forced)\ \(\backslash\)}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\ \ \ \ static\ inline\ type\ name(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ UTILS\_COMPILER\_H}}
+
+\end{DoxyCode}

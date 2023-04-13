@@ -1,0 +1,44 @@
+\hypertarget{pwm__private_8h_source}{}\doxysection{pwm\+\_\+private.\+h}
+\label{pwm__private_8h_source}\index{MCAL/pwm/pwm\_private.h@{MCAL/pwm/pwm\_private.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ PWM\_Private.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Apr\ 10,\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ hp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MCAL\_PWM\_PWM\_PRIVATE\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MCAL\_PWM\_PWM\_PRIVATE\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/*********************************\ TIMER1\ REGISTERS\ ******************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ TCCR1A\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4F))}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TCCR1B\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4E))}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TCNT1H\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4D))}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TCNT1L\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4C))}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ TCNT1\_REG\ \ \ (*(volatile\ Uint16\_t*)(0x4C))}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OCR1AH\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4B))}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ OCR1AL\_REG\ \ (*(volatile\ Uchar8\_t*)(0x4A))}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ OCR1A\_REG\ \ \ (*(volatile\ Uint16\_t*)(0x4A))}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ OCR1BH\_REG\ \ (*(volatile\ Uchar8\_t*)(0x49))}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ OCR1BL\_REG\ \ (*(volatile\ Uchar8\_t*)(0x48))}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ICR1H\_REG\ \ \ (*(volatile\ Uchar8\_t*)(0x47))}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ICR1L\_REG\ \ \ (*(volatile\ Uchar8\_t*)(0x46))}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ ICR1\_REG\ \ \ \ (*(volatile\ Uint16\_t*)(0x46))}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*********************************\ TIMER2\ REGISTERS\ ******************************************/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ TCCR2\_REG\ \ \ (*(volatile\ Uchar8\_t*)(0x45))}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ TCNT2\_REG\ \ \ (*(volatile\ Uchar8\_t*)(0x44))}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ OCR2\_REG\ \ \ \ (*(volatile\ Uchar8\_t*)(0x43))}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*********************************\ TIMER\_ALL\ REGISTERS\ ******************************************/}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ TIFR\_REG\ \ \ \ (*(volatile\ Uchar8\_t*)(0x58))}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ TIMSK\_REG\ \ \ (*(volatile\ Uchar8\_t*)(0x59))}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ SREG\_REG\ \ \ \ (*(volatile\ Uchar8\_t*)(0x5F))\ }\textcolor{comment}{//\ for\ global\ interrupt}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MCAL\_PWM\_PWM\_PRIVATE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

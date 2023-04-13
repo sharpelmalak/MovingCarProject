@@ -1,0 +1,93 @@
+\hypertarget{dio__config_8h_source}{}\doxysection{dio\+\_\+config.\+h}
+\label{dio__config_8h_source}\index{MCAL/dio/dio\_config.h@{MCAL/dio/dio\_config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ DIO\_config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 5\ Apr\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 20101}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MCAL\_DIO\_DIO\_CONFIG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MCAL\_DIO\_DIO\_CONFIG\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CONFIG\_ENABLE\ \ 1}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ CONFIG\_DISABLE\ \ 0}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ GPIO\_CONFIGURATIONS\ \ \ \ \ CONFIG\_ENABLE}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ PORT\_PIN\_MAX\_NUMBER\ \ \ \ \ \ 7}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ PORT\_MAX\_NUMBER\ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PORT\_TOOGLE\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFF}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ enum\ for\ pin\ logic}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00027\ \ \ \ \ GPIO\_LOGIC\_LOW\ =\ 0,}
+\DoxyCodeLine{00028\ \ \ \ \ GPIO\_LOGIC\_HIGH}
+\DoxyCodeLine{00029\ \}EN\_logic\_t;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ enum\ for\ pin\ direction}}
+\DoxyCodeLine{00034\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ GPIO\_DIRECTION\_INPUT\ =\ 0,}
+\DoxyCodeLine{00039\ \ \ \ \ GPIO\_DIRECTION\_OUTPUT}
+\DoxyCodeLine{00040\ \}EN\_direction\_t;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ enum\ for\ pin\ numbers}}
+\DoxyCodeLine{00045\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ GPIO\_PIN0\ =\ 0,}
+\DoxyCodeLine{00050\ \ \ \ GPIO\_PIN1,}
+\DoxyCodeLine{00051\ \ \ \ GPIO\_PIN2,}
+\DoxyCodeLine{00052\ \ \ \ GPIO\_PIN3,}
+\DoxyCodeLine{00053\ \ \ \ GPIO\_PIN4,}
+\DoxyCodeLine{00054\ \ \ \ GPIO\_PIN5,}
+\DoxyCodeLine{00055\ \ \ \ GPIO\_PIN6,}
+\DoxyCodeLine{00056\ \ \ \ GPIO\_PIN7}
+\DoxyCodeLine{00057\ \}EN\_pin\_index\_t;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ enum\ for\ port\ numbers}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ GPIO\_PORTA\_INDEX\ =\ 0,}
+\DoxyCodeLine{00067\ \ \ \ \ GPIO\_PORTB\_INDEX,}
+\DoxyCodeLine{00068\ \ \ \ \ GPIO\_PORTC\_INDEX,}
+\DoxyCodeLine{00069\ \ \ \ \ GPIO\_PORTD\_INDEX,}
+\DoxyCodeLine{00070\ \}EN\_port\_index\_t;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ struct\ for\ pin\ configuration}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ struct\ contain\ its\ port\ ,\ pin\ ,\ direction\ and\ logic}}
+\DoxyCodeLine{00076\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ Uchar8\_t\ port\ :\ 3;}
+\DoxyCodeLine{00081\ \ \ \ \ Uchar8\_t\ pin\ :\ 3;}
+\DoxyCodeLine{00082\ \ \ \ \ Uchar8\_t\ direction\ :\ 1;}
+\DoxyCodeLine{00083\ \ \ \ \ Uchar8\_t\ logic\ :\ 1;}
+\DoxyCodeLine{00084\ \}\mbox{\hyperlink{struct_s_t__pin__config__t}{ST\_pin\_config\_t}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MCAL\_DIO\_DIO\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

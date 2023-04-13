@@ -1,0 +1,90 @@
+\hypertarget{gas_8h}{}\doxysection{src/\+ASF/mega/utils/assembler/gas.h File Reference}
+\label{gas_8h}\index{src/ASF/mega/utils/assembler/gas.h@{src/ASF/mega/utils/assembler/gas.h}}
+
+
+Assembler abstraction layer\+: GNU Assembler specifics.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gas_8h_a21400c6e118a20b3b7881ae06fcc6391}\label{gas_8h_a21400c6e118a20b3b7881ae06fcc6391}} 
+\#define {\bfseries PUBLIC\+\_\+\+FUNCTION\+\_\+\+SEGMENT}(name,  segment)~ gas\+\_\+begin\+\_\+func\+\_\+segm name 1 segment
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Control Statements}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries REPEAT}(count)~.rept   count
+\begin{DoxyCompactList}\small\item\em Repeat the following statements {\itshape count} times. \end{DoxyCompactList}\item 
+\#define {\bfseries END\+\_\+\+REPEAT}()~.endr
+\begin{DoxyCompactList}\small\item\em Mark the end of the statements to be repeated. \end{DoxyCompactList}\item 
+\#define {\bfseries SET\+\_\+\+LOC}(offset)~.org    offset
+\begin{DoxyCompactList}\small\item\em Set the location counter to {\itshape offset}. \end{DoxyCompactList}\item 
+\#define {\bfseries END\+\_\+\+FILE}()
+\begin{DoxyCompactList}\small\item\em Mark the end of the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Data Objects}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries FILL\+\_\+\+BYTES}(count)~.fill   count
+\begin{DoxyCompactList}\small\item\em Allocate space for {\itshape count} bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Symbol Definition}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L}(name)~.L\#\#name
+\begin{DoxyCompactList}\small\item\em Turn {\itshape name} into a local symbol, if possible. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTERN\+\_\+\+SYMBOL}(name)
+\begin{DoxyCompactList}\small\item\em Declare {\itshape name} as an external symbol referenced by this file. \end{DoxyCompactList}\item 
+\#define {\bfseries FUNCTION}(name)~gas\+\_\+begin\+\_\+func name 0
+\begin{DoxyCompactList}\small\item\em Define a file-\/local function called {\itshape name}. \end{DoxyCompactList}\item 
+\#define {\bfseries PUBLIC\+\_\+\+FUNCTION}(name)~gas\+\_\+begin\+\_\+func name 1
+\begin{DoxyCompactList}\small\item\em Define a globally visible function called {\itshape name}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__assembler__group_ga81ab44c8186c742be6d8b16b9cb09b8b}{WEAK\+\_\+\+FUNCTION}}(name)~gas\+\_\+weak\+\_\+function name
+\begin{DoxyCompactList}\small\item\em Define a weak function called {\itshape name}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__assembler__group_ga43ce83c479dda75a6edadaa377ed817d}{WEAK\+\_\+\+FUNCTION\+\_\+\+ALIAS}}(name,  strong\+\_\+name)~ gas\+\_\+weak\+\_\+function\+\_\+alias name strong\+\_\+name
+\begin{DoxyCompactList}\small\item\em Define {\itshape name} as a weak alias for the function {\itshape strong\+\_\+name}. \end{DoxyCompactList}\item 
+\#define {\bfseries END\+\_\+\+FUNC}(name)~ .size   name, . -\/ name
+\begin{DoxyCompactList}\small\item\em Mark the end of the function called {\itshape name}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Section Definition}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries TEXT\+\_\+\+SECTION}(name)~ .section name, \char`\"{}ax\char`\"{}, @progbits
+\begin{DoxyCompactList}\small\item\em Start a new section containing executable code. \end{DoxyCompactList}\item 
+\#define {\bfseries RODATA\+\_\+\+SECTION}(name)~ .section name, \char`\"{}a\char`\"{}, @progbits
+\begin{DoxyCompactList}\small\item\em Start a new section containing read-\/only data. \end{DoxyCompactList}\item 
+\#define {\bfseries DATA\+\_\+\+SECTION}(name)~ .section name, \char`\"{}aw\char`\"{}, @progbits
+\begin{DoxyCompactList}\small\item\em Start a new section containing writeable initialized data. \end{DoxyCompactList}\item 
+\#define {\bfseries BSS\+\_\+\+SECTION}(name)~ .section name, \char`\"{}aw\char`\"{}, @nobits
+\begin{DoxyCompactList}\small\item\em Start a new section containing writeable zero-\/initialized data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gas_8h_adb47a30becc9e0b6421042ea82a11913}\label{gas_8h_adb47a30becc9e0b6421042ea82a11913}} 
+macro {\bfseries ld\+\_\+addr}
+\item 
+\mbox{\Hypertarget{gas_8h_aa4b46a1282f30708817129b9079baeb2}\label{gas_8h_aa4b46a1282f30708817129b9079baeb2}} 
+macro {\bfseries reg}
+\item 
+\mbox{\Hypertarget{gas_8h_a8cc72c7acb2e8c5a34a460a505fece93}\label{gas_8h_a8cc72c7acb2e8c5a34a460a505fece93}} 
+macro sym lda w sym endm macro gas\+\_\+begin\+\_\+func {\bfseries name}
+\item 
+\mbox{\Hypertarget{gas_8h_a1e7848fc01d8fbdad15ce85530e56971}\label{gas_8h_a1e7848fc01d8fbdad15ce85530e56971}} 
+macro sym lda w sym endm macro gas\+\_\+begin\+\_\+func is\+\_\+public if is\+\_\+public global name endif section text {\bfseries ax}
+\item 
+\mbox{\Hypertarget{gas_8h_ae5faefe09af5e5c1c4e1f3ddc75ca08f}\label{gas_8h_ae5faefe09af5e5c1c4e1f3ddc75ca08f}} 
+macro sym lda w sym endm macro gas\+\_\+begin\+\_\+func is\+\_\+public if is\+\_\+public global name endif section text progbits type function {\bfseries is\+\_\+public}
+\item 
+\mbox{\Hypertarget{gas_8h_ad8d19961c6c5914f33ba3fe8d31bf6e2}\label{gas_8h_ad8d19961c6c5914f33ba3fe8d31bf6e2}} 
+macro sym lda w sym endm macro gas\+\_\+begin\+\_\+func is\+\_\+public if is\+\_\+public global name endif section text progbits type function segment if is\+\_\+public global name endif section {\bfseries segment}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Assembler abstraction layer\+: GNU Assembler specifics. 
+
+Copyright (c) 2009-\/2018 Microchip Technology Inc. and its subsidiaries.
+
+\textbackslash{}asf\+\_\+license\+\_\+start 

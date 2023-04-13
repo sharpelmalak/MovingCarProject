@@ -1,0 +1,52 @@
+\hypertarget{vect__table_8h_source}{}\doxysection{vect\+\_\+table.\+h}
+\label{vect__table_8h_source}\index{Common/vect\_table.h@{Common/vect\_table.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ vect\_table.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Created:\ 13/04/2023\ 01:14:41}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ 20101}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VECT\_TABLE\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VECT\_TABLE\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EXT\_INT\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_1\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ External\ Interrupt\ Request\ 0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ EXT\_INT\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_2\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ External\ Interrupt\ Request\ 1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ EXT\_INT\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_3\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ External\ Interrupt\ Request\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TIM2\_COMP\_INT\ \ \ \ \ \ \ \ \ \ \ \_\_vector\_4\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 2\ Compare\ Match\ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ TIM2\_OVF\_INT\ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_5\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 2\ Overflow\ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ TIM1\_CAPT\_INT\ \ \ \ \ \ \ \ \ \ \ \_\_vector\_6\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 1\ Capture\ Event\ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ TIM1\_COMPA\_INT\ \ \ \ \ \ \ \ \ \ \_\_vector\_7\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 1\ Compare\ Match\ A\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ TIM1\_COMPB\_INT\ \ \ \ \ \ \ \ \ \ \_\_vector\_8\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 1\ Compare\ Match\ B\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ TIM1\_OVF\_INT\ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_9\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 1\ Overflow\ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TIM0\_COMP\_INT\ \ \ \ \ \ \ \ \ \ \ \_\_vector\_10\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 0\ Compare\ Match\ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ TIM0\_OVF\_INT\ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_11\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ 0\ Overflow\ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SPI\_STC\_INT\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_12\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Serial\ Transfer\ Complete\ Interrupt\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ USART\_RXC\_INT\ \ \ \ \ \ \ \ \ \ \ \_\_vector\_13\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ USART\ Rx\ Complete\ Interrupt\ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ USART\_UDRE\_INT\ \ \ \ \ \ \ \ \ \ \_\_vector\_14\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ USART\ Data\ Register\ Empty\ Interrupt\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ USART\_TXC\_INT\ \ \ \ \ \ \ \ \ \ \ \_\_vector\_15\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ USART\ Tx\ Complete\ Interrupt\ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ADC\_INT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_16\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ ADC\ Conversion\ Complete\ Interrupt\ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ EE\_RDY\_INT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_17\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ EEPROM\ Ready\ Interrupt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ANA\_COMP\_INT\ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_18\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Analog\ Comparator\ Interrupt\ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ TWI\_INT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_19\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Two-\/Wire\ Serial\ Interface\ Interrupt\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ SPM\_RDY\_INT\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_vector\_20\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Store\ Program\ Memory\ Ready\ Interrupt\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*===================\ Function-\/like\ Macros\ ====================*/}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ sei()\ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}sei"{}}\ :::\ "{}memory"{})\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Sets\ Global\ Interrupt\ Enable\ Bit\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ cli()\ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}cli"{}}\ :::\ "{}memory"{})\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clears\ Global\ Interrupt\ Enable\ Bit\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ ISR(INT\_VECT)\ \ \ \ \ \ \ \ \ \ \ void\ INT\_VECT(void)\ \_\_attribute\_\_((signal,used));\(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{void\ INT\_VECT(void)}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VECT\_TABLE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

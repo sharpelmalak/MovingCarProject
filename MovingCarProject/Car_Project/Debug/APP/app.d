@@ -7,8 +7,7 @@ APP/app.d APP/app.o: ../APP/app.c ../APP/app.h \
  ../APP/../MCAL/pwm_normal_mode/../../MCAL/dio/dio_private.h \
  ../APP/../MCAL/pwm_normal_mode/../../MCAL/dio/dio_config.h \
  ../APP/../MCAL/pwm_normal_mode/pwm_config.h \
- ../APP/../MCAL/timer0/tim0_interface.h \
- ../APP/../MCAL/extint/extinterrupt.h \
+ ../APP/../ECUAL/htimer0/htimer0.h ../APP/../MCAL/extint/extinterrupt.h \
  ../APP/../MCAL/extint/../../Common/vect_table.h \
  ../APP/../MCAL/extint/../../Common/BIT_Math.h \
  ../APP/../MCAL/extint/../../Common/STD_Types.h \
@@ -39,7 +38,7 @@ APP/app.d APP/app.o: ../APP/app.c ../APP/app.h \
 
 ../APP/../MCAL/pwm_normal_mode/pwm_config.h:
 
-../APP/../MCAL/timer0/tim0_interface.h:
+../APP/../ECUAL/htimer0/htimer0.h:
 
 ../APP/../MCAL/extint/extinterrupt.h:
 

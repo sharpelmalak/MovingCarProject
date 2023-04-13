@@ -1,0 +1,54 @@
+\hypertarget{extinterrupt_8h_source}{}\doxysection{extinterrupt.\+h}
+\label{extinterrupt_8h_source}\index{MCAL/extint/extinterrupt.h@{MCAL/extint/extinterrupt.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Ext\_Interrupt.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Created:\ 4/7/2023\ 11:19:13\ PM}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ sharpel}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ EXT\_INTERRUPT\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ EXT\_INTERRUPT\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../../Common/vect\_table.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../../Common/BIT\_Math.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../../Common/STD\_Types.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}ext\_config.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ EXT\_INT\ TYPEDEFS}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ EN\_EXTINT\_ERROR\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ EXTINT\_OK=0,}
+\DoxyCodeLine{00021\ \ \ \ \ EXTINT\_NOT\_OK}
+\DoxyCodeLine{00022\ \}EN\_EXTINT\_ERROR;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ EN\_Sence\_Control\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ LOW\_LEVEL=0,}
+\DoxyCodeLine{00026\ \ \ \ \ FALLING\_EDGE,}
+\DoxyCodeLine{00027\ \ \ \ \ RISING\_EDGE,}
+\DoxyCodeLine{00028\ \ \ \ \ ANY\_LOGICAL\_CHANGE}
+\DoxyCodeLine{00029\ \}EN\_Sence\_Control;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ EN\_EXINT\_NUMBER\{}
+\DoxyCodeLine{00032\ \ \ \ \ EXTINT0=0,}
+\DoxyCodeLine{00033\ \ \ \ \ EXTINT1,}
+\DoxyCodeLine{00034\ \ \ \ \ EXTINT2,}
+\DoxyCodeLine{00035\ \}EN\_EXINT\_NUMBER;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ EN\_GLOBAL\_INT\{}
+\DoxyCodeLine{00038\ \ \ \ \ DISABLE=0,}
+\DoxyCodeLine{00039\ \ \ \ \ ENABLE}
+\DoxyCodeLine{00040\ \}EN\_GLOBAL\_INT;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ EXT\_INT\ prototypes}}
+\DoxyCodeLine{00043\ EN\_EXTINT\_ERROR\ SET\_GLOBAL\_INTERRUPT(EN\_GLOBAL\_INT\ state);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ EN\_EXTINT\_ERROR\ EXTINT\_init(EN\_EXINT\_NUMBER\ INTx\ ,EN\_Sence\_Control\ INTxSense);}
+\DoxyCodeLine{00046\ EN\_EXTINT\_ERROR\ EXTINT\_CallBack(EN\_EXINT\_NUMBER\ INTx,\textcolor{keywordtype}{void}(*ptrfunc)(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXT\_INTERRUPT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

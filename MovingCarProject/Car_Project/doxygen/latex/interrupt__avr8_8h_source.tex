@@ -1,0 +1,82 @@
+\hypertarget{interrupt__avr8_8h_source}{}\doxysection{interrupt\+\_\+avr8.\+h}
+\label{interrupt__avr8_8h_source}\index{src/ASF/common/utils/interrupt/interrupt\_avr8.h@{src/ASF/common/utils/interrupt/interrupt\_avr8.h}}
+\mbox{\hyperlink{interrupt__avr8_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ UTILS\_INTERRUPT\_INTERRUPT\_H}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ UTILS\_INTERRUPT\_INTERRUPT\_H}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{compiler_8h}{compiler.h}}>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{parts_8h}{parts.h}}>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifdef\ ISR\_CUSTOM\_H}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#\ \ include\ ISR\_CUSTOM\_H}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#if\ defined(\_\_DOXYGEN\_\_)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#\ \ define\ ISR(vect)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#\ \ include\ <avr/interrupt.h>}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#elif\ defined(\_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#\ \ define\ \_\_ISR(x)\ \_Pragma(\#x)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#\ \ define\ ISR(vect)\ \_\_ISR(vector=vect)\ \_\_interrupt\ void\ handler\_\#\#vect(void)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ISR\_CUSTOM\_H}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#if\ XMEGA}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ irq\_initialize\_vectors()\ \(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ PMIC.CTRL\ =\ PMIC\_LOLVLEN\_bm\ |\ PMIC\_MEDLVLEN\_bm\ |\ PMIC\_HILVLEN\_bm;}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#elif\ MEGA\_RF}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ irq\_initialize\_vectors()}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#\ \ define\ cpu\_irq\_enable()\ \ \ \ \ sei()}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#\ \ define\ cpu\_irq\_disable()\ \ \ \ cli()}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#\ \ define\ cpu\_irq\_enable()\ \ \ \ \ \_\_enable\_interrupt()}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#\ \ define\ cpu\_irq\_disable()\ \ \ \ \_\_disable\_interrupt()}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ uint8\_t\ \mbox{\hyperlink{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}{irqflags\_t}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}{irqflags\_t}}\ cpu\_irq\_save(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}{irqflags\_t}}\ flags\ =\ SREG;}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{group__interrupt__group_ga7b77391ed86e2e027f9ee1dd99a06980}{cpu\_irq\_disable}}();}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ flags;}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ cpu\_irq\_restore(\mbox{\hyperlink{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}{irqflags\_t}}\ flags)}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{compiler_8h_a53290ac2df2384738b8769c76622f803}{barrier}}();}
+\DoxyCodeLine{00108\ \ \ \ \ SREG\ =\ flags;}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ cpu\_irq\_is\_enabled\_flags(\mbox{\hyperlink{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}{irqflags\_t}}\ flags)}
+\DoxyCodeLine{00112\ \{}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#if\ XMEGA}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#\ \ ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ CPU\_I\_bm;}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ I\_bm;}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#elif\ MEGA\ ||\ TINY}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ flags\ \&\ (1\ <<\ SREG\_I);}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ cpu\_irq\_is\_enabled()\ \ \ \ \ \ \ \ \ \ \ \ \ cpu\_irq\_is\_enabled\_flags(SREG)}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ Deprecated\ definitions.}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ Enable\_global\_interrupt()\ \ \ \ \ \ \ \ cpu\_irq\_enable()}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ Disable\_global\_interrupt()\ \ \ \ \ \ \ cpu\_irq\_disable()}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ Is\_global\_interrupt\_enabled()\ \ \ \ cpu\_irq\_is\_enabled()}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UTILS\_INTERRUPT\_INTERRUPT\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

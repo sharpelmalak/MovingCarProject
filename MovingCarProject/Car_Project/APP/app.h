@@ -10,7 +10,7 @@
 #define APP_H_
 
 #include "../MCAL/pwm_normal_mode/pwm_normal.h"
-#include "../MCAL/timer0/tim0_interface.h"
+#include "../ECUAL/htimer0/htimer0.h"
 #include "../MCAL/extint/extinterrupt.h"
 #include "../ECUAL/led/led_interface.h"
 #include "../ECUAL/button/pb_interface.h"
@@ -25,5 +25,7 @@ static void APP_moveForward(void);
 static void APP_Stop(void);
 static void APP_rotate(void);
 
+void btn0_callback(void);
+void btn1_callback(void);
 
 #endif /* APP_H_ */

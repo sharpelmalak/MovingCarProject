@@ -2,18 +2,18 @@
 #ifndef TIM_INTERFACE_H_
 #define TIM_INTERFACE_H_
 
-typedef enum
-{
-	uSeconds,
-	mSeconds,
-	Seconds
-}en_timeUnits_t;
 
 typedef enum
 {
 	TIM_OK,
 	TIM_NOK
 }en_TIMErrorState_t;
+
+typedef enum
+{
+	TIM0_STOPPED,
+	TIM0_RUNNING
+}en_TIMState_t;
 
 typedef enum
 {
@@ -75,33 +75,38 @@ void TIM0_Stop();
  */
 void TIM0_SetValue(Uchar8_t u8_a_startValue);
 
-
 /**
- * \brief Generate Synchronous delay (busy waiting)
- * 
- * \param Copy_delayTime 
- * \param Copy_timeUnit
- * 
- * \return EN_TIMErrorState_t
- */
-en_TIMErrorState_t TIM0_SyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_timeUnit);
-
-
-/**
- * \brief Generate an asynchronous delay using the timer0
- *		  OVF interrupt
- * \param u32_a_delay
- * \param u8_a_timeUnit
- * \param 
- * \param Copy_pvCallbackFn
- * \param 
+ * \brief Function to get the value of the overflow flag
+ *		  of timer 0
+ * \param u8_a_FlagValue reference to a variable to store flag value
  * 
  * \return en_TIMErrorState_t
  */
-en_TIMErrorState_t TIM0_AsyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_timeUnit, void (*Copy_pvCallbackFn)(void));
+en_TIMErrorState_t TIM0_GetOVF(Uchar8_t* u8_a_FlagValue);
 
+/**
+ * \brief Function to clear timer 0 overflow flag
+ *
+ * \return void
+ */
+void TIM0_ClearOVF(void);
 
-en_TIMErrorState_t TIM0__SyncDelay(Uint32_t Copy_delayTime, en_timeUnits_t Copy_timeUnit);
+/**
+ * \brief Function to get the timer state (running/stopped)
+ * 
+ * \param u8_a_State reference to a variable to store timer state
+ * 
+ * \return en_TIMErrorState_t
+ */
+en_TIMErrorState_t TIM0_GetState(en_TIMState_t* u8_a_State);
 
+/**
+ * \brief Function to set a function to call when the timer0
+ *	      Overflow Interrupt is triggered
+ * \param pv_a_CallbackFn reference to the function to call
+ * 
+ * \return en_TIMErrorState_t
+ */
+en_TIMErrorState_t TIM0_SetOVFCallback(void (*pv_a_CallbackFn)(void));
 
 #endif

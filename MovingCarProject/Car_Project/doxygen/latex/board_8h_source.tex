@@ -1,0 +1,394 @@
+\hypertarget{board_8h_source}{}\doxysection{board.\+h}
+\label{board_8h_source}\index{src/ASF/common/boards/board.h@{src/ASF/common/boards/board.h}}
+\mbox{\hyperlink{board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ \_BOARD\_H\_}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ \_BOARD\_H\_}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{compiler_8h}{compiler.h}}"{}}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ EVK1100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ }}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ EVK1101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ }}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ UC3C\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ \ }}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ EVK1104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4\ \ }}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ EVK1105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5\ \ }}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3L0\ \ \ \ \ \ \ \ \ \ \ \ \ \ 6\ \ }}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ UC3L\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7\ \ }}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ XPLAIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8\ \ }}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ STK600\_RC064X\ \ \ \ \ \ \ \ \ \ \ \ \ \ 10\ \ }}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ STK600\_RC100X\ \ \ \ \ \ \ \ \ \ \ \ \ \ 11\ \ }}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ UC3\_A3\_XPLAINED\ \ \ \ \ \ \ \ \ \ \ \ 13\ \ }}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ UC3\_L0\_XPLAINED\ \ \ \ \ \ \ \ \ \ \ \ 15\ \ }}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3D\ \ \ \ \ \ \ \ \ \ \ \ \ \ 16\ \ }}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3C0\ \ \ \ \ \ \ \ \ \ \ \ \ 17\ \ }}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ XMEGA\_B1\_XPLAINED\ \ \ \ \ \ \ \ \ \ 18\ \ }}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ XMEGA\_A1\_XPLAINED\ \ \ \ \ \ \ \ \ \ 19\ \ }}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ XMEGA\_A1U\_XPLAINED\_PRO\ \ \ \ \ 20\ \ }}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3L4\ \ \ \ \ \ \ \ \ \ \ \ \ 21\ \ }}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ UC3\_L0\_XPLAINED\_BC\ \ \ \ \ \ \ \ \ 22\ \ }}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ MEGA1284P\_XPLAINED\_BC\ \ \ \ \ \ 23\ \ }}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ STK600\_RC044X\ \ \ \ \ \ \ \ \ \ \ \ \ \ 24\ \ }}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3B0\ \ \ \ \ \ \ \ \ \ \ \ \ 25\ \ }}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ UC3\_L0\_QT600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 26\ \ }}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ XMEGA\_A3BU\_XPLAINED\ \ \ \ \ \ \ \ 27\ \ }}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ STK600\_RC064X\_LCDX\ \ \ \ \ \ \ \ \ 28\ \ }}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ STK600\_RC100X\_LCDX\ \ \ \ \ \ \ \ \ 29\ \ }}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ UC3B\_BOARD\_CONTROLLER\ \ \ \ \ \ 30\ \ }}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ RZ600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 31\ \ }}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ SAM3S\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 32\ \ }}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ SAM3U\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 33\ \ }}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ SAM3X\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 34\ \ }}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ SAM3N\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 35\ \ }}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ SAM3S\_EK2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 36\ \ }}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SAM4S\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 37\ \ }}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3A0\ \ \ \ \ \ \ \ \ \ \ \ \ 38\ \ }}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ STK600\_MEGA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 39\ \ }}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ MEGA\_1284P\_XPLAINED\ \ \ \ \ \ \ \ 40\ \ }}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ SAM4S\_XPLAINED\ \ \ \ \ \ \ \ \ \ \ \ \ 41\ \ }}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ ATXMEGA128A1\_QT600\ \ \ \ \ \ \ \ \ 42\ \ }}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ ARDUINO\_DUE\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ 43\ \ }}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ STK600\_RCUC3L3\ \ \ \ \ \ \ \ \ \ \ \ \ 44\ \ }}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ SAM4L\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 45\ \ }}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ STK600\_MEGA\_RF\ \ \ \ \ \ \ \ \ \ \ \ \ 46\ \ }}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ XMEGA\_C3\_XPLAINED\ \ \ \ \ \ \ \ \ \ 47\ \ }}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ STK600\_RC032X\ \ \ \ \ \ \ \ \ \ \ \ \ \ 48\ \ }}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ SAM4S\_EK2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 49\ \ }}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ XMEGA\_E5\_XPLAINED\ \ \ \ \ \ \ \ \ \ 50\ \ }}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ SAM4E\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 51\ \ }}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ ATMEGA256RFR2\_XPLAINED\_PRO\ 52\ \ }}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ SAM4S\_XPLAINED\_PRO\ \ \ \ \ \ \ \ \ 53\ \ }}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ SAM4L\_XPLAINED\_PRO\ \ \ \ \ \ \ \ \ 54\ \ }}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ ATMEGA256RFR2\_ZIGBIT\ \ \ \ \ \ \ 55\ \ }}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ XMEGA\_RF233\_ZIGBIT\ \ \ \ \ \ \ \ \ 56\ \ }}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ XMEGA\_RF212B\_ZIGBIT\ \ \ \ \ \ \ \ 57\ \ }}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ SAM4S\_WPIR\_RD\ \ \ \ \ \ \ \ \ \ \ \ \ \ 58\ \ }}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ SAMD20\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 59\ \ }}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ SAM4L8\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 60\ \ }}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ SAM4N\_XPLAINED\_PRO\ \ \ \ \ \ \ \ \ 61\ \ }}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ XMEGA\_A3\_REB\_CBB\ \ \ \ \ \ \ \ \ \ \ 62\ \ }}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ ATMEGARFX\_RCB\ \ \ \ \ \ \ \ \ \ \ \ \ \ 63\ \ }}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ SAM4C\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 64\ \ }}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ RCB256RFR2\_XPRO\ \ \ \ \ \ \ \ \ \ \ \ 65\ \ }}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ SAMG53\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 66\ \ }}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ SAM4CP16BMB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 67\ \ }}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ SAM4E\_XPLAINED\_PRO\ \ \ \ \ \ \ \ \ 68\ \ }}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ SAMD21\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 69\ \ }}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ SAMR21\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 70\ \ }}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ SAM4CMP\_DB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 71\ \ }}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ SAM4CMS\_DB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 72\ \ }}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ ATPL230AMB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 73\ \ }}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ SAMD11\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 74\ \ }}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ SAMG55\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 75\ \ }}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ SAML21\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 76\ \ }}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ SAMD10\_XPLAINED\_MINI\ \ \ \ \ \ \ 77\ \ }}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ SAMDA1\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 78\ \ }}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ SAMW25\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 79\ \ }}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ SAMC21\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 80\ \ }}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ SAMV71\_XPLAINED\_ULTRA\ \ \ \ \ \ 81\ \ }}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ ATMEGA328P\_XPLAINED\_MINI\ \ \ 82\ \ }}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ ATMEGA328PB\_XPLAINED\_MINI\ \ 83\ \ }}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ SAMB11\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 84\ \ }}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ SAME70\_XPLAINED\ \ \ \ \ \ \ \ \ \ \ \ 85\ \ }}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ SAML22\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 86\ \ }}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ SAML22\_XPLAINED\_PRO\_B\ \ \ \ \ \ 87\ \ }}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ SAMR21ZLL\_EK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 88\ \ }}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ ATMEGA168PB\_XPLAINED\_MINI\ \ 89\ \ }}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ ATMEGA324PB\_XPLAINED\_PRO\ \ \ 90\ \ }}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ SAMB11ZR\_XPLAINED\_PRO\ \ \ \ \ \ 92\ \ }}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ SAMR30\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 93\ \ }}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ SAMHA1G16A\_XPLAINED\_PRO\ \ \ \ 94\ \ }}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ SAMR34\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 95\ \ }}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ SIMULATOR\_XMEGA\_A1\ \ \ \ \ \ \ \ \ 97\ \ }}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ AVR\_SIMULATOR\_UC3\ \ \ \ \ \ \ \ \ \ 98\ \ }}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ USER\_BOARD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 99\ \ }}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ DUMMY\_BOARD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100\ }}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ SAMB11ZR\_SENSOR\_TAG\ \ \ \ \ \ \ \ 101\ }}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ SAMR30\_MODULE\_XPLAINED\_PRO\ 102\ }}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ SAMR21G18\_MODULE\ \ \ \ \ \ \ \ \ \ \ 103\ }}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ SAMR21B18\_MODULE\ \ \ \ \ \ \ \ \ \ \ 104\ }}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ WLR089\_XPLAINED\_PRO\ \ \ \ \ \ \ \ 105\ }}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ EXT1102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ }}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ MC300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ }}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_INERTIAL\_1\ \ 3\ \ }}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_INERTIAL\_2\ \ 4\ \ }}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_PRESSURE\_1\ \ 5\ \ }}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_LIGHTPROX\_1\ 6\ \ }}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_INERTIAL\_A1\ 7\ \ }}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ RZ600\_AT86RF231\ \ \ \ \ \ \ \ \ \ \ \ \ \ 8\ \ }}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ RZ600\_AT86RF230B\ \ \ \ \ \ \ \ \ \ \ \ \ 9\ \ }}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ RZ600\_AT86RF212\ \ \ \ \ \ \ \ \ \ \ \ \ 10\ \ }}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ SENSORS\_XPLAINED\_BREADBOARD\ 11\ \ }}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ SECURITY\_XPLAINED\ \ \ \ \ \ \ \ \ \ \ 12\ \ }}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ USER\_EXT\_BOARD\ \ \ \ \ \ \ \ \ \ \ \ \ \ 99\ \ }}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#if\ BOARD\ ==\ EVK1100}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#\ \ include\ "{}evk1100/evk1100.h"{}}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ EVK1101}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#\ \ include\ "{}evk1101/evk1101.h"{}}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3C\_EK}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3c\_ek/uc3c\_ek.h"{}}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ EVK1104}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#\ \ include\ "{}evk1104/evk1104.h"{}}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ EVK1105}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#\ \ include\ "{}evk1105/evk1105.h"{}}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3L0}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3l0/stk600\_rcuc3l0.h"{}}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3L\_EK}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3l\_ek/uc3l\_ek.h"{}}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3L4}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3l4/stk600\_rcuc3l4.h"{}}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XPLAIN}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#\ \ include\ "{}xplain/xplain.h"{}}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_MEGA}}
+\DoxyCodeLine{00201\ \ \ \textcolor{comment}{/*No\ header-\/file\ to\ include*/}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_MEGA\_RF}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600.h"{}}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA256RFR2\_XPLAINED\_PRO}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega256rfr2\_xplained\_pro/atmega256rfr2\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA256RFR2\_ZIGBIT}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega256rfr2\_zigbit/atmega256rfr2\_zigbit.h"{}}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC032X}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc032x/stk600\_rc032x.h"{}}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC044X}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc044x/stk600\_rc044x.h"{}}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC064X}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc064x/stk600\_rc064x.h"{}}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC100X}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc100x/stk600\_rc100x.h"{}}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3\_A3\_XPLAINED}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3\_a3\_xplained/uc3\_a3\_xplained.h"{}}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3\_L0\_XPLAINED}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3\_l0\_xplained/uc3\_l0\_xplained.h"{}}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3B0}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3b0/stk600\_rcuc3b0.h"{}}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3D}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3d/stk600\_rcuc3d.h"{}}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3C0}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3c0/stk600\_rcuc3c0.h"{}}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMG53\_XPLAINED\_PRO}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#\ \ include\ "{}samg53\_xplained\_pro/samg53\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMG55\_XPLAINED\_PRO}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#\ \ include\ "{}samg55\_xplained\_pro/samg55\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_B1\_XPLAINED}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_b1\_xplained/xmega\_b1\_xplained.h"{}}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC064X\_LCDX}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc064x\_lcdx/stk600\_rc064x\_lcdx.h"{}}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RC100X\_LCDX}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rc100x\_lcdx/stk600\_rc100x\_lcdx.h"{}}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_A1\_XPLAINED}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_a1\_xplained/xmega\_a1\_xplained.h"{}}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_A1U\_XPLAINED\_PRO}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_a1u\_xplained\_pro/xmega\_a1u\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3\_L0\_XPLAINED\_BC}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3\_l0\_xplained\_bc/uc3\_l0\_xplained\_bc.h"{}}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM3S\_EK}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#\ \ include\ "{}sam3s\_ek/sam3s\_ek.h"{}}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3s.h"{}}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM3S\_EK2}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#\ \ include\ "{}sam3s\_ek2/sam3s\_ek2.h"{}}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3sd8.h"{}}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM3U\_EK}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#\ \ include\ "{}sam3u\_ek/sam3u\_ek.h"{}}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3u.h"{}}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM3X\_EK}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#\ \ include\ "{}sam3x\_ek/sam3x\_ek.h"{}}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3x.h"{}}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM3N\_EK}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#\ \ include\ "{}sam3n\_ek/sam3n\_ek.h"{}}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3n.h"{}}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4S\_EK}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4s\_ek/sam4s\_ek.h"{}}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam4s.h"{}}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4S\_WPIR\_RD}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4s\_wpir\_rd/sam4s\_wpir\_rd.h"{}}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam4s.h"{}}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4S\_XPLAINED}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4s\_xplained/sam4s\_xplained.h"{}}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam4s.h"{}}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4S\_EK2}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4s\_ek2/sam4s\_ek2.h"{}}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam4s.h"{}}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ MEGA\_1284P\_XPLAINED}}
+\DoxyCodeLine{00270\ \ \ \textcolor{comment}{/*No\ header-\/file\ to\ include*/}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ARDUINO\_DUE\_X}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#\ \ include\ "{}arduino\_due\_x/arduino\_due\_x.h"{}}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#\ \ include\ "{}system\_sam3x.h"{}}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4L\_EK}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4l\_ek/sam4l\_ek.h"{}}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4E\_EK}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4e\_ek/sam4e\_ek.h"{}}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMD20\_XPLAINED\_PRO}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#\ \ include\ "{}samd20\_xplained\_pro/samd20\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMD21\_XPLAINED\_PRO}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#\ \ include\ "{}samd21\_xplained\_pro/samd21\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR21\_XPLAINED\_PRO}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#\ \ include\ "{}samr21\_xplained\_pro/samr21\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR30\_XPLAINED\_PRO\ \&\&\ defined(\_\_SAMR30G18A\_\_)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#\ \ include\ "{}samr30\_xplained\_pro/samr30\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR30\_MODULE\_XPLAINED\_PRO\ \&\&\ defined(\_\_SAMR30E18A\_\_)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#\ \ include\ "{}samr30\_module\_xplained\_pro/samr30\_module\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR21ZLL\_EK}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#\ \ include\ "{}samr21zll\_ek/samr21zll\_ek.h"{}}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMD11\_XPLAINED\_PRO}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#\ \ include\ "{}samd11\_xplained\_pro/samd11\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAML21\_XPLAINED\_PRO\ \&\&\ defined(\_\_SAML21J18A\_\_)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#\ \ include\ "{}saml21\_xplained\_pro/saml21\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAML22\_XPLAINED\_PRO}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#\ \ include\ "{}saml22\_xplained\_pro/saml22\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAML22\_XPLAINED\_PRO\_B}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#\ \ include\ "{}saml22\_xplained\_pro\_b/saml22\_xplained\_pro\_b.h"{}}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAML21\_XPLAINED\_PRO\ \&\&\ defined(\_\_SAML21J18B\_\_)}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#\ \ include\ "{}saml21\_xplained\_pro\_b/saml21\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMD10\_XPLAINED\_MINI}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#\ \ include\ "{}samd10\_xplained\_mini/samd10\_xplained\_mini.h"{}}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMDA1\_XPLAINED\_PRO}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#\ \ include\ "{}samda1\_xplained\_pro/samda1\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMHA1G16A\_XPLAINED\_PRO}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#\ \ include\ "{}samha1g16a\_xplained\_pro/samha1g16a\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMC21\_XPLAINED\_PRO}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#\ \ include\ "{}samc21\_xplained\_pro/samc21\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4N\_XPLAINED\_PRO}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4n\_xplained\_pro/sam4n\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMW25\_XPLAINED\_PRO}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#\ \ include\ "{}samw25\_xplained\_pro/samw25\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMV71\_XPLAINED\_ULTRA}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#\ \ include\ "{}samv71\_xplained\_ultra/samv71\_xplained\_ultra.h"{}}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ MEGA1284P\_XPLAINED\_BC}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#\ \ include\ "{}mega1284p\_xplained\_bc/mega1284p\_xplained\_bc.h"{}}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3\_L0\_QT600}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3\_l0\_qt600/uc3\_l0\_qt600.h"{}}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_A3BU\_XPLAINED}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_a3bu\_xplained/xmega\_a3bu\_xplained.h"{}}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_E5\_XPLAINED}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_e5\_xplained/xmega\_e5\_xplained.h"{}}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ UC3B\_BOARD\_CONTROLLER}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#\ \ include\ "{}uc3b\_board\_controller/uc3b\_board\_controller.h"{}}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ RZ600}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#\ \ include\ "{}rz600/rz600.h"{}}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3A0}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3a0/stk600\_rcuc3a0.h"{}}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATXMEGA128A1\_QT600}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#\ \ include\ "{}atxmega128a1\_qt600/atxmega128a1\_qt600.h"{}}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ STK600\_RCUC3L3}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#\ \ include\ "{}stk600/rcuc3l3/stk600\_rcuc3l3.h"{}}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4S\_XPLAINED\_PRO}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4s\_xplained\_pro/sam4s\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4L\_XPLAINED\_PRO}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4l\_xplained\_pro/sam4l\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4L8\_XPLAINED\_PRO}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4l8\_xplained\_pro/sam4l8\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4C\_EK}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4c\_ek/sam4c\_ek.h"{}}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4CMP\_DB}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4cmp\_db/sam4cmp\_db.h"{}}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4CMS\_DB}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4cms\_db/sam4cms\_db.h"{}}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4CP16BMB}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4cp16bmb/sam4cp16bmb.h"{}}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATPL230AMB}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#\ \ include\ "{}atpl230amb/atpl230amb.h"{}}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_C3\_XPLAINED}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_c3\_xplained/xmega\_c3\_xplained.h"{}}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_RF233\_ZIGBIT}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_rf233\_zigbit/xmega\_rf233\_zigbit.h"{}}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_A3\_REB\_CBB}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_a3\_reb\_cbb/xmega\_a3\_reb\_cbb.h"{}}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGARFX\_RCB}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#\ \ include\ "{}atmegarfx\_rcb/atmegarfx\_rcb.h"{}}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ RCB256RFR2\_XPRO}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega256rfr2\_rcb\_xpro/atmega256rfr2\_rcb\_xpro.h"{}}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ XMEGA\_RF212B\_ZIGBIT}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#\ \ include\ "{}xmega\_rf212b\_zigbit/xmega\_rf212b\_zigbit.h"{}}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAM4E\_XPLAINED\_PRO}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#\ \ include\ "{}sam4e\_xplained\_pro/sam4e\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA328P\_XPLAINED\_MINI}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega328p\_xplained\_mini/atmega328p\_xplained\_mini.h"{}}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA328PB\_XPLAINED\_MINI}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega328pb\_xplained\_mini/atmega328pb\_xplained\_mini.h"{}}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMB11\_XPLAINED\_PRO}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#\ \ include\ "{}samb11\_xplained\_pro/samb11\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAME70\_XPLAINED}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\#\ \ include\ "{}same70\_xplained/same70\_xplained.h"{}}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA168PB\_XPLAINED\_MINI}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega168pb\_xplained\_mini/atmega168pb\_xplained\_mini.h"{}}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ ATMEGA324PB\_XPLAINED\_PRO}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#\ \ include\ "{}atmega324pb\_xplained\_pro/atmega324pb\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMB11ZR\_XPLAINED\_PRO}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#\ \ include\ "{}samb11zr\_xplained\_pro/samb11zr\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SIMULATOR\_XMEGA\_A1}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#\ \ include\ "{}simulator/xmega\_a1/simulator\_xmega\_a1.h"{}}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ AVR\_SIMULATOR\_UC3}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#\ \ include\ "{}avr\_simulator\_uc3/avr\_simulator\_uc3.h"{}}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR21G18\_MODULE}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#\ include\ "{}samr21g18\_module/samr21g18\_module.h"{}}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR21B18\_MODULE}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#\ include\ "{}samr21b18\_module/samr21b18\_module.h"{}}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMR34\_XPLAINED\_PRO\ \&\&\ defined(\_\_SAMR34J18B\_\_)}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\#\ \ include\ "{}samr34\_xplained\_pro/samr34\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ WLR089\_XPLAINED\_PRO\ \&\&\ defined(\_\_WLR089U0\_\_)}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#\ \ include\ "{}wlr089\_xplained\_pro/wlr089\_xplained\_pro.h"{}}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ USER\_BOARD}}
+\DoxyCodeLine{00389\ \textcolor{comment}{//\ User-\/reserved\ area:\ \#include\ the\ header\ file\ of\ your\ board\ here\ (if\ any).}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#\ \ include\ "{}\mbox{\hyperlink{user__board_8h}{user\_board.h}}"{}}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ DUMMY\_BOARD}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#\ \ include\ "{}dummy/dummy\_board.h"{}}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\#elif\ BOARD\ ==\ SAMB11ZR\_SENSOR\_TAG}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#\ \ include\ "{}samb11zr\_sensor\_tag/samb11zr\_sensor\_tag.h"{}}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\#\ \ error\ No\ known\ Atmel\ board\ defined}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#if\ (defined\ EXT\_BOARD)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#\ \ if\ EXT\_BOARD\ ==\ MC300}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}mc300/mc300.h"{}}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#\ \ elif\ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_INERTIAL\_1)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_INERTIAL\_2)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_INERTIAL\_A1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_PRESSURE\_1)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_LIGHTPROX\_1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (EXT\_BOARD\ ==\ SENSORS\_XPLAINED\_BREADBOARD)}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}sensors\_xplained/sensors\_xplained.h"{}}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#\ \ elif\ EXT\_BOARD\ ==\ RZ600\_AT86RF231}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#\ \ \ \ \ include\ "{}at86rf231/at86rf231.h"{}}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#\ \ elif\ EXT\_BOARD\ ==\ RZ600\_AT86RF230B}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}at86rf230b/at86rf230b.h"{}}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#\ \ elif\ EXT\_BOARD\ ==\ RZ600\_AT86RF212}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}at86rf212/at86rf212.h"{}}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#\ \ elif\ EXT\_BOARD\ ==\ SECURITY\_XPLAINED}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#\ \ \ \ include\ "{}security\_xplained.h"{}}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#\ \ elif\ EXT\_BOARD\ ==\ USER\_EXT\_BOARD}}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{comment}{//\ User-\/reserved\ area:\ \#include\ the\ header\ file\ of\ your\ extension\ board\ here}}
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{comment}{//\ (if\ any).}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#if\ (defined(\_\_GNUC\_\_)\ \&\&\ defined(\_\_AVR32\_\_))\ ||\ (defined(\_\_ICCAVR32\_\_)\ ||\ defined(\_\_AAVR32\_\_))}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#ifdef\ \_\_AVR32\_ABI\_COMPILER\_\_\ }\textcolor{comment}{//\ Automatically\ defined\ when\ compiling\ for\ AVR32,\ not\ when\ assembling.}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00432\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__group__common__boards_ga916f2adc2080b4fe88034086d107a8dc}{board\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \#ifdef\ \_\_AVR32\_ABI\_COMPILER\_\_}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00441\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__group__common__boards_ga916f2adc2080b4fe88034086d107a8dc}{board\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00446\ \}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_BOARD\_H\_}}
+
+\end{DoxyCode}

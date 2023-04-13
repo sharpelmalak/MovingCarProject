@@ -1,0 +1,35 @@
+\hypertarget{htimer0_8h_source}{}\doxysection{htimer0.\+h}
+\label{htimer0_8h_source}\index{ECUAL/htimer0/htimer0.h@{ECUAL/htimer0/htimer0.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ HTIMER0\_H\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ HTIMER0\_H\_}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ uSeconds,}
+\DoxyCodeLine{00008\ \ \ \ \ mSeconds,}
+\DoxyCodeLine{00009\ \ \ \ \ Seconds}
+\DoxyCodeLine{00010\ \}en\_timeUnits\_t;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ HTIM\_OK,}
+\DoxyCodeLine{00015\ \ \ \ \ HTIM\_NOK}
+\DoxyCodeLine{00016\ \}en\_HTIMErrorState\_t;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00026\ en\_HTIMErrorState\_t\ TIM0\_SyncDelay(Uint32\_t\ u32\_a\_delay,\ en\_timeUnits\_t\ u8\_a\_timeUnit);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00038\ en\_HTIMErrorState\_t\ TIM0\_AsyncDelay(Uint32\_t\ u32\_a\_delay,\ en\_timeUnits\_t\ u8\_a\_timeUnit,\ \textcolor{keywordtype}{void}\ (*Copy\_pvCallbackFn)(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ en\_HTIMErrorState\_t\ TIM0\_\_SyncDelay(Uint32\_t\ Copy\_delayTime,\ en\_timeUnits\_t\ Copy\_timeUnit);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ TIM0\_AsyncEndDelay();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HTIMER0\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+\hypertarget{_b_i_t___math_8h_source}{}\doxysection{BIT\+\_\+\+Math.\+h}
+\label{_b_i_t___math_8h_source}\index{Common/BIT\_Math.h@{Common/BIT\_Math.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*************************************************************************/}\textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Sherif\ Ashraf\ Ali\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ Date\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 11\ Feb\ 2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ Project\ Name\ \_\ File\ Name\ \ \ :\ AVR\_DRIVER\ \_\ BIT\_Math.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ Version\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ V-\/01\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ GitHub\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ https://github.com/sherifkhadr\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}\textcolor{comment}{/*************************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ SERVIES\_BIT\_MATH\_H\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ SERVIES\_BIT\_MATH\_H\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ SET\_BIT(REG,BIT\_NUMBER)\ \ \ \ \ (REG\ |=\ (1<<BIT\_NUMBER))}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ GET\_BIT(REG,BIT\_NUMBER)\ \ \ \ \ ((REG>>BIT\_NUMBER)\&1)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CLEAR\_BIT(REG,BIT\_NUMBER)\ \ \ (REG\ \&=\ (\string~(1<<BIT\_NUMBER)))}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ TOGGLE\_BIT(REG,BIT\_NUMBER)\ \ (REG\ \string^=(1<<BIT\_NUMBER))}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SERVIES\_BIT\_MATH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

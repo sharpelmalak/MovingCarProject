@@ -1,0 +1,36 @@
+\hypertarget{_p_b__config_8h_source}{}\doxysection{PB\+\_\+config.\+h}
+\label{_p_b__config_8h_source}\index{ECUAL/button/PB\_config.h@{ECUAL/button/PB\_config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ PB\_config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 6\ Apr\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 20101}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ ECU\_PUSH\_BUTTON\_PB\_CONFIG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ECU\_PUSH\_BUTTON\_PB\_CONFIG\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ PUSH\_BTN\_STATE\_PRESSED\ =\ 0,}
+\DoxyCodeLine{00014\ \ \ \ \ PUSH\_BTN\_STATE\_RELEASED}
+\DoxyCodeLine{00015\ \}EN\_PUSH\_BTN\_state\_t;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ PUSH\_BTN\_PULL\_UP\ =\ 0,}
+\DoxyCodeLine{00020\ \ \ \ \ PUSH\_BTN\_PULL\_DOWN}
+\DoxyCodeLine{00021\ \}EN\_PUSH\_BTN\_active\_t;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ ST\_pin\_config\_t\ PUSH\_BTN\_pin;}
+\DoxyCodeLine{00026\ \ \ \ \ EN\_PUSH\_BTN\_state\_t\ PUSH\_BTN\_state;}
+\DoxyCodeLine{00027\ \ \ \ \ EN\_PUSH\_BTN\_active\_t\ PUSH\_BTN\_connection;}
+\DoxyCodeLine{00028\ \}\mbox{\hyperlink{struct_s_t___p_u_s_h___b_t_n__t}{ST\_PUSH\_BTN\_t}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ECU\_PUSH\_BUTTON\_PB\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

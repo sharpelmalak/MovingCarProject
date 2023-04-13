@@ -1,0 +1,218 @@
+\hypertarget{compiler_8h}{}\doxysection{src/\+ASF/mega/utils/compiler.h File Reference}
+\label{compiler_8h}\index{src/ASF/mega/utils/compiler.h@{src/ASF/mega/utils/compiler.h}}
+
+
+Commonly used includes, types and macros.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$parts.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}progmem.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{compiler_8h_ada67c62b1c57e07efa04431bc40b9238}\label{compiler_8h_ada67c62b1c57e07efa04431bc40b9238}} 
+\#define {\bfseries UNUSED}(v)~(void)(v)
+\begin{DoxyCompactList}\small\item\em Marking {\itshape v} as a unused parameter or value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a417dba7f63dde98dbebd6336d8af9d91}\label{compiler_8h_a417dba7f63dde98dbebd6336d8af9d91}} 
+\#define {\bfseries unused}(v)~do \{ (void)(v); \} while(0)
+\begin{DoxyCompactList}\small\item\em Marking {\itshape v} as a unused parameter or value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a53290ac2df2384738b8769c76622f803}\label{compiler_8h_a53290ac2df2384738b8769c76622f803}} 
+\#define {\bfseries barrier}()~asm (\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Memory barrier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a750802f18d7529218f2391850a4bc6c4}\label{compiler_8h_a750802f18d7529218f2391850a4bc6c4}} 
+\#define {\bfseries COMPILER\+\_\+\+PACK\+\_\+\+RESET}(alignment)
+\item 
+\mbox{\Hypertarget{compiler_8h_ae2c02ff865ca6538b4b1bddbf2a6876c}\label{compiler_8h_ae2c02ff865ca6538b4b1bddbf2a6876c}} 
+\#define {\bfseries COMPILER\+\_\+\+PACK\+\_\+\+SET}(alignment)
+\item 
+\#define \mbox{\hyperlink{compiler_8h_aab1e54dcc40192f9704e8b252635450f}{Assert}}(expr)~((void) 0)
+\begin{DoxyCompactList}\small\item\em This macro is used to test fatal errors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_abf2b95fa77301377cdcf79eb615551db}\label{compiler_8h_abf2b95fa77301377cdcf79eb615551db}} 
+\#define {\bfseries CMD\+\_\+\+ID\+\_\+\+OCTET}~(0)
+\item 
+\mbox{\Hypertarget{compiler_8h_a7c15ca0f3159182efc4b80a00768c2c0}\label{compiler_8h_a7c15ca0f3159182efc4b80a00768c2c0}} 
+\#define {\bfseries CPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE16}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_aa2fd4bfb7af44220ce4205e2aa371017}\label{compiler_8h_aa2fd4bfb7af44220ce4205e2aa371017}} 
+\#define {\bfseries CPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE32}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a6f1e86f452c8f327f9ca96cbf6a65c81}\label{compiler_8h_a6f1e86f452c8f327f9ca96cbf6a65c81}} 
+\#define {\bfseries CPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE64}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_aceb02fdef243c22d2559e260185fb579}\label{compiler_8h_aceb02fdef243c22d2559e260185fb579}} 
+\#define {\bfseries LE16\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a2df63369ef525ba98832132ce5a43346}\label{compiler_8h_a2df63369ef525ba98832132ce5a43346}} 
+\#define {\bfseries LE32\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_ab675071ce5a4644b205cdbc858417ccd}\label{compiler_8h_ab675071ce5a4644b205cdbc858417ccd}} 
+\#define {\bfseries LE64\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a4ac6e032d1ce0ae6d2e460da93ce8732}\label{compiler_8h_a4ac6e032d1ce0ae6d2e460da93ce8732}} 
+\#define {\bfseries CLE16\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a3ff07a7496222efe8bc7d7b7b0342b0d}\label{compiler_8h_a3ff07a7496222efe8bc7d7b7b0342b0d}} 
+\#define {\bfseries CLE32\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_acbbba93256e2d892c748d56a42f00f9b}\label{compiler_8h_acbbba93256e2d892c748d56a42f00f9b}} 
+\#define {\bfseries CLE64\+\_\+\+TO\+\_\+\+CPU\+\_\+\+ENDIAN}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a5fd2d3ed2fc9234277b659b67d33bc64}\label{compiler_8h_a5fd2d3ed2fc9234277b659b67d33bc64}} 
+\#define {\bfseries CCPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE16}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a1e3290451e5c7b98175911c9219b5123}\label{compiler_8h_a1e3290451e5c7b98175911c9219b5123}} 
+\#define {\bfseries CCPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE32}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a00483bf27ea1e8a2143c6baf22b31f16}\label{compiler_8h_a00483bf27ea1e8a2143c6baf22b31f16}} 
+\#define {\bfseries CCPU\+\_\+\+ENDIAN\+\_\+\+TO\+\_\+\+LE64}(x)~(x)
+\item 
+\mbox{\Hypertarget{compiler_8h_a85a7d71a016789b1766f9b27d0530347}\label{compiler_8h_a85a7d71a016789b1766f9b27d0530347}} 
+\#define {\bfseries MEMCPY\+\_\+\+ENDIAN}~memcpy
+\item 
+\mbox{\Hypertarget{compiler_8h_a8900e4615b7d7143a6c38e2a39087538}\label{compiler_8h_a8900e4615b7d7143a6c38e2a39087538}} 
+\#define {\bfseries PGM\+\_\+\+READ\+\_\+\+BLOCK}(dst,  src,  len)~memcpy\+\_\+P((dst), (src), (len))
+\item 
+\#define \mbox{\hyperlink{compiler_8h_adc9a009f53db3e7c3294ee6bc1027dca}{Swap16}}(u16)
+\begin{DoxyCompactList}\small\item\em Toggles the endianism of {\itshape u16} (by swapping its bytes). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{compiler_8h_a5e9bc2e3b3e43eadc3210b02cab6ac64}{Swap32}}(u32)
+\begin{DoxyCompactList}\small\item\em Toggles the endianism of {\itshape u32} (by swapping its bytes). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{compiler_8h_a33f3049d9b8374e8b93d5642bfe7f426}{Swap64}}(u64)
+\begin{DoxyCompactList}\small\item\em Toggles the endianism of {\itshape u64} (by swapping its bytes). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ MCU Endianism Handling}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{compiler_8h_abee1b74eceef5a0cf26efbf3ff87ccbf}\label{compiler_8h_abee1b74eceef5a0cf26efbf3ff87ccbf}} 
+\#define {\bfseries MSB}(u16)~(((uint8\+\_\+t$\ast$ )\&u16)\mbox{[}1\mbox{]})
+\item 
+\mbox{\Hypertarget{compiler_8h_abd2fa7b756342ae251e3a7a66670c2fe}\label{compiler_8h_abd2fa7b756342ae251e3a7a66670c2fe}} 
+\#define {\bfseries LSB}(u16)~(((uint8\+\_\+t$\ast$ )\&u16)\mbox{[}0\mbox{]})
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{compiler_8h_aa63ef7b996d5487ce35a5a66601f3e73}\label{compiler_8h_aa63ef7b996d5487ce35a5a66601f3e73}} 
+typedef uint8\+\_\+t {\bfseries U8}
+\begin{DoxyCompactList}\small\item\em 8-\/bit unsigned integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}\label{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}} 
+typedef uint16\+\_\+t {\bfseries U16}
+\begin{DoxyCompactList}\small\item\em 16-\/bit unsigned integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a696390429f2f3b644bde8d0322a24124}\label{compiler_8h_a696390429f2f3b644bde8d0322a24124}} 
+typedef uint32\+\_\+t {\bfseries U32}
+\begin{DoxyCompactList}\small\item\em 32-\/bit unsigned integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{compiler_8h_a3fdcd6d50ed798537b93448070f78171}\label{compiler_8h_a3fdcd6d50ed798537b93448070f78171}} 
+typedef unsigned long long int {\bfseries U64}
+\begin{DoxyCompactList}\small\item\em 64-\/bit unsigned integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Commonly used includes, types and macros. 
+
+Copyright (c) 2011-\/2018 Microchip Technology Inc. and its subsidiaries.
+
+\textbackslash{}asf\+\_\+license\+\_\+start 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{compiler_8h_aab1e54dcc40192f9704e8b252635450f}\label{compiler_8h_aab1e54dcc40192f9704e8b252635450f}} 
+\index{compiler.h@{compiler.h}!Assert@{Assert}}
+\index{Assert@{Assert}!compiler.h@{compiler.h}}
+\doxysubsubsection{\texorpdfstring{Assert}{Assert}}
+{\footnotesize\ttfamily \#define Assert(\begin{DoxyParamCaption}\item[{}]{expr }\end{DoxyParamCaption})~((void) 0)}
+
+
+
+This macro is used to test fatal errors. 
+
+The macro tests if the expression is false. If it is, a fatal error is detected and the application hangs up. If TEST\+\_\+\+SUITE\+\_\+\+DEFINE\+\_\+\+ASSERT\+\_\+\+MACRO is defined, a unit test version of the macro is used, to allow execution of further tests after a false expression.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expr} & Expression to evaluate and supposed to be nonzero. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{compiler_8h_adc9a009f53db3e7c3294ee6bc1027dca}\label{compiler_8h_adc9a009f53db3e7c3294ee6bc1027dca}} 
+\index{compiler.h@{compiler.h}!Swap16@{Swap16}}
+\index{Swap16@{Swap16}!compiler.h@{compiler.h}}
+\doxysubsubsection{\texorpdfstring{Swap16}{Swap16}}
+{\footnotesize\ttfamily \#define Swap16(\begin{DoxyParamCaption}\item[{}]{u16 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}{U16}})(((\mbox{\hyperlink{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}{U16}})(u16)\ >>\ 8)\ |\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a0a0a322d5fa4a546d293a77ba8b4a71f}{U16}})(u16)\ <<\ 8)))}
+
+\end{DoxyCode}
+
+
+Toggles the endianism of {\itshape u16} (by swapping its bytes). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u16} & U16 of which to toggle the endianism.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value resulting from {\itshape u16} with toggled endianism.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+More optimized if only used with values known at compile time. 
+\end{DoxyNote}
+\mbox{\Hypertarget{compiler_8h_a5e9bc2e3b3e43eadc3210b02cab6ac64}\label{compiler_8h_a5e9bc2e3b3e43eadc3210b02cab6ac64}} 
+\index{compiler.h@{compiler.h}!Swap32@{Swap32}}
+\index{Swap32@{Swap32}!compiler.h@{compiler.h}}
+\doxysubsubsection{\texorpdfstring{Swap32}{Swap32}}
+{\footnotesize\ttfamily \#define Swap32(\begin{DoxyParamCaption}\item[{}]{u32 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}})(((\mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}})\mbox{\hyperlink{compiler_8h_adc9a009f53db3e7c3294ee6bc1027dca}{Swap16}}((\mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}})(u32)\ >>\ 16))\ |\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}})\mbox{\hyperlink{compiler_8h_adc9a009f53db3e7c3294ee6bc1027dca}{Swap16}}((\mbox{\hyperlink{compiler_8h_a696390429f2f3b644bde8d0322a24124}{U32}})(u32))\ <<\ 16)))}
+
+\end{DoxyCode}
+
+
+Toggles the endianism of {\itshape u32} (by swapping its bytes). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u32} & U32 of which to toggle the endianism.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value resulting from {\itshape u32} with toggled endianism.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+More optimized if only used with values known at compile time. 
+\end{DoxyNote}
+\mbox{\Hypertarget{compiler_8h_a33f3049d9b8374e8b93d5642bfe7f426}\label{compiler_8h_a33f3049d9b8374e8b93d5642bfe7f426}} 
+\index{compiler.h@{compiler.h}!Swap64@{Swap64}}
+\index{Swap64@{Swap64}!compiler.h@{compiler.h}}
+\doxysubsubsection{\texorpdfstring{Swap64}{Swap64}}
+{\footnotesize\ttfamily \#define Swap64(\begin{DoxyParamCaption}\item[{}]{u64 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}})(((\mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}})\mbox{\hyperlink{compiler_8h_a5e9bc2e3b3e43eadc3210b02cab6ac64}{Swap32}}((\mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}})(u64)\ >>\ 32))\ |\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}})\mbox{\hyperlink{compiler_8h_a5e9bc2e3b3e43eadc3210b02cab6ac64}{Swap32}}((\mbox{\hyperlink{compiler_8h_a3fdcd6d50ed798537b93448070f78171}{U64}})(u64))\ <<\ 32)))}
+
+\end{DoxyCode}
+
+
+Toggles the endianism of {\itshape u64} (by swapping its bytes). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u64} & U64 of which to toggle the endianism.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value resulting from {\itshape u64} with toggled endianism.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+More optimized if only used with values known at compile time. 
+\end{DoxyNote}

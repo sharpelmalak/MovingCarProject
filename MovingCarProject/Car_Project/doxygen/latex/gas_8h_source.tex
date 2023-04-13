@@ -1,0 +1,89 @@
+\hypertarget{gas_8h_source}{}\doxysection{gas.\+h}
+\label{gas_8h_source}\index{src/ASF/mega/utils/assembler/gas.h@{src/ASF/mega/utils/assembler/gas.h}}
+\mbox{\hyperlink{gas_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ ASSEMBLER\_GAS\_H\_INCLUDED}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ ASSEMBLER\_GAS\_H\_INCLUDED}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{/*\ IAR\ doesn't\ accept\ dots\ in\ macro\ names\ */}}
+\DoxyCodeLine{00042\ \ \ \ \ .macro\ \ ld\_addr,\ reg,\ sym}
+\DoxyCodeLine{00043\ \ \ \ \ lda.w\ \ \ \(\backslash\)reg,\ \(\backslash\)sym}
+\DoxyCodeLine{00044\ \ \ \ \ .endm}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{/*\ Define\ a\ function\ \(\backslash\)a\ name\ that\ is\ either\ globally\ visible\ or\ only}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ *\ file-\/local.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00049\ \ \ \ \ .macro\ gas\_begin\_func\ name,\ is\_public}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ .if\ \(\backslash\)is\_public}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ .global\ \(\backslash\)name}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ .endif}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ .section\ .text.\(\backslash\)name,\ \textcolor{stringliteral}{"{}ax"{}},\ @progbits}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ .type\ \(\backslash\)name,\ @function}
+\DoxyCodeLine{00055\ \ \ \ \ \(\backslash\)name\ :}
+\DoxyCodeLine{00056\ \ \ \ \ .endm}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{/*\ Define\ a\ function\ \(\backslash\)a\ name\ that\ is\ either\ globally\ visible\ or\ only}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ \ \ *\ file-\/local\ in\ a\ given\ segment.}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00061\ \ \ \ \ .macro\ gas\_begin\_func\_segm\ name,\ is\_public,\ segment}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ .if\ \(\backslash\)is\_public}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ .global\ \(\backslash\)name}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ .endif}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ .section\ .\(\backslash\)segment,\ \textcolor{stringliteral}{"{}ax"{}},\ @progbits}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ .type\ \(\backslash\)name,\ @function}
+\DoxyCodeLine{00067\ \ \ \ \ \(\backslash\)name\ :}
+\DoxyCodeLine{00068\ \ \ \ \ .endm}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*\ Define\ \(\backslash\)a\ name\ as\ a\ weak\ alias\ for\ the\ function\ \(\backslash\)a\ strong\_name\ */}}
+\DoxyCodeLine{00071\ \ \ \ \ .macro\ gas\_weak\_function\_alias\ name,\ strong\_name}
+\DoxyCodeLine{00072\ \ \ \ \ .global\ \(\backslash\)name}
+\DoxyCodeLine{00073\ \ \ \ \ .weak\ \ \ \(\backslash\)name}
+\DoxyCodeLine{00074\ \ \ \ \ .type\ \ \ \(\backslash\)name,\ @function}
+\DoxyCodeLine{00075\ \ \ \ \ .set\ \ \ \ \(\backslash\)name,\ \(\backslash\)strong\_name}
+\DoxyCodeLine{00076\ \ \ \ \ .endm}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{/*\ Define\ a\ weak\ function\ called\ \(\backslash\)a\ name\ */}}
+\DoxyCodeLine{00079\ \ \ \ \ .macro\ gas\_weak\_function\ name}
+\DoxyCodeLine{00080\ \ \ \ \ .weak\ \ \ \(\backslash\)name}
+\DoxyCodeLine{00081\ \ \ \ \ gas\_begin\_func\ \(\backslash\)name\ 1}
+\DoxyCodeLine{00082\ \ \ \ \ .endm}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ REPEAT(count)\ \ \ \ \ \ \ \ \ \ \ .rept\ \ \ count}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ END\_REPEAT()\ \ \ \ \ \ \ \ \ \ \ \ .endr}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ FILL\_BYTES(count)\ \ \ \ \ \ \ .fill\ \ \ count}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ SET\_LOC(offset)\ \ \ \ \ \ \ \ \ .org\ \ \ \ offset}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ L(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .L\#\#name}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ EXTERN\_SYMBOL(name)}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ TEXT\_SECTION(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ .section\ name,\ "{}ax"{}},\ @progbits}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ RODATA\_SECTION(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ .section\ name,\ "{}a"{}},\ @progbits}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ DATA\_SECTION(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ .section\ name,\ "{}aw"{}},\ @progbits}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ BSS\_SECTION(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ .section\ name,\ "{}aw"{}},\ @nobits}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ FUNCTION(name)\ gas\_begin\_func\ name\ 0}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ PUBLIC\_FUNCTION(name)\ \ \ gas\_begin\_func\ name\ 1}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ PUBLIC\_FUNCTION\_SEGMENT(name,\ segment)\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ gas\_begin\_func\_segm\ name\ 1\ segment}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ WEAK\_FUNCTION(name)\ gas\_weak\_function\ name}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ WEAK\_FUNCTION\_ALIAS(name,\ strong\_name)\ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ gas\_weak\_function\_alias\ name\ strong\_name}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ END\_FUNC(name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ .size\ \ \ name,\ .\ -\/\ name}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ END\_FILE()}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_DOXYGEN\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ASSEMBLER\_GAS\_H\_INCLUDED\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

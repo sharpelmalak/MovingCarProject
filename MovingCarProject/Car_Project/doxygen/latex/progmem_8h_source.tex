@@ -1,0 +1,48 @@
+\hypertarget{progmem_8h_source}{}\doxysection{progmem.\+h}
+\label{progmem_8h_source}\index{src/ASF/mega/utils/progmem.h@{src/ASF/mega/utils/progmem.h}}
+\mbox{\hyperlink{progmem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ UTILS\_PROGMEM\_H}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ UTILS\_PROGMEM\_H}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_DOXYGEN\_\_)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#\ include\ <avr/pgmspace.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_LOCATION(type,\ name,\ loc)\ \(\backslash\)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ type\ name\ \_\_attribute\_\_((section\ (\#loc)))}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_DECLARE(type,\ name)\ const\ type\ name\ \_\_attribute\_\_((\_\_progmem\_\_))}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_STRING(x)\ PSTR(x)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_STRING\_T\ \ PGM\_P}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_T\ const}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_PTR\_T\ const\ *}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_BYTE\_ARRAY\_T\ uint8\_t*}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_WORD\_ARRAY\_T\ uint16\_t*}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_READ\_BYTE(x)\ pgm\_read\_byte(x)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_READ\_WORD(x)\ pgm\_read\_word(x)}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#elif\ defined(\_\_ICCAVR\_\_)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#\ include\ <pgmspace.h>}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#\ ifndef\ \_\_HAS\_ELPM\_\_}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#\ \ define\ \_MEMATTR\_ASF\ \ \_\_flash}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#\ else\ }\textcolor{comment}{/*\ \_\_HAS\_ELPM\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#\ \ define\ \_MEMATTR\_ASF\ \ \_\_hugeflash}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#\ endif\ }\textcolor{comment}{/*\ \_\_HAS\_ELPM\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_LOCATION(type,\ name,\ loc)\ const\ \_MEMATTR\_ASF\ type\ name\ @\ loc}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_DECLARE(type,\ name)\ \_MEMATTR\_ASF\ type\ name}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_STRING(x)\ ((\_MEMATTR\_ASF\ const\ char\ *)(x))}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_STRING\_T\ \ char\ const\ \_MEMATTR\_ASF\ *}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_T\ const\ \_MEMATTR\_ASF}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_PTR\_T\ const\ \_MEMATTR\_ASF\ *}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_BYTE\_ARRAY\_T\ uint8\_t\ const\ \_MEMATTR\_ASF\ *}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_WORD\_ARRAY\_T\ uint16\_t\ const\ \_MEMATTR\_ASF\ *}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_READ\_BYTE(x)\ *(x)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#\ define\ PROGMEM\_READ\_WORD(x)\ *(x)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UTILS\_PROGMEM\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

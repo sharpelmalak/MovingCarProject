@@ -1,0 +1,76 @@
+\hypertarget{group__interrupt__group}{}\doxysection{Global interrupt management}
+\label{group__interrupt__group}\index{Global interrupt management@{Global interrupt management}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__interrupt__deprecated__group}{Deprecated interrupt definitions}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__interrupt__group_gaef9ee27676f002a54355685968b07da5}{ISR}}(INT\+\_\+\+VECT)
+\begin{DoxyCompactList}\small\item\em Define service routine for specified interrupt vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Global interrupt flags}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}\label{group__interrupt__group_ga9aa1f52defc97531b6343233abeea613}} 
+typedef uint8\+\_\+t {\bfseries irqflags\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Type used for holding state of interrupt flag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__interrupt__group_gae4922a4bd8ba4150211fbc7f2302403c}\label{group__interrupt__group_gae4922a4bd8ba4150211fbc7f2302403c}} 
+\#define {\bfseries cpu\+\_\+irq\+\_\+enable}()~\+\_\+\+\_\+enable\+\_\+interrupt()
+\begin{DoxyCompactList}\small\item\em Enable interrupts globally. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__interrupt__group_ga7b77391ed86e2e027f9ee1dd99a06980}\label{group__interrupt__group_ga7b77391ed86e2e027f9ee1dd99a06980}} 
+\#define {\bfseries cpu\+\_\+irq\+\_\+disable}()~\+\_\+\+\_\+disable\+\_\+interrupt()
+\begin{DoxyCompactList}\small\item\em Disable interrupts globally. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__interrupt__group_gae1545a2473614564550b9c4015c94978}{cpu\+\_\+irq\+\_\+is\+\_\+enabled}}()~cpu\+\_\+irq\+\_\+is\+\_\+enabled\+\_\+flags(SREG)
+\begin{DoxyCompactList}\small\item\em Check if interrupts are globally enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a driver for global enabling and disabling of interrupts. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__interrupt__group_gae1545a2473614564550b9c4015c94978}\label{group__interrupt__group_gae1545a2473614564550b9c4015c94978}} 
+\index{Global interrupt management@{Global interrupt management}!cpu\_irq\_is\_enabled@{cpu\_irq\_is\_enabled}}
+\index{cpu\_irq\_is\_enabled@{cpu\_irq\_is\_enabled}!Global interrupt management@{Global interrupt management}}
+\doxysubsubsection{\texorpdfstring{cpu\_irq\_is\_enabled}{cpu\_irq\_is\_enabled}}
+{\footnotesize\ttfamily \#define cpu\+\_\+irq\+\_\+is\+\_\+enabled(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~cpu\+\_\+irq\+\_\+is\+\_\+enabled\+\_\+flags(SREG)}
+
+
+
+Check if interrupts are globally enabled. 
+
+\begin{DoxyReturn}{Returns}
+True if interrupts are enabled. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__interrupt__group_gaef9ee27676f002a54355685968b07da5}\label{group__interrupt__group_gaef9ee27676f002a54355685968b07da5}} 
+\index{Global interrupt management@{Global interrupt management}!ISR@{ISR}}
+\index{ISR@{ISR}!Global interrupt management@{Global interrupt management}}
+\doxysubsubsection{\texorpdfstring{ISR}{ISR}}
+{\footnotesize\ttfamily \#define ISR(\begin{DoxyParamCaption}\item[{}]{INT\+\_\+\+VECT }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ INT\_VECT(\textcolor{keywordtype}{void})\ \_\_attribute\_\_((signal,used));\(\backslash\)}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ INT\_VECT(\textcolor{keywordtype}{void})}
+
+\end{DoxyCode}
+
+
+Define service routine for specified interrupt vector. 
+
+Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__interrupt__group_gaef9ee27676f002a54355685968b07da5}{ISR}}(FOO\_vect)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vect} & Interrupt vector name as found in the device header files. \\
+\hline
+\end{DoxyParams}

@@ -6,6 +6,8 @@ APP\app.c
 
 ECUAL\button\pb_prog.c
 
+ECUAL\htimer0\htimer0.c
+
 ECUAL\led\led_prog.c
 
 ECUAL\motor\motor.c

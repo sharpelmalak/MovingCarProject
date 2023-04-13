@@ -1,0 +1,132 @@
+\hypertarget{status__codes_8h}{}\doxysection{src/\+ASF/mega/utils/status\+\_\+codes.h File Reference}
+\label{status__codes_8h}\index{src/ASF/mega/utils/status\_codes.h@{src/ASF/mega/utils/status\_codes.h}}
+
+
+Status code definitions.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{status__codes_8h_a1f12e07903f974729de22ebe2f52273e}\label{status__codes_8h_a1f12e07903f974729de22ebe2f52273e}} 
+typedef enum \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}{status\+\_\+code}} {\bfseries status\+\_\+code\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}{status\+\_\+code}} \{ \newline
+\mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7e4a42e3b6dd63708c64cf3db6f69566}{STATUS\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a0162f46cd42e6d3332b79c7284bcfcde}{ERR\+\_\+\+IO\+\_\+\+ERROR}} = -\/1
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9d415cac501d1e51b419985ef8644e7f}{ERR\+\_\+\+FLUSHED}} = -\/2
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ac568baeb6407ef5e2630084ccbc34be8}{ERR\+\_\+\+TIMEOUT}} = -\/3
+, \newline
+\mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7aee3b5c2b62ef9de286635fc4d0ed44}{ERR\+\_\+\+BAD\+\_\+\+DATA}} = -\/4
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ace90946755daec754646e5f528ce1dcf}{ERR\+\_\+\+PROTOCOL}} = -\/5
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab83b44cb6a1972de125f0f2efd45260e}{ERR\+\_\+\+UNSUPPORTED\+\_\+\+DEV}} = -\/6
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a308199736159a4f167ad4f58db8a3830}{ERR\+\_\+\+NO\+\_\+\+MEMORY}} = -\/7
+, \newline
+\mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a70aa759d292a0e4be7123d01959357da}{ERR\+\_\+\+INVALID\+\_\+\+ARG}} = -\/8
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab7f7c844a2381a5b981a5e3d4a13ee17}{ERR\+\_\+\+BAD\+\_\+\+ADDRESS}} = -\/9
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a8d4f409eda53a10f049dc6d5a833ccba}{ERR\+\_\+\+BUSY}} = -\/10
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151aacb8e19f1a844f9dcef8448afaddc01f}{ERR\+\_\+\+BAD\+\_\+\+FORMAT}} = -\/11
+, \newline
+\mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a6d0a40d6d1356ffebe4fc22ec41b267f}{ERR\+\_\+\+NO\+\_\+\+TIMER}} = -\/12
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151affb72bf05bbe079b38c284796cf3e746}{ERR\+\_\+\+TIMER\+\_\+\+ALREADY\+\_\+\+RUNNING}} = -\/13
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a2119391dfc2668780bfd41a25426c32d}{ERR\+\_\+\+TIMER\+\_\+\+NOT\+\_\+\+RUNNING}} = -\/14
+, \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9b25aed7ac4ef4fc3c7250543bb113c0}{OPERATION\+\_\+\+IN\+\_\+\+PROGRESS}} = -\/128
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Status code definitions. 
+
+This file defines various status codes returned by functions, indicating success or failure as well as what kind of failure.
+
+Copyright (c) 2009-\/2018 Microchip Technology Inc. and its subsidiaries.
+
+\textbackslash{}asf\+\_\+license\+\_\+start 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}} 
+\index{status\_codes.h@{status\_codes.h}!status\_code@{status\_code}}
+\index{status\_code@{status\_code}!status\_codes.h@{status\_codes.h}}
+\doxysubsubsection{\texorpdfstring{status\_code}{status\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}{status\+\_\+code}}}
+
+Status code that may be returned by shell commands and protocol implementations.
+
+\begin{DoxyNote}{Note}
+Any change to these status codes and the corresponding message strings is strictly forbidden. New codes can be added, however, but make sure that any message string tables are updated at the same time. 
+\end{DoxyNote}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_OK@{STATUS\_OK}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!STATUS\_OK@{STATUS\_OK}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7e4a42e3b6dd63708c64cf3db6f69566}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7e4a42e3b6dd63708c64cf3db6f69566}} 
+STATUS\+\_\+\+OK&Success. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_IO\_ERROR@{ERR\_IO\_ERROR}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_IO\_ERROR@{ERR\_IO\_ERROR}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a0162f46cd42e6d3332b79c7284bcfcde}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a0162f46cd42e6d3332b79c7284bcfcde}} 
+ERR\+\_\+\+IO\+\_\+\+ERROR&I/O error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_FLUSHED@{ERR\_FLUSHED}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_FLUSHED@{ERR\_FLUSHED}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9d415cac501d1e51b419985ef8644e7f}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9d415cac501d1e51b419985ef8644e7f}} 
+ERR\+\_\+\+FLUSHED&Request flushed from queue. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_TIMEOUT@{ERR\_TIMEOUT}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_TIMEOUT@{ERR\_TIMEOUT}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ac568baeb6407ef5e2630084ccbc34be8}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ac568baeb6407ef5e2630084ccbc34be8}} 
+ERR\+\_\+\+TIMEOUT&Operation timed out. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_BAD\_DATA@{ERR\_BAD\_DATA}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_BAD\_DATA@{ERR\_BAD\_DATA}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7aee3b5c2b62ef9de286635fc4d0ed44}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7aee3b5c2b62ef9de286635fc4d0ed44}} 
+ERR\+\_\+\+BAD\+\_\+\+DATA&Data integrity check failed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_PROTOCOL@{ERR\_PROTOCOL}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_PROTOCOL@{ERR\_PROTOCOL}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ace90946755daec754646e5f528ce1dcf}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ace90946755daec754646e5f528ce1dcf}} 
+ERR\+\_\+\+PROTOCOL&Protocol error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_UNSUPPORTED\_DEV@{ERR\_UNSUPPORTED\_DEV}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_UNSUPPORTED\_DEV@{ERR\_UNSUPPORTED\_DEV}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab83b44cb6a1972de125f0f2efd45260e}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab83b44cb6a1972de125f0f2efd45260e}} 
+ERR\+\_\+\+UNSUPPORTED\+\_\+\+DEV&Unsupported device. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_NO\_MEMORY@{ERR\_NO\_MEMORY}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_NO\_MEMORY@{ERR\_NO\_MEMORY}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a308199736159a4f167ad4f58db8a3830}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a308199736159a4f167ad4f58db8a3830}} 
+ERR\+\_\+\+NO\+\_\+\+MEMORY&Insufficient memory. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_INVALID\_ARG@{ERR\_INVALID\_ARG}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_INVALID\_ARG@{ERR\_INVALID\_ARG}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a70aa759d292a0e4be7123d01959357da}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a70aa759d292a0e4be7123d01959357da}} 
+ERR\+\_\+\+INVALID\+\_\+\+ARG&Invalid argument. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_BAD\_ADDRESS@{ERR\_BAD\_ADDRESS}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_BAD\_ADDRESS@{ERR\_BAD\_ADDRESS}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab7f7c844a2381a5b981a5e3d4a13ee17}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab7f7c844a2381a5b981a5e3d4a13ee17}} 
+ERR\+\_\+\+BAD\+\_\+\+ADDRESS&Bad address. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_BUSY@{ERR\_BUSY}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_BUSY@{ERR\_BUSY}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a8d4f409eda53a10f049dc6d5a833ccba}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a8d4f409eda53a10f049dc6d5a833ccba}} 
+ERR\+\_\+\+BUSY&Resource is busy. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_BAD\_FORMAT@{ERR\_BAD\_FORMAT}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_BAD\_FORMAT@{ERR\_BAD\_FORMAT}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151aacb8e19f1a844f9dcef8448afaddc01f}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151aacb8e19f1a844f9dcef8448afaddc01f}} 
+ERR\+\_\+\+BAD\+\_\+\+FORMAT&Data format not recognized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_NO\_TIMER@{ERR\_NO\_TIMER}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_NO\_TIMER@{ERR\_NO\_TIMER}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a6d0a40d6d1356ffebe4fc22ec41b267f}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a6d0a40d6d1356ffebe4fc22ec41b267f}} 
+ERR\+\_\+\+NO\+\_\+\+TIMER&No timer available. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_TIMER\_ALREADY\_RUNNING@{ERR\_TIMER\_ALREADY\_RUNNING}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_TIMER\_ALREADY\_RUNNING@{ERR\_TIMER\_ALREADY\_RUNNING}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151affb72bf05bbe079b38c284796cf3e746}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151affb72bf05bbe079b38c284796cf3e746}} 
+ERR\+\_\+\+TIMER\+\_\+\+ALREADY\+\_\+\+RUNNING&Timer already running. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERR\_TIMER\_NOT\_RUNNING@{ERR\_TIMER\_NOT\_RUNNING}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!ERR\_TIMER\_NOT\_RUNNING@{ERR\_TIMER\_NOT\_RUNNING}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a2119391dfc2668780bfd41a25426c32d}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a2119391dfc2668780bfd41a25426c32d}} 
+ERR\+\_\+\+TIMER\+\_\+\+NOT\+\_\+\+RUNNING&Timer not running. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPERATION\_IN\_PROGRESS@{OPERATION\_IN\_PROGRESS}!status\_codes.h@{status\_codes.h}}\index{status\_codes.h@{status\_codes.h}!OPERATION\_IN\_PROGRESS@{OPERATION\_IN\_PROGRESS}}}\mbox{\Hypertarget{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9b25aed7ac4ef4fc3c7250543bb113c0}\label{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9b25aed7ac4ef4fc3c7250543bb113c0}} 
+OPERATION\+\_\+\+IN\+\_\+\+PROGRESS&Operation in progress. This status code is for driver-\/internal use when an operation is currently being performed.
+
+\begin{DoxyNote}{Note}
+Drivers should never return this status code to any callers. It is strictly for internal use. 
+\end{DoxyNote}
+\\
+\hline
+
+\end{DoxyEnumFields}

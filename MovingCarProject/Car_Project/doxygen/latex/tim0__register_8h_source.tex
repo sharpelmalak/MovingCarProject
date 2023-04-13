@@ -1,0 +1,36 @@
+\hypertarget{tim0__register_8h_source}{}\doxysection{tim0\+\_\+register.\+h}
+\label{tim0__register_8h_source}\index{MCAL/timer0/tim0\_register.h@{MCAL/timer0/tim0\_register.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TIM\_REGISTER\_H\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TIM\_REGISTER\_H\_}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*******************\ Timer\ 0\ ***********************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \ TCNT0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *((volatile\ Uchar8\_t*)0x52)\ \ \ }}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ \ TCCR0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *((volatile\ Uchar8\_t*)0x53)\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Timer/Counter\ Control\ Register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \ TCCR0\_WGM00\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Waveform\ generation\ mode\ bit\ 0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \ TCCR0\_WGM01\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Waveform\ generation\ mode\ bit\ 1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \ TCCR0\_CS02\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ prescaler\ bit\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \ TCCR0\_CS01\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \ TCCR0\_CS00\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ \ OCR0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *((volatile\ Uchar8\_t*)0x5c)\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Output\ compare\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ \ TIFR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *((volatile\ Uchar8\_t*)0x58)\ \ \ }}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \ TIFR\_TOV0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \ TIMSK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *((volatile\ Uchar8\_t*)0x59)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \ TIMSK\_TOIE0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \ TIMSK\_OCIE0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Output\ compare\ 0\ interrupt\ enable\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \ TIMSK\_TOIE1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ \ TIMSK\_OCIE1B\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ \ TIMSK\_OCIE1A\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ \ TIMSK\_TICIE1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ input\ capture\ interrupt\ enable\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ \ TIMSK\_TOIE2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ \ TIMSK\_OCIE2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM\_REGISTER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

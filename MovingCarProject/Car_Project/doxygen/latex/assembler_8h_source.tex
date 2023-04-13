@@ -1,0 +1,40 @@
+\hypertarget{assembler_8h_source}{}\doxysection{assembler.\+h}
+\label{assembler_8h_source}\index{src/ASF/mega/utils/assembler.h@{src/ASF/mega/utils/assembler.h}}
+\mbox{\hyperlink{assembler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ ASSEMBLER\_H\_INCLUDED}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ ASSEMBLER\_H\_INCLUDED}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#if\ !defined(\_\_ASSEMBLER\_\_)\ \&\&\ !defined(\_\_IAR\_SYSTEMS\_ASM\_\_)\ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \&\&\ !defined(\_\_DOXYGEN\_\_)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#\ error\ This\ file\ may\ only\ be\ included\ from\ assembly\ files}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#if\ defined(\_\_ASSEMBLER\_\_)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#\ include\ "{}\mbox{\hyperlink{gas_8h}{assembler/gas.h}}"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#\ include\ <avr/io.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#elif\ defined(\_\_IAR\_SYSTEMS\_ASM\_\_)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#\ include\ "{}assembler/iar.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#\ include\ <ioavr.h>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ASSEMBLER\_H\_INCLUDED\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

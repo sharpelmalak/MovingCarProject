@@ -1,0 +1,23 @@
+\hypertarget{pwm__config_8h_source}{}\doxysection{pwm\+\_\+config.\+h}
+\label{pwm__config_8h_source}\index{MCAL/pwm\_normal\_mode/pwm\_config.h@{MCAL/pwm\_normal\_mode/pwm\_config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ pwm\_config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Created:\ 13/04/2023\ 01:01:55}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ 20101}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ PWM\_CONFIG\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ PWM\_CONFIG\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TCCR2\ \ (*(volatile\ Uchar8\_t*)(0x45))}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ TCNT2\ \ (*(volatile\ Uchar8\_t*)(0x44))}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TIMSK\ \ (*(volatile\ Uchar8\_t*)(0x59))}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ SREG\ \ \ (*(volatile\ Uchar8\_t*)(0x5F))}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

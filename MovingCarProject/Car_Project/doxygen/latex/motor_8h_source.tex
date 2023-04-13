@@ -1,0 +1,62 @@
+\hypertarget{motor_8h_source}{}\doxysection{motor.\+h}
+\label{motor_8h_source}\index{ECUAL/motor/motor.h@{ECUAL/motor/motor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ motor.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Created:\ 4/10/2023\ 4:13:09\ PM}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ Alaa\ Hisham}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MOTOR\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MOTOR\_1L\_PORT\ \ \ \ \ \ \ \ \ \ \ DIO\_PORT\_A}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MOTOR\_1L\_PIN1\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_0}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MOTOR\_1L\_PIN2\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_1}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MOTOR\_2L\_PORT\ \ \ \ \ \ \ \ \ \ \ DIO\_PORT\_A}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MOTOR\_2L\_PIN1\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_2}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MOTOR\_2L\_PIN2\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_3}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MOTOR\_1R\_PORT\ \ \ \ \ \ \ \ \ \ \ DIO\_PORT\_B}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MOTOR\_1R\_PIN1\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_0}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MOTOR\_1R\_PIN2\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_1}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ MOTOR\_2R\_PORT\ \ \ \ \ \ \ \ \ \ \ DIO\_PORT\_B}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MOTOR\_2R\_PIN1\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_2}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MOTOR\_2R\_PIN2\ \ \ \ \ \ \ \ \ \ \ DIO\_PIN\_3}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ MOTOR\_CW,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clock-\/Wise}}
+\DoxyCodeLine{00031\ \ \ \ \ MOTOR\_CCW\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Counter\ Clock-\/Wise}}
+\DoxyCodeLine{00032\ \}en\_MotorDirection\_t;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_s_t__pin__config__t}{ST\_pin\_config\_t}}*\ Pin1;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_s_t__pin__config__t}{ST\_pin\_config\_t}}*\ Pin2;}
+\DoxyCodeLine{00038\ \ \ \ \ en\_MotorDirection\_t\ Dir;}
+\DoxyCodeLine{00039\ \}\mbox{\hyperlink{structst___motor__t}{st\_Motor\_t}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ MOTOR\_OK,}
+\DoxyCodeLine{00044\ \ \ \ \ MOTOR\_ERROR\ }
+\DoxyCodeLine{00045\ \}en\_MotorError\_t;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*========================\ Function\ Prototypes\ ========================*/}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00056\ en\_MotorError\_t\ DCM\_Init(\mbox{\hyperlink{structst___motor__t}{st\_Motor\_t}}\ *pst\_a\_Motor);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00065\ en\_MotorError\_t\ DCM\_Start(\mbox{\hyperlink{structst___motor__t}{st\_Motor\_t}}\ *pst\_a\_Motor);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ en\_MotorError\_t\ DCM\_Stop(\mbox{\hyperlink{structst___motor__t}{st\_Motor\_t}}\ *pst\_a\_Motor);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MOTOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

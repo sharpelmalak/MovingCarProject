@@ -1,0 +1,66 @@
+\hypertarget{tim0__interface_8h_source}{}\doxysection{tim0\+\_\+interface.\+h}
+\label{tim0__interface_8h_source}\index{MCAL/timer0/tim0\_interface.h@{MCAL/timer0/tim0\_interface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TIM\_INTERFACE\_H\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TIM\_INTERFACE\_H\_}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ TIM\_OK,}
+\DoxyCodeLine{00009\ \ \ \ \ TIM\_NOK}
+\DoxyCodeLine{00010\ \}en\_TIMErrorState\_t;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ TIM0\_STOPPED,}
+\DoxyCodeLine{00015\ \ \ \ \ TIM0\_RUNNING}
+\DoxyCodeLine{00016\ \}en\_TIMState\_t;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ NormalMode,}
+\DoxyCodeLine{00021\ \ \ \ \ PWM\_Mode,}
+\DoxyCodeLine{00022\ \ \ \ \ CTC\_Mode,}
+\DoxyCodeLine{00023\ \ \ \ \ FastPWM\_Mode}
+\DoxyCodeLine{00024\ \}en\_TIMMode\_t;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ TIM\_NO\_CLOCK\ \ \ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00029\ \ \ \ \ TIM\_DIV\_BY\_1\ \ \ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00030\ \ \ \ \ TIM\_DIV\_BY\_8\ \ \ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00031\ \ \ \ \ TIM\_DIV\_BY\_64\ \ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00032\ \ \ \ \ TIM\_DIV\_BY\_256\ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00033\ \ \ \ \ TIM\_DIV\_BY\_1024\ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00034\ \ \ \ \ TIM\_EXTERNAL\_FALLING\_EDGE,}
+\DoxyCodeLine{00035\ \ \ \ \ TIM\_EXTERNAL\_RISING\_EDGE}
+\DoxyCodeLine{00036\ \}en\_TIM\_CLK\_SELECT\_t;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ Asynchronous\ Delay\ Function\ States\ */}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ \ DELAY\_BUSY\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ \ DELAY\_IDLE\ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*===========================\ Function\ Prototypes\ ===========================*/}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ en\_TIMErrorState\_t\ TIM0\_voidInit(en\_TIMMode\_t\ u8\_a\_Mode);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ en\_TIMErrorState\_t\ TIM0\_Start(en\_TIM\_CLK\_SELECT\_t\ u8\_a\_prescaler);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ TIM0\_Stop();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ TIM0\_SetValue(Uchar8\_t\ u8\_a\_startValue);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ en\_TIMErrorState\_t\ TIM0\_GetOVF(Uchar8\_t*\ u8\_a\_FlagValue);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ TIM0\_ClearOVF(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00101\ en\_TIMErrorState\_t\ TIM0\_GetState(en\_TIMState\_t*\ u8\_a\_State);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00110\ en\_TIMErrorState\_t\ TIM0\_SetOVFCallback(\textcolor{keywordtype}{void}\ (*pv\_a\_CallbackFn)(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

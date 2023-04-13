@@ -1,0 +1,1319 @@
+\hypertarget{parts_8h_source}{}\doxysection{parts.\+h}
+\label{parts_8h_source}\index{src/ASF/common/utils/parts.h@{src/ASF/common/utils/parts.h}}
+\mbox{\hyperlink{parts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ ATMEL\_PARTS\_H}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ ATMEL\_PARTS\_H}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ !\ Check\ GCC\ and\ IAR\ part\ definition\ for\ 8-\/bit\ AVR\ */}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ AVR8\_PART\_IS\_DEFINED(part)\ \(\backslash\)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ (defined(\_\_\ \#\#\ part\ \#\#\ \_\_)\ ||\ defined(\_\_AVR\_\ \#\#\ part\ \#\#\ \_\_))}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*\ !\ Check\ GCC\ and\ IAR\ part\ definition\ for\ 32-\/bit\ AVR\ */}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ AVR32\_PART\_IS\_DEFINED(part)\ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ (defined(\_\_AT32\ \#\#\ part\ \#\#\ \_\_)\ ||\ defined(\_\_AVR32\_\ \#\#\ part\ \#\#\ \_\_))}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ !\ Check\ GCC\ and\ IAR\ part\ definition\ for\ SAM\ */}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ SAM\_PART\_IS\_DEFINED(part)\ (defined(\_\_\ \#\#\ part\ \#\#\ \_\_))}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ UC3A0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A0128)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A0256)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A0512)\ \(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ UC3A1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A1128)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A1256)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A1512)\ \(\backslash\)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ UC3A3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A364)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A364S)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A3128)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A3128S)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A3256)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A3256S)\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ UC3A4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A464)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A464S)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A4128)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A4128S)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A4256)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3A4256S)\ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ UC3B0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B064)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B0128)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B0256)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B0512)\ \(\backslash\)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ UC3B1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B164)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B1128)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B1256)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3B1512)\ \(\backslash\)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ UC3C0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C064C)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C0128C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C0256C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C0512C)\ \(\backslash\)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ UC3C1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C164C)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C1128C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C1256C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C1512C)\ \(\backslash\)}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ UC3C2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C264C)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C2128C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C2256C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3C2512C)\ \(\backslash\)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ UC3D3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC64D3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC128D3)\ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ UC3D4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC64D4)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC128D4)\ \(\backslash\)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ UC3L0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3L016)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3L032)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3L064)\ \(\backslash\)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ UC3L0128\ (\ \(\backslash\)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3L0128)\ \(\backslash\)}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ UC3L0256\ (\ \(\backslash\)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC3L0256)\ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ UC3L3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC64L3U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC128L3U)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC256L3U)\ \(\backslash\)}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ UC3L4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC64L4U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC128L4U)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR32\_PART\_IS\_DEFINED(UC256L4U)\ \(\backslash\)}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ UC3L3\_L4\ (UC3L3\ ||\ UC3L4)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ UC3A\ (UC3A0\ ||\ UC3A1\ ||\ UC3A3\ ||\ UC3A4)}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ UC3B\ (UC3B0\ ||\ UC3B1)}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ UC3C\ (UC3C0\ ||\ UC3C1\ ||\ UC3C2)}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ UC3D\ (UC3D3\ ||\ UC3D4)}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ UC3L\ (UC3L0\ ||\ UC3L0128\ ||\ UC3L0256\ ||\ UC3L3\_L4)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ UC3\ \ (UC3A\ ||\ UC3B\ ||\ UC3C\ ||\ UC3D\ ||\ UC3L)}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ XMEGA\_A1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64A1)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128A1)\ \(\backslash\)}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ XMEGA\_A3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64A3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128A3)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega192A3)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256A3)\ \(\backslash\)}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ XMEGA\_A3B\ (\ \(\backslash\)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256A3B)\ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ XMEGA\_A4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega16A4)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32A4)\ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ XMEGA\_A1U\ (\ \(\backslash\)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64A1U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128A1U)\ \(\backslash\)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ XMEGA\_A3U\ (\ \(\backslash\)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64A3U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128A3U)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega192A3U)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256A3U)\ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ XMEGA\_A3BU\ (\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256A3BU)\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ XMEGA\_A4U\ (\ \(\backslash\)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega16A4U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32A4U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64A4U)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128A4U)\ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ XMEGA\_B1\ \ (\ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64B1)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128B1)\ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#define\ XMEGA\_B3\ \ (\ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64B3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128B3)\ \(\backslash\)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#define\ XMEGA\_C3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega384C3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256C3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega192C3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128C3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64C3)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32C3)\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ XMEGA\_C4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32C4)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega16C4)\ \(\backslash\)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ XMEGA\_D3\ (\ \(\backslash\)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32D3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64D3)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128D3)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega192D3)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega256D3)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega384D3)\ \(\backslash\)}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#define\ XMEGA\_D4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega16D4)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32D4)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega64D4)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega128D4)\ \(\backslash\)}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#define\ XMEGA\_E5\ (\ \(\backslash\)}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega8E5)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega16E5)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATxmega32E5)\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#define\ XMEGA\_A\ (XMEGA\_A1\ ||\ XMEGA\_A3\ ||\ XMEGA\_A3B\ ||\ XMEGA\_A4)}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ XMEGA\_AU\ (XMEGA\_A1U\ ||\ XMEGA\_A3U\ ||\ XMEGA\_A3BU\ ||\ XMEGA\_A4U)}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#define\ XMEGA\_B\ (XMEGA\_B1\ ||\ XMEGA\_B3)}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ XMEGA\_C\ (XMEGA\_C3\ ||\ XMEGA\_C4)}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#define\ XMEGA\_D\ (XMEGA\_D3\ ||\ XMEGA\_D4)}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ XMEGA\_E\ (XMEGA\_E5)}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ XMEGA\ (XMEGA\_A\ ||\ XMEGA\_AU\ ||\ XMEGA\_B\ ||\ XMEGA\_C\ ||\ XMEGA\_D\ ||\ XMEGA\_E)}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\#define\ MEGA\_XX0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega640)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1280)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega2560)\ \(\backslash\)}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ MEGA\_XX1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1281)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega2561)\ \(\backslash\)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#define\ MEGA\_XX0\_1\ (MEGA\_XX0\ ||\ MEGA\_XX1)}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ MEGA\_XX4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega164A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega164PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324PB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1284P)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128RFA1)\ \(\backslash\)}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ MEGA\_XX4\_A\ (\ \(\backslash\)}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega164A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega164PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1284P)\ \(\backslash\)}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\#define\ MEGA\_XX8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48PA)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48PB)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88PA)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88PB)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168PB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega328)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega328P)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega328PB)\ \(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ MEGA\_XX8\_A\ (\ \(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48PA)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88PA)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega328P)\ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#define\ MEGA\_XX\ (\ \(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128A)\ \(\backslash\)}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#define\ MEGA\_XX\_A\ (\ \(\backslash\)}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64A)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128A)\ \(\backslash\)}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\#define\ MEGA\_RFA1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128RFA1)\ \(\backslash\)}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ MEGA\_RFR2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64RFR2)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128RFR2)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega256RFR2)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644RFR2)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1284RFR2)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega2564RFR2)\ \(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\#define\ MEGA\_RF\ (MEGA\_RFA1\ ||\ MEGA\_RFR2)}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#define\ MEGA\_XX\_UN0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32A)\ \(\backslash\)}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\#define\ MEGA\_XX\_UN1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64A)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega128A)\ \(\backslash\)}}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\#define\ MEGA\_XX\_UN2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega169P)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega169PA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega329P)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega329PA)\ \(\backslash\)}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#define\ MEGA\_UNCATEGORIZED\ (\ \(\backslash\)}}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90CAN128)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90CAN32)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90CAN64)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM1)\ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM216)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM2B)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00547\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM316)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM3B)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90PWM81)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB1286)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB1287)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB162)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00553\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB646)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00554\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB647)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00555\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(AT90USB82)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega1284)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega162)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega164P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega165A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega165P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00561\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega165PA)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega168P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega169A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16M1)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16U2)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega16U4)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega256RFA2)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega324P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega325)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00570\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3250)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00571\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3250A)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3250P)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00573\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3250PA)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega325A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega325P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega325PA)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00577\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega329)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3290)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00579\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3290A)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3290P)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00581\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega3290PA)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega329A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32M1)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32U2)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega32U4)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega48P)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00587\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega644P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega645)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6450)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6450A)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00591\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6450P)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega645A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00593\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega645P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega649)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00595\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6490)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6490A)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00597\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega6490P)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega649A)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega649P)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64M1)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00601\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega64RFA2)\ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00602\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega8)\ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega8515)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega8535)\ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00605\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega88P)\ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00606\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega8A)\ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00607\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ AVR8\_PART\_IS\_DEFINED(ATmega8U2)\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00608\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00611\ \textcolor{preprocessor}{\#define\ MEGA\_UNSPECIFIED\ (MEGA\_XX\_UN0\ ||\ MEGA\_XX\_UN1\ ||\ MEGA\_XX\_UN2\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\ \ \ \ MEGA\_UNCATEGORIZED)}}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00617\ \textcolor{preprocessor}{\#define\ MEGA\ (MEGA\_XX0\_1\ ||\ MEGA\_XX4\ ||\ MEGA\_XX8\ ||\ MEGA\_XX\ ||\ MEGA\_RF\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00618\ \textcolor{preprocessor}{\ \ \ \ MEGA\_UNSPECIFIED)}}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00631\ \textcolor{preprocessor}{\#define\ SAM3S1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S1A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S1B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00634\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S1C)\ \(\backslash\)}}
+\DoxyCodeLine{00635\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \textcolor{preprocessor}{\#define\ SAM3S2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00638\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S2A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00639\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S2B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S2C)\ \(\backslash\)}}
+\DoxyCodeLine{00641\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00643\ \textcolor{preprocessor}{\#define\ SAM3S4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00644\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S4A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00645\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S4B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00646\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S4C)\ \(\backslash\)}}
+\DoxyCodeLine{00647\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00649\ \textcolor{preprocessor}{\#define\ SAM3S8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3S8C)\ \(\backslash\)}}
+\DoxyCodeLine{00652\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00654\ \textcolor{preprocessor}{\#define\ SAM3SD8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3SD8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3SD8C)\ \(\backslash\)}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00664\ \textcolor{preprocessor}{\#define\ SAM3U1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00665\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U1C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00666\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U1E)\ \(\backslash\)}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\#define\ SAM3U2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00670\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U2C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00671\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U2E)\ \(\backslash\)}}
+\DoxyCodeLine{00672\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \textcolor{preprocessor}{\#define\ SAM3U4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00675\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U4C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00676\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3U4E)\ \(\backslash\)}}
+\DoxyCodeLine{00677\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00684\ \textcolor{preprocessor}{\#define\ SAM3N00\ (\ \(\backslash\)}}
+\DoxyCodeLine{00685\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N00A)\ ||\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00686\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N00B)\ \(\backslash\)}}
+\DoxyCodeLine{00687\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \textcolor{preprocessor}{\#define\ SAM3N0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00690\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N0A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00691\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N0B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00692\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N0C)\ \(\backslash\)}}
+\DoxyCodeLine{00693\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \textcolor{preprocessor}{\#define\ SAM3N1\ (\ \(\backslash\)}}
+\DoxyCodeLine{00696\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N1A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00697\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N1B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00698\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N1C)\ \(\backslash\)}}
+\DoxyCodeLine{00699\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \textcolor{preprocessor}{\#define\ SAM3N2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00702\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N2A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00703\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N2B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00704\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N2C)\ \(\backslash\)}}
+\DoxyCodeLine{00705\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#define\ SAM3N4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00708\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N4A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00709\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N4B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00710\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3N4C)\ \(\backslash\)}}
+\DoxyCodeLine{00711\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00718\ \textcolor{preprocessor}{\#define\ SAM3X4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00719\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3X4C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00720\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3X4E)\ \(\backslash\)}}
+\DoxyCodeLine{00721\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \textcolor{preprocessor}{\#define\ SAM3X8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3X8C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00725\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3X8E)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00726\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3X8H)\ \(\backslash\)}}
+\DoxyCodeLine{00727\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00734\ \textcolor{preprocessor}{\#define\ SAM3A4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00735\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3A4C)\ \(\backslash\)}}
+\DoxyCodeLine{00736\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00737\ }
+\DoxyCodeLine{00738\ \textcolor{preprocessor}{\#define\ SAM3A8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00739\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM3A8C)\ \(\backslash\)}}
+\DoxyCodeLine{00740\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00747\ \textcolor{preprocessor}{\#define\ SAM4S2\ (\ \(\backslash\)}}
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S2A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00749\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S2B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00750\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S2C)\ \(\backslash\)}}
+\DoxyCodeLine{00751\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00753\ \textcolor{preprocessor}{\#define\ SAM4S4\ (\ \(\backslash\)}}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S4A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00755\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S4B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00756\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S4C)\ \(\backslash\)}}
+\DoxyCodeLine{00757\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \textcolor{preprocessor}{\#define\ SAM4S8\ (\ \(\backslash\)}}
+\DoxyCodeLine{00760\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S8C)\ \(\backslash\)}}
+\DoxyCodeLine{00762\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00763\ }
+\DoxyCodeLine{00764\ \textcolor{preprocessor}{\#define\ SAM4S16\ (\ \(\backslash\)}}
+\DoxyCodeLine{00765\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00766\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4S16C)\ \(\backslash\)}}
+\DoxyCodeLine{00767\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \textcolor{preprocessor}{\#define\ SAM4SA16\ (\ \(\backslash\)}}
+\DoxyCodeLine{00770\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SA16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00771\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SA16C)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \textcolor{preprocessor}{\#define\ SAM4SD16\ (\ \(\backslash\)}}
+\DoxyCodeLine{00775\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SD16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00776\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SD16C)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00777\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \textcolor{preprocessor}{\#define\ SAM4SD32\ (\ \(\backslash\)}}
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SD32B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00781\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4SD32C)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00789\ \textcolor{preprocessor}{\#define\ SAM4LS\ (\ \(\backslash\)}}
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS2A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00791\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS2B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00792\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS2C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS4A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00794\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS4B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00795\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS4C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00796\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS8A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00797\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00798\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LS8C)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00799\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#define\ SAM4LC\ (\ \(\backslash\)}}
+\DoxyCodeLine{00802\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC2A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC2B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00804\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC2C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00805\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC4A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00806\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC4B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC4C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00808\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC8A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00809\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00810\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4LC8C)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00811\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00818\ \textcolor{preprocessor}{\#define\ SAMD20J\ (\ \(\backslash\)}}
+\DoxyCodeLine{00819\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J14)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00820\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J15)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00821\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J16)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00822\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J14B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00823\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00824\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00825\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J17)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00826\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20J18)\ \(\backslash\)}}
+\DoxyCodeLine{00827\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00828\ }
+\DoxyCodeLine{00829\ \textcolor{preprocessor}{\#define\ SAMD20G\ (\ \(\backslash\)}}
+\DoxyCodeLine{00830\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G14)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00831\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G15)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00832\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G16)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00833\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G14B)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00834\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G15B)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00835\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G16B)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00836\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G17)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00837\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G17U)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00838\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G18)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00839\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20G18U)\ \(\backslash\)}}
+\DoxyCodeLine{00840\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00841\ }
+\DoxyCodeLine{00842\ \textcolor{preprocessor}{\#define\ SAMD20E\ (\ \(\backslash\)}}
+\DoxyCodeLine{00843\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E14)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00844\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E15)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00845\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E16)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00846\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E14B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00847\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00848\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00849\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E17)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00850\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD20E18)\ \(\backslash\)}}
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00859\ \textcolor{preprocessor}{\#define\ SAMD21J\ (\ \(\backslash\)}}
+\DoxyCodeLine{00860\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00862\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00863\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00864\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00865\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00866\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21J17D)\ \(\backslash\)}}
+\DoxyCodeLine{00867\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00868\ }
+\DoxyCodeLine{00869\ \textcolor{preprocessor}{\#define\ SAMD21G\ (\ \(\backslash\)}}
+\DoxyCodeLine{00870\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00871\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00872\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00873\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G17AU)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00874\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00875\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G18AU)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00877\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00878\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G15L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00879\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G16L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00880\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G17D)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00881\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G17L)\ \(\backslash\)}}
+\DoxyCodeLine{00882\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00883\ }
+\DoxyCodeLine{00884\ \textcolor{preprocessor}{\#define\ SAMD21GXXL\ (\ \(\backslash\)}}
+\DoxyCodeLine{00885\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G15L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00886\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G16L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00887\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21G17L)\ \(\backslash\)}}
+\DoxyCodeLine{00888\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \textcolor{preprocessor}{\#define\ SAMD21E\ (\ \(\backslash\)}}
+\DoxyCodeLine{00891\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00892\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00893\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00894\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00895\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00896\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E15BU)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00897\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00898\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E16BU)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00899\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E15L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00900\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E16L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00901\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E17D)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00902\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E17DU)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00903\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E17L)\ \(\backslash\)}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00905\ }
+\DoxyCodeLine{00906\ \textcolor{preprocessor}{\#define\ SAMD21EXXL\ (\ \(\backslash\)}}
+\DoxyCodeLine{00907\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E15L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00908\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E16L)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00909\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD21E17L)\ \(\backslash\)}}
+\DoxyCodeLine{00910\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00918\ \textcolor{preprocessor}{\#define\ SAMR21G\ (\ \(\backslash\)}}
+\DoxyCodeLine{00919\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00920\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21G17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00921\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21G18A)\ \(\backslash\)}}
+\DoxyCodeLine{00922\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00924\ \textcolor{preprocessor}{\#define\ SAMR21E\ (\ \(\backslash\)}}
+\DoxyCodeLine{00925\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00926\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21E17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00927\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21E18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00928\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR21E19A)\ \(\backslash\)}}
+\DoxyCodeLine{00929\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00936\ \textcolor{preprocessor}{\#define\ SAMR30G\ (\ \(\backslash\)}}
+\DoxyCodeLine{00937\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR30G18A)\ \(\backslash\)}}
+\DoxyCodeLine{00938\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00939\ }
+\DoxyCodeLine{00940\ \textcolor{preprocessor}{\#define\ SAMR30E\ (\ \(\backslash\)}}
+\DoxyCodeLine{00941\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR30E18A)\ \(\backslash\)}}
+\DoxyCodeLine{00942\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00949\ \textcolor{preprocessor}{\#define\ SAMR34J\ (\ \(\backslash\)}}
+\DoxyCodeLine{00950\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00951\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00952\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00953\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00954\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00955\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J16B)\ \(\backslash\)}}
+\DoxyCodeLine{00956\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{00957\ \ \ \ \ }
+\DoxyCodeLine{00958\ \textcolor{comment}{/*\ Group\ for\ SAMR34\ A\ variant:\ SAMR34J\ [16/17/18]A\ */}}
+\DoxyCodeLine{00959\ \textcolor{preprocessor}{\#define\ SAMR34JXXA\ (\ \(\backslash\)}}
+\DoxyCodeLine{00960\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00961\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00962\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J16A)\ \(\backslash\)}}
+\DoxyCodeLine{00963\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00964\ \textcolor{comment}{/*\ Group\ for\ SAMR34\ B\ variant:\ SAMR34J\ [16/17/18]B\ */}}
+\DoxyCodeLine{00965\ \textcolor{preprocessor}{\#define\ SAMR34JXXB\ (\ \(\backslash\)}}
+\DoxyCodeLine{00966\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00967\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00968\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR34J16B)\ \(\backslash\)}}
+\DoxyCodeLine{00969\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00971\ \textcolor{comment}{/*\ Group\ for\ SAMR35\ B\ variant:\ SAMR35J\ [16/17/18]B\ */}}
+\DoxyCodeLine{00972\ \textcolor{preprocessor}{\#define\ SAMR35J\ (\ \(\backslash\)}}
+\DoxyCodeLine{00973\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00974\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00975\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J16B)\ \(\backslash\)}}
+\DoxyCodeLine{00976\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00978\ \textcolor{comment}{/*\ Group\ for\ SAMR35\ B\ variant:\ SAMR35J\ [16/17/18]B\ */}}
+\DoxyCodeLine{00979\ \textcolor{preprocessor}{\#define\ SAMR35JXXB\ (\ \(\backslash\)}}
+\DoxyCodeLine{00980\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00981\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00982\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMR35J16B)\ \(\backslash\)}}
+\DoxyCodeLine{00983\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00984\ }
+\DoxyCodeLine{00985\ \textcolor{comment}{/*\ Group\ for\ SAMR35\ B\ variant:\ SAMR35J\ [16/17/18]B\ */}}
+\DoxyCodeLine{00986\ \textcolor{preprocessor}{\#define\ WLR089U\ (\ \(\backslash\)}}
+\DoxyCodeLine{00987\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(WLR089U0)\ \(\backslash\)}}
+\DoxyCodeLine{00988\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00989\ }
+\DoxyCodeLine{00990\ \textcolor{comment}{/*\ Group\ for\ WLR089U\ variant:\ SAMR35U\ [0]\ */}}
+\DoxyCodeLine{00991\ \textcolor{preprocessor}{\#define\ WLR089U0\ (\ \(\backslash\)}}
+\DoxyCodeLine{00992\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(WLR089U0)\ \(\backslash\)}}
+\DoxyCodeLine{00993\ \textcolor{preprocessor}{)}}
+\DoxyCodeLine{00994\ }
+\DoxyCodeLine{00999\ \textcolor{preprocessor}{\#define\ SAMB11G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01000\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMB11G18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01001\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMB11ZR)\ \(\backslash\)}}
+\DoxyCodeLine{01002\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01003\ \textcolor{preprocessor}{\#define\ BTLC1000\ (\ \(\backslash\)}}
+\DoxyCodeLine{01004\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(BTLC1000WLCSP)\ \(\backslash\)}}
+\DoxyCodeLine{01005\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01006\ }
+\DoxyCodeLine{01013\ \textcolor{preprocessor}{\#define\ SAMD09C\ (\ \(\backslash\)}}
+\DoxyCodeLine{01014\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD09C13A)\ \(\backslash\)}}
+\DoxyCodeLine{01015\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \textcolor{preprocessor}{\#define\ SAMD09D\ (\ \(\backslash\)}}
+\DoxyCodeLine{01018\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD09D14A)\ \(\backslash\)}}
+\DoxyCodeLine{01019\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01026\ \textcolor{preprocessor}{\#define\ SAMD10C\ (\ \(\backslash\)}}
+\DoxyCodeLine{01027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10C12A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10C13A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01029\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10C14A)\ \(\backslash\)}}
+\DoxyCodeLine{01030\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01032\ \textcolor{preprocessor}{\#define\ SAMD10DS\ (\ \(\backslash\)}}
+\DoxyCodeLine{01033\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D12AS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01034\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D13AS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D14AS)\ \(\backslash\)}}
+\DoxyCodeLine{01036\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01037\ }
+\DoxyCodeLine{01038\ \textcolor{preprocessor}{\#define\ SAMD10DM\ (\ \(\backslash\)}}
+\DoxyCodeLine{01039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D12AM)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D13AM)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D14AM)\ \(\backslash\)}}
+\DoxyCodeLine{01042\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \textcolor{preprocessor}{\#define\ SAMD10DU\ (\ \(\backslash\)}}
+\DoxyCodeLine{01045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD10D14AU)\ \(\backslash\)}}
+\DoxyCodeLine{01046\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01053\ \textcolor{preprocessor}{\#define\ SAMD11C\ (\ \(\backslash\)}}
+\DoxyCodeLine{01054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD11C14A)\ \(\backslash\)}}
+\DoxyCodeLine{01055\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01056\ }
+\DoxyCodeLine{01057\ \textcolor{preprocessor}{\#define\ SAMD11DS\ (\ \(\backslash\)}}
+\DoxyCodeLine{01058\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD11D14AS)\ \(\backslash\)}}
+\DoxyCodeLine{01059\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \textcolor{preprocessor}{\#define\ SAMD11DM\ (\ \(\backslash\)}}
+\DoxyCodeLine{01062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD11D14AM)\ \(\backslash\)}}
+\DoxyCodeLine{01063\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01065\ \textcolor{preprocessor}{\#define\ SAMD11DU\ (\ \(\backslash\)}}
+\DoxyCodeLine{01066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMD11D14AU)\ \(\backslash\)}}
+\DoxyCodeLine{01067\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01074\ \textcolor{preprocessor}{\#define\ SAML21E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E18B)\ \(\backslash\)}}
+\DoxyCodeLine{01080\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\#define\ SAML21G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G18B)\ \(\backslash\)}}
+\DoxyCodeLine{01087\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01088\ }
+\DoxyCodeLine{01089\ \textcolor{preprocessor}{\#define\ SAML21J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J18B)\ \(\backslash\)}}
+\DoxyCodeLine{01094\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01096\ \textcolor{comment}{/*\ Group\ for\ SAML21\ A\ variant:\ SAML21[E/G/J][18]A\ */}}
+\DoxyCodeLine{01097\ \textcolor{preprocessor}{\#define\ SAML21XXXA\ (\ \(\backslash\)}}
+\DoxyCodeLine{01098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G18A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J18A)\ \(\backslash\)}}
+\DoxyCodeLine{01101\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \textcolor{comment}{/*\ Group\ for\ SAML21\ B\ variant:\ SAML21[E/G/J][15/16/1718]B\ */}}
+\DoxyCodeLine{01104\ \textcolor{preprocessor}{\#define\ SAML21XXXB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21E18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01109\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01110\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21G18B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01112\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01113\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J17B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01114\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML21J18B)\ \(\backslash\)}}
+\DoxyCodeLine{01115\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01116\ }
+\DoxyCodeLine{01123\ \textcolor{preprocessor}{\#define\ SAML22N\ (\ \(\backslash\)}}
+\DoxyCodeLine{01124\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22N16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01125\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22N17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01126\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22N18A)\ \(\backslash\)}}
+\DoxyCodeLine{01127\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01129\ \textcolor{preprocessor}{\#define\ SAML22G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01130\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22G17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01132\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22G18A)\ \(\backslash\)}}
+\DoxyCodeLine{01133\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01134\ }
+\DoxyCodeLine{01135\ \textcolor{preprocessor}{\#define\ SAML22J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAML22J18A)\ \(\backslash\)}}
+\DoxyCodeLine{01139\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01146\ \textcolor{preprocessor}{\#define\ SAMDA1J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J14A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01148\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01149\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01150\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01151\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01152\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1J16B)\ \(\backslash\)}}
+\DoxyCodeLine{01153\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01154\ }
+\DoxyCodeLine{01155\ \textcolor{preprocessor}{\#define\ SAMDA1G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01156\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G14A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01157\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G14B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01159\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01160\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1G16B)\ \(\backslash\)}}
+\DoxyCodeLine{01162\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01163\ }
+\DoxyCodeLine{01164\ \textcolor{preprocessor}{\#define\ SAMDA1E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01165\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E14A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01166\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E14B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01167\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E15B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01169\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01170\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMDA1E16B)\ \(\backslash\)}}
+\DoxyCodeLine{01171\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01178\ \textcolor{preprocessor}{\#define\ SAMHA1G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G14A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01180\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01181\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G14AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G15AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1G16AB)\ \(\backslash\)}}
+\DoxyCodeLine{01185\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ \textcolor{preprocessor}{\#define\ SAMHA1E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E14A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01189\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E14AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E15AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01193\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA1E16AB)\ \(\backslash\)}}
+\DoxyCodeLine{01194\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01195\ }
+\DoxyCodeLine{01202\ \textcolor{preprocessor}{\#define\ SAMHA0G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01203\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0G14AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0G15AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01205\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0G16AB)\ \(\backslash\)}}
+\DoxyCodeLine{01206\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01207\ }
+\DoxyCodeLine{01208\ \textcolor{preprocessor}{\#define\ SAMHA0E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01209\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0E14AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0E15AB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMHA0E16AB)\ \(\backslash\)}}
+\DoxyCodeLine{01212\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01213\ }
+\DoxyCodeLine{01220\ \textcolor{preprocessor}{\#define\ SAMC20E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01221\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20E15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01222\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20E17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20E18A)\ \(\backslash\)}}
+\DoxyCodeLine{01225\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01226\ }
+\DoxyCodeLine{01227\ \textcolor{preprocessor}{\#define\ SAMC20G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20G15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20G17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20G18A)\ \(\backslash\)}}
+\DoxyCodeLine{01232\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ \textcolor{preprocessor}{\#define\ SAMC20J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20J15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01236\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01237\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC20J18A)\ \(\backslash\)}}
+\DoxyCodeLine{01239\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01246\ \textcolor{preprocessor}{\#define\ SAMC21E\ (\ \(\backslash\)}}
+\DoxyCodeLine{01247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21E15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01248\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21E16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01249\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21E17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21E18A)\ \(\backslash\)}}
+\DoxyCodeLine{01251\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01252\ }
+\DoxyCodeLine{01253\ \textcolor{preprocessor}{\#define\ SAMC21G\ (\ \(\backslash\)}}
+\DoxyCodeLine{01254\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21G15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21G16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01256\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21G17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01257\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21G18A)\ \(\backslash\)}}
+\DoxyCodeLine{01258\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01259\ }
+\DoxyCodeLine{01260\ \textcolor{preprocessor}{\#define\ SAMC21J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21J15A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01262\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21J16A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01263\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21J17A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01264\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMC21J18A)\ \(\backslash\)}}
+\DoxyCodeLine{01265\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01272\ \textcolor{preprocessor}{\#define\ SAM4E8\ (\ \(\backslash\)}}
+\DoxyCodeLine{01273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E8C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01274\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E8CB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01275\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E8E)\ \(\backslash\)}}
+\DoxyCodeLine{01276\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01277\ }
+\DoxyCodeLine{01278\ \textcolor{preprocessor}{\#define\ SAM4E16\ (\ \(\backslash\)}}
+\DoxyCodeLine{01279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E16C)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E16CB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4E16E)\ \(\backslash\)}}
+\DoxyCodeLine{01282\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01289\ \textcolor{preprocessor}{\#define\ SAM4N8\ (\ \(\backslash\)}}
+\DoxyCodeLine{01290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4N8A)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4N8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01292\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4N8C)\ \(\backslash\)}}
+\DoxyCodeLine{01293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01294\ }
+\DoxyCodeLine{01295\ \textcolor{preprocessor}{\#define\ SAM4N16\ (\ \(\backslash\)}}
+\DoxyCodeLine{01296\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4N16B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01297\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4N16C)\ \(\backslash\)}}
+\DoxyCodeLine{01298\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01305\ \textcolor{preprocessor}{\#define\ SAM4C4\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C4C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01308\ }
+\DoxyCodeLine{01309\ \textcolor{preprocessor}{\#define\ SAM4C4\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C4C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01311\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01312\ }
+\DoxyCodeLine{01313\ \textcolor{preprocessor}{\#define\ SAM4C4\ (SAM4C4\_0\ ||\ SAM4C4\_1)}}
+\DoxyCodeLine{01314\ }
+\DoxyCodeLine{01315\ \textcolor{preprocessor}{\#define\ SAM4C8\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01316\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C8C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01317\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01318\ }
+\DoxyCodeLine{01319\ \textcolor{preprocessor}{\#define\ SAM4C8\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01320\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C8C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01321\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01322\ }
+\DoxyCodeLine{01323\ \textcolor{preprocessor}{\#define\ SAM4C8\ (SAM4C8\_0\ ||\ SAM4C8\_1)}}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \textcolor{preprocessor}{\#define\ SAM4C16\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01326\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C16C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01327\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01328\ }
+\DoxyCodeLine{01329\ \textcolor{preprocessor}{\#define\ SAM4C16\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01330\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C16C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01331\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01332\ }
+\DoxyCodeLine{01333\ \textcolor{preprocessor}{\#define\ SAM4C16\ (SAM4C16\_0\ ||\ SAM4C16\_1)}}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01335\ \textcolor{preprocessor}{\#define\ SAM4C32\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C32C\_0)\ ||\(\backslash\)}}
+\DoxyCodeLine{01337\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C32E\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01338\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01339\ }
+\DoxyCodeLine{01340\ \textcolor{preprocessor}{\#define\ SAM4C32\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01341\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C32C\_1)\ ||\(\backslash\)}}
+\DoxyCodeLine{01342\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4C32E\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01343\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01345\ }
+\DoxyCodeLine{01346\ \textcolor{preprocessor}{\#define\ SAM4C32\ (SAM4C32\_0\ ||\ SAM4C32\_1)}}
+\DoxyCodeLine{01347\ }
+\DoxyCodeLine{01354\ \textcolor{preprocessor}{\#define\ SAM4CMP8\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01355\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP8C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01356\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \textcolor{preprocessor}{\#define\ SAM4CMP8\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01359\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP8C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01360\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01361\ }
+\DoxyCodeLine{01362\ \textcolor{preprocessor}{\#define\ SAM4CMP8\ (SAM4CMP8\_0\ ||\ SAM4CMP8\_1)}}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01364\ \textcolor{preprocessor}{\#define\ SAM4CMP16\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP16C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01367\ }
+\DoxyCodeLine{01368\ \textcolor{preprocessor}{\#define\ SAM4CMP16\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP16C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01370\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01371\ }
+\DoxyCodeLine{01372\ \textcolor{preprocessor}{\#define\ SAM4CMP16\ (SAM4CMP16\_0\ ||\ SAM4CMP16\_1)}}
+\DoxyCodeLine{01373\ }
+\DoxyCodeLine{01374\ \textcolor{preprocessor}{\#define\ SAM4CMP32\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP32C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01376\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01377\ }
+\DoxyCodeLine{01378\ \textcolor{preprocessor}{\#define\ SAM4CMP32\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01379\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMP32C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01381\ }
+\DoxyCodeLine{01382\ \textcolor{preprocessor}{\#define\ SAM4CMP32\ (SAM4CMP32\_0\ ||\ SAM4CMP32\_1)}}
+\DoxyCodeLine{01383\ }
+\DoxyCodeLine{01384\ \textcolor{preprocessor}{\#define\ SAM4CMS4\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS4C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01386\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01387\ }
+\DoxyCodeLine{01388\ \textcolor{preprocessor}{\#define\ SAM4CMS4\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS4C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01390\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01391\ }
+\DoxyCodeLine{01392\ \textcolor{preprocessor}{\#define\ SAM4CMS4\ (SAM4CMS4\_0\ ||\ SAM4CMS4\_1)}}
+\DoxyCodeLine{01393\ }
+\DoxyCodeLine{01394\ \textcolor{preprocessor}{\#define\ SAM4CMS8\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01395\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS8C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01397\ }
+\DoxyCodeLine{01398\ \textcolor{preprocessor}{\#define\ SAM4CMS8\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS8C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01401\ }
+\DoxyCodeLine{01402\ \textcolor{preprocessor}{\#define\ SAM4CMS8\ (SAM4CMS8\_0\ ||\ SAM4CMS8\_1)}}
+\DoxyCodeLine{01403\ }
+\DoxyCodeLine{01404\ \textcolor{preprocessor}{\#define\ SAM4CMS16\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS16C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01406\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01407\ }
+\DoxyCodeLine{01408\ \textcolor{preprocessor}{\#define\ SAM4CMS16\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01409\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS16C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01410\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01411\ }
+\DoxyCodeLine{01412\ \textcolor{preprocessor}{\#define\ SAM4CMS16\ (SAM4CMS16\_0\ ||\ SAM4CMS16\_1)}}
+\DoxyCodeLine{01413\ }
+\DoxyCodeLine{01414\ \textcolor{preprocessor}{\#define\ SAM4CMS32\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01415\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS32C\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01416\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01418\ \textcolor{preprocessor}{\#define\ SAM4CMS32\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01419\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CMS32C\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01420\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01421\ }
+\DoxyCodeLine{01422\ \textcolor{preprocessor}{\#define\ SAM4CMS32\ (SAM4CMS32\_0\ ||\ SAM4CMS32\_1)}}
+\DoxyCodeLine{01423\ }
+\DoxyCodeLine{01430\ \textcolor{preprocessor}{\#define\ SAM4CP16\_0\ (\ \(\backslash\)}}
+\DoxyCodeLine{01431\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CP16B\_0)\ \(\backslash\)}}
+\DoxyCodeLine{01432\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01433\ }
+\DoxyCodeLine{01434\ \textcolor{preprocessor}{\#define\ SAM4CP16\_1\ (\ \(\backslash\)}}
+\DoxyCodeLine{01435\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAM4CP16B\_1)\ \(\backslash\)}}
+\DoxyCodeLine{01436\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01437\ }
+\DoxyCodeLine{01438\ \textcolor{preprocessor}{\#define\ SAM4CP16\ (SAM4CP16\_0\ ||\ SAM4CP16\_1)}}
+\DoxyCodeLine{01445\ \textcolor{preprocessor}{\#define\ SAMG51\ (\ \(\backslash\)}}
+\DoxyCodeLine{01446\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG51G18)\ \(\backslash\)}}
+\DoxyCodeLine{01447\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01448\ }
+\DoxyCodeLine{01449\ \textcolor{preprocessor}{\#define\ SAMG53\ (\ \(\backslash\)}}
+\DoxyCodeLine{01450\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG53G19)\ ||\(\backslash\)}}
+\DoxyCodeLine{01451\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG53N19)\ \(\backslash\)}}
+\DoxyCodeLine{01452\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01453\ }
+\DoxyCodeLine{01454\ \textcolor{preprocessor}{\#define\ SAMG54\ (\ \(\backslash\)}}
+\DoxyCodeLine{01455\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG54G19)\ ||\(\backslash\)}}
+\DoxyCodeLine{01456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG54J19)\ ||\(\backslash\)}}
+\DoxyCodeLine{01457\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG54N19)\ \(\backslash\)}}
+\DoxyCodeLine{01458\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01459\ }
+\DoxyCodeLine{01460\ \textcolor{preprocessor}{\#define\ SAMG55\ (\ \(\backslash\)}}
+\DoxyCodeLine{01461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG55G18)\ ||\(\backslash\)}}
+\DoxyCodeLine{01462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG55G19)\ ||\(\backslash\)}}
+\DoxyCodeLine{01463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG55J18)\ ||\(\backslash\)}}
+\DoxyCodeLine{01464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG55J19)\ ||\(\backslash\)}}
+\DoxyCodeLine{01465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMG55N19)\ \(\backslash\)}}
+\DoxyCodeLine{01466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{01473\ \textcolor{preprocessor}{\#define\ SAMV71J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01476\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J21)\ \(\backslash\)}}
+\DoxyCodeLine{01477\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01478\ }
+\DoxyCodeLine{01479\ \textcolor{preprocessor}{\#define\ SAMV71JB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01480\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01481\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01482\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71J21B)\ \(\backslash\)}}
+\DoxyCodeLine{01483\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01484\ }
+\DoxyCodeLine{01485\ \textcolor{preprocessor}{\#define\ SAMV71N\ (\ \(\backslash\)}}
+\DoxyCodeLine{01486\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01487\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N21)\ \(\backslash\)}}
+\DoxyCodeLine{01489\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01490\ }
+\DoxyCodeLine{01491\ \textcolor{preprocessor}{\#define\ SAMV71NB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01492\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01494\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71N21B)\ \(\backslash\)}}
+\DoxyCodeLine{01495\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01496\ }
+\DoxyCodeLine{01497\ \textcolor{preprocessor}{\#define\ SAMV71Q\ (\ \(\backslash\)}}
+\DoxyCodeLine{01498\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01499\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01500\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q21)\ \(\backslash\)}}
+\DoxyCodeLine{01501\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01503\ \textcolor{preprocessor}{\#define\ SAMV71QB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01504\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV71Q21B)\ \(\backslash\)}}
+\DoxyCodeLine{01507\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01508\ }
+\DoxyCodeLine{01515\ \textcolor{preprocessor}{\#define\ SAMV70J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01516\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70J19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01517\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70J20)\ \(\backslash\)}}
+\DoxyCodeLine{01518\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01519\ }
+\DoxyCodeLine{01520\ \textcolor{preprocessor}{\#define\ SAMV70JB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70J19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70J20B)\ \(\backslash\)}}
+\DoxyCodeLine{01523\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01524\ }
+\DoxyCodeLine{01525\ \textcolor{preprocessor}{\#define\ SAMV70N\ (\ \(\backslash\)}}
+\DoxyCodeLine{01526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70N19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70N20)\ \(\backslash\)}}
+\DoxyCodeLine{01528\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01530\ \textcolor{preprocessor}{\#define\ SAMV70NB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70N19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01532\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70N20B)\ \(\backslash\)}}
+\DoxyCodeLine{01533\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01534\ }
+\DoxyCodeLine{01535\ \textcolor{preprocessor}{\#define\ SAMV70Q\ (\ \(\backslash\)}}
+\DoxyCodeLine{01536\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70Q19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01537\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70Q20)\ \(\backslash\)}}
+\DoxyCodeLine{01538\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01539\ \textcolor{preprocessor}{\#define\ SAMV70QB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01540\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70Q19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01541\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMV70Q20B)\ \(\backslash\)}}
+\DoxyCodeLine{01542\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01549\ \textcolor{preprocessor}{\#define\ SAMS70J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01550\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01551\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01552\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J21)\ \(\backslash\)}}
+\DoxyCodeLine{01553\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01554\ }
+\DoxyCodeLine{01555\ \textcolor{preprocessor}{\#define\ SAMS70JB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01556\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01557\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01558\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70J21B)\ \(\backslash\)}}
+\DoxyCodeLine{01559\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01560\ }
+\DoxyCodeLine{01561\ \textcolor{preprocessor}{\#define\ SAMS70N\ (\ \(\backslash\)}}
+\DoxyCodeLine{01562\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01563\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01564\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N21)\ \(\backslash\)}}
+\DoxyCodeLine{01565\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01566\ }
+\DoxyCodeLine{01567\ \textcolor{preprocessor}{\#define\ SAMS70NB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01568\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01569\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01570\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70N21B)\ \(\backslash\)}}
+\DoxyCodeLine{01571\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01572\ }
+\DoxyCodeLine{01573\ \textcolor{preprocessor}{\#define\ SAMS70Q\ (\ \(\backslash\)}}
+\DoxyCodeLine{01574\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01575\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01576\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q21)\ \(\backslash\)}}
+\DoxyCodeLine{01577\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01578\ }
+\DoxyCodeLine{01579\ \textcolor{preprocessor}{\#define\ SAMS70QB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01580\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01581\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01582\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAMS70Q21B)\ \(\backslash\)}}
+\DoxyCodeLine{01583\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01590\ \textcolor{preprocessor}{\#define\ SAME70J\ (\ \(\backslash\)}}
+\DoxyCodeLine{01591\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01592\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01593\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J21)\ \(\backslash\)}}
+\DoxyCodeLine{01594\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01595\ }
+\DoxyCodeLine{01596\ \textcolor{preprocessor}{\#define\ SAME70JB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01597\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01598\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01599\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70J21B)\ \(\backslash\)}}
+\DoxyCodeLine{01600\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01601\ }
+\DoxyCodeLine{01602\ \textcolor{preprocessor}{\#define\ SAME70N\ (\ \(\backslash\)}}
+\DoxyCodeLine{01603\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01604\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01605\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N21)\ \(\backslash\)}}
+\DoxyCodeLine{01606\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01607\ }
+\DoxyCodeLine{01608\ \textcolor{preprocessor}{\#define\ SAME70NB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01609\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01610\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01611\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70N21B)\ \(\backslash\)}}
+\DoxyCodeLine{01612\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01613\ }
+\DoxyCodeLine{01614\ \textcolor{preprocessor}{\#define\ SAME70Q\ (\ \(\backslash\)}}
+\DoxyCodeLine{01615\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q19)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01616\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q20)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01617\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q21)\ \ \(\backslash\)}}
+\DoxyCodeLine{01618\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01619\ }
+\DoxyCodeLine{01620\ \textcolor{preprocessor}{\#define\ SAME70QB\ (\ \(\backslash\)}}
+\DoxyCodeLine{01621\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q19B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01622\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q20B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01623\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM\_PART\_IS\_DEFINED(SAME70Q21B)\ \(\backslash\)}}
+\DoxyCodeLine{01624\ \textcolor{preprocessor}{\ \ \ \ )}}
+\DoxyCodeLine{01632\ \textcolor{preprocessor}{\#define\ SAM3S\ (SAM3S1\ ||\ SAM3S2\ ||\ SAM3S4\ ||\ SAM3S8\ ||\ SAM3SD8)}}
+\DoxyCodeLine{01633\ }
+\DoxyCodeLine{01635\ \textcolor{preprocessor}{\#define\ SAM3U\ (SAM3U1\ ||\ SAM3U2\ ||\ SAM3U4)}}
+\DoxyCodeLine{01636\ }
+\DoxyCodeLine{01638\ \textcolor{preprocessor}{\#define\ SAM3N\ (SAM3N00\ ||\ SAM3N0\ ||\ SAM3N1\ ||\ SAM3N2\ ||\ SAM3N4)}}
+\DoxyCodeLine{01639\ }
+\DoxyCodeLine{01641\ \textcolor{preprocessor}{\#define\ SAM3XA\ (SAM3X4\ ||\ SAM3X8\ ||\ SAM3A4\ ||\ SAM3A8)}}
+\DoxyCodeLine{01642\ }
+\DoxyCodeLine{01644\ \textcolor{preprocessor}{\#define\ SAM4S\ (SAM4S2\ ||\ SAM4S4\ ||\ SAM4S8\ ||\ SAM4S16\ ||\ SAM4SA16\ ||\ SAM4SD16\ ||\ SAM4SD32)}}
+\DoxyCodeLine{01645\ }
+\DoxyCodeLine{01647\ \textcolor{preprocessor}{\#define\ SAM4L\ (SAM4LS\ ||\ SAM4LC)}}
+\DoxyCodeLine{01648\ }
+\DoxyCodeLine{01650\ \textcolor{preprocessor}{\#define\ SAMD20\ (SAMD20J\ ||\ SAMD20G\ ||\ SAMD20E)}}
+\DoxyCodeLine{01651\ }
+\DoxyCodeLine{01653\ \textcolor{preprocessor}{\#define\ SAMD21\ (SAMD21J\ ||\ SAMD21G\ ||\ SAMD21E)}}
+\DoxyCodeLine{01654\ }
+\DoxyCodeLine{01656\ \textcolor{preprocessor}{\#define\ SAMD09\ (SAMD09C\ ||\ SAMD09D)}}
+\DoxyCodeLine{01657\ }
+\DoxyCodeLine{01659\ \textcolor{preprocessor}{\#define\ SAMD10\ (SAMD10C\ ||\ SAMD10DS\ ||\ SAMD10DM\ ||\ SAMD10DU)}}
+\DoxyCodeLine{01660\ }
+\DoxyCodeLine{01662\ \textcolor{preprocessor}{\#define\ SAMD11\ (SAMD11C\ ||\ SAMD11DS\ ||\ SAMD11DM\ ||\ SAMD11DU)}}
+\DoxyCodeLine{01663\ }
+\DoxyCodeLine{01665\ \textcolor{preprocessor}{\#define\ SAMDA1\ (SAMDA1J\ ||\ SAMDA1G\ ||\ SAMDA1E)}}
+\DoxyCodeLine{01666\ }
+\DoxyCodeLine{01668\ \textcolor{preprocessor}{\#define\ SAMHA1\ (SAMHA1G\ ||\ SAMHA1E)}}
+\DoxyCodeLine{01669\ }
+\DoxyCodeLine{01671\ \textcolor{preprocessor}{\#define\ SAMHA0\ (SAMHA0G\ ||\ SAMHA0E)}}
+\DoxyCodeLine{01672\ }
+\DoxyCodeLine{01674\ \textcolor{preprocessor}{\#define\ SAMD\ \ \ (SAMD20\ ||\ SAMD21\ ||\ SAMD09\ ||\ SAMD10\ ||\ SAMD11\ ||\ SAMDA1)}}
+\DoxyCodeLine{01675\ }
+\DoxyCodeLine{01677\ \textcolor{preprocessor}{\#define\ SAMR21\ (SAMR21G\ ||\ SAMR21E)}}
+\DoxyCodeLine{01678\ }
+\DoxyCodeLine{01680\ \textcolor{preprocessor}{\#define\ SAMR30\ (SAMR30G\ ||\ SAMR30E)}}
+\DoxyCodeLine{01681\ }
+\DoxyCodeLine{01683\ \textcolor{preprocessor}{\#define\ SAMR34\ (SAMR34J)}}
+\DoxyCodeLine{01684\ }
+\DoxyCodeLine{01686\ \textcolor{preprocessor}{\#define\ SAMR35\ (SAMR35J)}}
+\DoxyCodeLine{01687\ }
+\DoxyCodeLine{01689\ \textcolor{preprocessor}{\#define\ WLR089\ (WLR089U)}}
+\DoxyCodeLine{01690\ }
+\DoxyCodeLine{01692\ \textcolor{preprocessor}{\#define\ SAMB11\ (SAMB11G\ ||\ BTLC1000)}}
+\DoxyCodeLine{01693\ }
+\DoxyCodeLine{01695\ \textcolor{preprocessor}{\#define\ SAML21\ (SAML21J\ ||\ SAML21G\ ||\ SAML21E)}}
+\DoxyCodeLine{01696\ }
+\DoxyCodeLine{01698\ \textcolor{preprocessor}{\#define\ SAML22\ (SAML22J\ ||\ SAML22G\ ||\ SAML22N)}}
+\DoxyCodeLine{01700\ \textcolor{preprocessor}{\#define\ SAMC20\ (SAMC20J\ ||\ SAMC20G\ ||\ SAMC20E)}}
+\DoxyCodeLine{01701\ }
+\DoxyCodeLine{01703\ \textcolor{preprocessor}{\#define\ SAMC21\ (SAMC21J\ ||\ SAMC21G\ ||\ SAMC21E)}}
+\DoxyCodeLine{01704\ }
+\DoxyCodeLine{01706\ \textcolor{preprocessor}{\#define\ SAM4E\ (SAM4E8\ ||\ SAM4E16)}}
+\DoxyCodeLine{01707\ }
+\DoxyCodeLine{01709\ \textcolor{preprocessor}{\#define\ SAM4N\ (SAM4N8\ ||\ SAM4N16)}}
+\DoxyCodeLine{01710\ }
+\DoxyCodeLine{01712\ \textcolor{preprocessor}{\#define\ SAM4C\_0\ (SAM4C4\_0\ ||\ SAM4C8\_0\ ||\ SAM4C16\_0\ ||\ SAM4C32\_0)}}
+\DoxyCodeLine{01713\ \textcolor{preprocessor}{\#define\ SAM4C\_1\ (SAM4C4\_1\ ||\ SAM4C8\_1\ ||\ SAM4C16\_1\ ||\ SAM4C32\_1)}}
+\DoxyCodeLine{01714\ \textcolor{preprocessor}{\#define\ SAM4C\ \ \ (SAM4C4\ ||\ SAM4C8\ ||\ SAM4C16\ ||\ SAM4C32)}}
+\DoxyCodeLine{01715\ }
+\DoxyCodeLine{01717\ \textcolor{preprocessor}{\#define\ SAM4CM\_0\ (SAM4CMP8\_0\ ||\ SAM4CMP16\_0\ ||\ SAM4CMP32\_0\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01718\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ SAM4CMS4\_0\ ||\ SAM4CMS8\_0\ ||\ SAM4CMS16\_0\ ||\ SAM4CMS32\_0)}}
+\DoxyCodeLine{01719\ \textcolor{preprocessor}{\#define\ SAM4CM\_1\ (SAM4CMP8\_1\ ||\ SAM4CMP16\_1\ ||\ SAM4CMP32\_1\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01720\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ SAM4CMS4\_1\ ||\ SAM4CMS8\_1\ ||\ SAM4CMS16\_1\ ||\ SAM4CMS32\_1)}}
+\DoxyCodeLine{01721\ \textcolor{preprocessor}{\#define\ SAM4CM\ \ \ (SAM4CMP8\ ||\ SAM4CMP16\ ||\ SAM4CMP32\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01722\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ SAM4CMS4\ ||\ SAM4CMS8\ ||\ SAM4CMS16\ ||\ SAM4CMS32)}}
+\DoxyCodeLine{01723\ }
+\DoxyCodeLine{01725\ \textcolor{preprocessor}{\#define\ SAM4CP\_0\ (SAM4CP16\_0)}}
+\DoxyCodeLine{01726\ \textcolor{preprocessor}{\#define\ SAM4CP\_1\ (SAM4CP16\_1)}}
+\DoxyCodeLine{01727\ \textcolor{preprocessor}{\#define\ SAM4CP\ \ \ (SAM4CP16)}}
+\DoxyCodeLine{01728\ }
+\DoxyCodeLine{01730\ \textcolor{preprocessor}{\#define\ SAMG\ (SAMG51\ ||\ SAMG53\ ||\ SAMG54\ ||\ SAMG55)}}
+\DoxyCodeLine{01731\ }
+\DoxyCodeLine{01733\ \textcolor{preprocessor}{\#define\ SAMB\ (SAMB11)}}
+\DoxyCodeLine{01734\ }
+\DoxyCodeLine{01736\ \textcolor{preprocessor}{\#define\ SAMV71\ (SAMV71J\ ||\ SAMV71N\ ||\ SAMV71Q\ ||\ SAMV71JB\ ||\ SAMV71NB\ ||\ SAMV71QB)}}
+\DoxyCodeLine{01737\ \textcolor{preprocessor}{\#define\ SAMV71B\ (SAMV71JB\ ||\ SAMV71NB\ ||\ SAMV71QB)}}
+\DoxyCodeLine{01738\ }
+\DoxyCodeLine{01740\ \textcolor{preprocessor}{\#define\ SAMV70\ (SAMV70J\ ||\ SAMV70N\ ||\ SAMV70Q\ ||\ SAMV70JB\ ||\ SAMV70NB\ ||\ SAMV70QB)}}
+\DoxyCodeLine{01741\ \textcolor{preprocessor}{\#define\ SAMV70B\ (SAMV70JB\ ||\ SAMV70NB\ ||\ SAMV70QB)}}
+\DoxyCodeLine{01742\ }
+\DoxyCodeLine{01744\ \textcolor{preprocessor}{\#define\ SAME70\ (SAME70J\ ||\ SAME70N\ ||\ SAME70Q\ ||\ SAME70JB\ ||\ SAME70NB\ ||\ SAME70QB)}}
+\DoxyCodeLine{01745\ \textcolor{preprocessor}{\#define\ SAME70B\ (SAME70JB\ ||\ SAME70NB\ ||\ SAME70QB)}}
+\DoxyCodeLine{01746\ }
+\DoxyCodeLine{01748\ \textcolor{preprocessor}{\#define\ SAMS70\ (SAMS70J\ ||\ SAMS70N\ ||\ SAMS70Q\ ||\ SAMS70JB\ ||\ SAMS70NB\ ||\ SAMS70QB)}}
+\DoxyCodeLine{01749\ \textcolor{preprocessor}{\#define\ SAMS70B\ (SAMS70JB\ ||\ SAMS70NB\ ||\ SAMS70QB)}}
+\DoxyCodeLine{01750\ }
+\DoxyCodeLine{01752\ \textcolor{preprocessor}{\#define\ SAM0\ (SAMD20\ ||\ SAMD21\ ||\ SAMR21\ ||\ SAMD10\ ||\ SAMD11\ ||\ SAML21\ ||\(\backslash\)}}
+\DoxyCodeLine{01753\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAMDA1\ ||\ SAMC20\ ||\ SAMC21\ ||\ SAML22\ ||\ SAMD09\ ||\ SAMR30\ ||\ SAMHA1\ ||\(\backslash\)}}
+\DoxyCodeLine{01754\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAMHA0\ ||\ SAMR34\ ||\ SAMR35\ ||\ WLR089)}}
+\DoxyCodeLine{01755\ }
+\DoxyCodeLine{01759\ \textcolor{preprocessor}{\#define\ SAM\ (SAM3S\ ||\ SAM3U\ ||\ SAM3N\ ||\ SAM3XA\ ||\ SAM4S\ ||\ SAM4L\ ||\ SAM4E\ ||\ \(\backslash\)}}
+\DoxyCodeLine{01760\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ SAM0\ ||\ SAM4N\ ||\ SAM4C\ ||\ SAM4CM\ ||\ SAM4CP\ ||\ SAMG\ ||\ SAMV71\ ||\ SAMV70\ ||\ SAME70\ ||\ SAMS70)}}
+\DoxyCodeLine{01761\ }
+\DoxyCodeLine{01768\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ATMEL\_PARTS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

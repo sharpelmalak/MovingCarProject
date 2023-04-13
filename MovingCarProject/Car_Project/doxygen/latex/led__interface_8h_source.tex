@@ -1,0 +1,27 @@
+\hypertarget{led__interface_8h_source}{}\doxysection{led\+\_\+interface.\+h}
+\label{led__interface_8h_source}\index{ECUAL/led/led\_interface.h@{ECUAL/led/led\_interface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LED\_interface.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 6\ Apr\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 20101}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ ECU\_LED\_LED\_INTERFACE\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ECU\_LED\_LED\_INTERFACE\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include"{}../../Common/STD\_Types.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include"{}led\_config.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include"{}../../MCAL/dio/dio\_interface.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ Std\_ReturnType\ LED\_initialize(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_s_t__led__t}{ST\_led\_t}}\ *led);}
+\DoxyCodeLine{00017\ \ Std\_ReturnType\ LED\_turn\_on(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_s_t__led__t}{ST\_led\_t}}\ *led);}
+\DoxyCodeLine{00018\ \ Std\_ReturnType\ LED\_turn\_off(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_s_t__led__t}{ST\_led\_t}}\ *led);}
+\DoxyCodeLine{00019\ \ Std\_ReturnType\ LED\_toggle(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_s_t__led__t}{ST\_led\_t}}\ *led);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ECU\_LED\_LED\_INTERFACE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\hypertarget{status__codes_8h_source}{}\doxysection{status\+\_\+codes.\+h}
+\label{status__codes_8h_source}\index{src/ASF/mega/utils/status\_codes.h@{src/ASF/mega/utils/status\_codes.h}}
+\mbox{\hyperlink{status__codes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ Support\ and\ FAQ:\ visit\ <a\ href="{}https://www.microchip.com/support/"{}>Microchip\ Support</a>}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ STATUS\_CODES\_H\_INCLUDED}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ STATUS\_CODES\_H\_INCLUDED}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ Note:\ this\ is\ a\ local\ workaround\ to\ avoid\ a\ pre-\/processor\ clash\ due\ to\ the}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ lwIP\ macro\ ERR\_TIMEOUT.\ */}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#if\ defined(\_\_LWIP\_ERR\_H\_\_)\ \&\&\ defined(ERR\_TIMEOUT)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#if\ (ERR\_TIMEOUT\ !=\ -\/3)}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*\ Internal\ check\ to\ make\ sure\ that\ the\ later\ restore\ of\ lwIP's\ ERR\_TIMEOUT}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ macro\ is\ set\ to\ the\ correct\ value.\ Note\ that\ it\ is\ highly\ improbable\ that}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ this\ value\ ever\ changes\ in\ lwIP.\ */}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#error\ ASF\ developers:\ check\ lwip\ err.h\ new\ value\ for\ ERR\_TIMEOUT}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#undef\ ERR\_TIMEOUT}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}{status\_code}}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7e4a42e3b6dd63708c64cf3db6f69566}{STATUS\_OK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ 0,\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a0162f46cd42e6d3332b79c7284bcfcde}{ERR\_IO\_ERROR}}\ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/1,\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9d415cac501d1e51b419985ef8644e7f}{ERR\_FLUSHED}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/2,\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ac568baeb6407ef5e2630084ccbc34be8}{ERR\_TIMEOUT}}\ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/3,\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a7aee3b5c2b62ef9de286635fc4d0ed44}{ERR\_BAD\_DATA}}\ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/4,\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ace90946755daec754646e5f528ce1dcf}{ERR\_PROTOCOL}}\ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/5,\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab83b44cb6a1972de125f0f2efd45260e}{ERR\_UNSUPPORTED\_DEV}}\ \ \ \ \ =\ \ -\/6,\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a308199736159a4f167ad4f58db8a3830}{ERR\_NO\_MEMORY}}\ \ \ \ \ \ \ \ \ \ \ =\ \ -\/7,\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a70aa759d292a0e4be7123d01959357da}{ERR\_INVALID\_ARG}}\ \ \ \ \ \ \ \ \ =\ \ -\/8,\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151ab7f7c844a2381a5b981a5e3d4a13ee17}{ERR\_BAD\_ADDRESS}}\ \ \ \ \ \ \ \ \ =\ \ -\/9,\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a8d4f409eda53a10f049dc6d5a833ccba}{ERR\_BUSY}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/10,\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151aacb8e19f1a844f9dcef8448afaddc01f}{ERR\_BAD\_FORMAT}}\ \ \ \ \ \ \ \ \ \ =\ \ -\/11,\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a6d0a40d6d1356ffebe4fc22ec41b267f}{ERR\_NO\_TIMER}}\ \ \ \ \ \ \ \ \ \ \ \ =\ \ -\/12,\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151affb72bf05bbe079b38c284796cf3e746}{ERR\_TIMER\_ALREADY\_RUNNING}}\ \ \ =\ \ -\/13,\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a2119391dfc2668780bfd41a25426c32d}{ERR\_TIMER\_NOT\_RUNNING}}\ \ \ =\ \ -\/14,\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151a9b25aed7ac4ef4fc3c7250543bb113c0}{OPERATION\_IN\_PROGRESS}}\ \ =\ -\/128,}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{status__codes_8h_a751c892e5a46b8e7d282085a5a5bf151}{status\_code}}\ status\_code\_t;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#if\ defined(\_\_LWIP\_ERR\_H\_\_)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ ERR\_TIMEOUT\ -\/3}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STATUS\_CODES\_H\_INCLUDED\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

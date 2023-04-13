@@ -1,0 +1,273 @@
+\hypertarget{pwm__interface_8h_source}{}\doxysection{pwm\+\_\+interface.\+h}
+\label{pwm__interface_8h_source}\index{MCAL/pwm/pwm\_interface.h@{MCAL/pwm/pwm\_interface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ PWM\_Interface.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Apr\ 10,\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ hp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MCAL\_PWM\_PWM\_INTERFACE\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MCAL\_PWM\_PWM\_INTERFACE\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/************************************************************************************************/}}
+\DoxyCodeLine{00012\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MACROS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00013\ \textcolor{comment}{/************************************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{comment}{/*\ TIMSK\ REG\ */}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TOIE0\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ OCIE0\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ TOIE1\ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OCIE1A\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ OCIE1B\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ TICIE1\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ TOIE2\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ OCIE2\ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ TIFR\ REG\ */}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ TOV0\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ OCF0\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ TOV1\ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ OCF1A\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ OCF1B\ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ICF1\ \ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ TOV2\ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ OCF2\ \ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*\ TCCR1A\ REG\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ WGM10\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ WGM11\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ FOC1B\ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ FOC1A\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ COM1B0\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ COM1B1\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ COM1A0\ \ \ \ \ \ 6}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ COM1A1\ \ \ \ \ \ 7}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*\ TCCR1B\ REG\ */}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CS10\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ CS11\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ CS12\ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ WGM12\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ WGM13\ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ ICES1\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ ICNC1\ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ TCCR2\ REG\ */}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ CS20\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ CS21\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ CS22\ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ WGM21\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ COM20\ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ COM21\ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ WGM20\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ FOC2\ \ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ TIMER1\_COM1A\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ TIMER1\_COM1B\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/************************************************************************************************/}}
+\DoxyCodeLine{00071\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USER\_DEFINED\ TYPES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00072\ \textcolor{comment}{/************************************************************************************************/}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00074\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ TIMER2\_OK,}
+\DoxyCodeLine{00076\ \ \ \ \ TIMER2\_NOK,}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \}enu\_timer2Status\_t;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ TIMER1\_OK,}
+\DoxyCodeLine{00083\ \ \ \ \ TIMER1\_NOK,}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \}enu\_timer1Status\_t;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ TIMER2\_OVF\_MODE,}
+\DoxyCodeLine{00090\ \ \ \ \ TIMER2\_PHASE\_CORRECT\_PWM\_MODE,}
+\DoxyCodeLine{00091\ \ \ \ \ TIMER2\_CTC\_MODE,}
+\DoxyCodeLine{00092\ \ \ \ \ TIMER2\_FAST\_PWM\_MODE,}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ TIMER2\_TIMER\_MODE\_INVALID,}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}enu\_timer2Mode\_t;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ TIMER1\_NORMAL\_0xFFFF,}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ TIMER1\_PWM\_PHASE\_CORRECT\_8\_0x00FF,}
+\DoxyCodeLine{00104\ \ \ \ \ TIMER1\_PWM\_PHASE\_CORRECT\_9\_0x01FF,}
+\DoxyCodeLine{00105\ \ \ \ \ TIMER1\_PWM\_PHASE\_CORRECT\_10\_0x03FF,}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ TIMER1\_CTC\_OCR1A,}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ TIMER1\_FAST\_PWM\_8\_0x00FF,}
+\DoxyCodeLine{00110\ \ \ \ \ TIMER1\_FAST\_PWM\_9\_0x01FF,}
+\DoxyCodeLine{00111\ \ \ \ \ TIMER1\_FAST\_PWM\_10\_0x03FF,}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ TIMER1\_PWM\_PHASE\_FREQ\_CORRECT\_ICR1,}
+\DoxyCodeLine{00114\ \ \ \ \ TIMER1\_PWM\_PHASE\_FREQ\_CORRECT\_OCR1A,}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ TIMER1\_PWM\_PHASE\_CORRECT\_ICR1,}
+\DoxyCodeLine{00117\ \ \ \ \ TIMER1\_PWM\_PHASE\_CORRECT\_OCR1A,}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ TIMER1\_CTC\_ICR1,}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ TIMER1\_FAST\_PWM\_ICR1,}
+\DoxyCodeLine{00122\ \ \ \ \ TIMER1\_FAST\_PWM\_OCR1A,}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ TIMER1\_MODE\_INVALID,}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \}enu\_timer1Mode\_t;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00133\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ TIMER2\_NO\_CLK\_SRC,}
+\DoxyCodeLine{00135\ \ \ \ \ TIMER2\_PRE\_1,}
+\DoxyCodeLine{00136\ \ \ \ \ TIMER2\_PRE\_8,}
+\DoxyCodeLine{00137\ \ \ \ \ TIMER2\_PRE\_64,}
+\DoxyCodeLine{00138\ \ \ \ \ TIMER2\_PRE\_256,}
+\DoxyCodeLine{00139\ \ \ \ \ TIMER2\_PRE\_1024,}
+\DoxyCodeLine{00140\ \ \ \ \ TIMER2\_EXT\_CLK\_FALLING,}
+\DoxyCodeLine{00141\ \ \ \ \ TIMER2\_EXT\_CLK\_RISING,}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ TIMER2\_PRESCALR\_INVALID,}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \}enu\_timerPrescalar\_t;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ TIMER1\_NO\_CLK\_SRC,}
+\DoxyCodeLine{00152\ \ \ \ \ TIMER1\_PRE\_1,}
+\DoxyCodeLine{00153\ \ \ \ \ TIMER1\_PRE\_8,}
+\DoxyCodeLine{00154\ \ \ \ \ TIMER1\_PRE\_64,}
+\DoxyCodeLine{00155\ \ \ \ \ TIMER1\_PRE\_256,}
+\DoxyCodeLine{00156\ \ \ \ \ TIMER1\_PRE\_1024,}
+\DoxyCodeLine{00157\ \ \ \ \ TIMER1\_EXT\_CLK\_FALLING,}
+\DoxyCodeLine{00158\ \ \ \ \ TIMER1\_EXT\_CLK\_RISING,}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ TIMER1\_PRESCALR\_INVALID,}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \}enu\_timer1Prescalar\_t;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00168\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ TIMER1\_PWM\_NORMAL=0,}
+\DoxyCodeLine{00170\ \ \ \ \ TIMER1\_PWM\_TOGGLE\_ON\_CMP,}
+\DoxyCodeLine{00171\ \ \ \ \ TIMER1\_PWM\_CLR\_ON\_CMP,}
+\DoxyCodeLine{00172\ \ \ \ \ TIMER1\_PWM\_SET\_ON\_CMP,}
+\DoxyCodeLine{00173\ \ \ \ \ TIMER1\_PWM\_INVALID,}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \}enu\_pwm1Mode\_t;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00179\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ TIMER2\_PWM\_NORMAL=0,}
+\DoxyCodeLine{00181\ \ \ \ \ TIMER2\_RESERVED,}
+\DoxyCodeLine{00182\ \ \ \ \ TIMER2\_PWM\_CLR\_ON\_CMP,}
+\DoxyCodeLine{00183\ \ \ \ \ TIMER2\_PWM\_SET\_ON\_CMP,}
+\DoxyCodeLine{00184\ \ \ \ \ TIMER2\_PWM\_INVALID,}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \}enu\_pwmMode\_t;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{/*************************************************************************************************************}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Function\ Prototype}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ ************************************************************************************************************/}}
+\DoxyCodeLine{00194\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer1\_enuInit}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ *\ Function\ Description\ :\ Initialize\ Timer1\ to\ Fast\ PWM\ Mode}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_enTmerMode\ \ \{TIMER1\_OVF\_MODE,TIMER1\_FAST\_PWM\_MODE,.....\ \}}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer1Status\_t\ \{TIMER1\_OK\ or\ TIMER1\_NOK\}}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00201\ enu\_timer1Status\_t\ Timer1\_enuInit\ (enu\_timer1Mode\_t);}
+\DoxyCodeLine{00202\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer1\_enuSetPrescallar}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ *\ Function\ Description\ :\ Set\ Prescaller}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ Timer1\_enuSetPrescallar\ \ \{TIMER1\_PRE\_1,TIMER1\_PRE\_64,TIMER1\_PRE\_256,.....\ \}}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer1Status\_t\ \{TIMER1\_OK\ or\ TIMER1\_NOK\}}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00209\ enu\_timer1Status\_t\ Timer1\_enuSetPrescallar(enu\_timer1Prescalar\_t);}
+\DoxyCodeLine{00210\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer1\_enuFastPWM0Init}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ *\ Function\ Description\ :\ Set\ PWM\ Mode}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_enPWMMode\ \ \{TIMER1\_PWM\_NORMAL,TIMER1\_PWM\_CLR\_ON\_CMP,TIMER1\_PWM\_SET\_ON\_CMP,.....\ \}}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer1Status\_t\ \{TIMER1\_OK\ or\ TIMER1\_NOK\}}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00217\ enu\_timer1Status\_t\ Timer1\_enuFastPWMInit(enu\_pwm1Mode\_t\ );}
+\DoxyCodeLine{00218\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer1\_enuPWM0Generate}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ *\ Function\ Description\ :\ Generate\ PWM}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_u8DutyCycle\ \ \{1\ \string~\ 100\}}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer1Status\_t\ \{TIMER1\_OK\ or\ TIMER1\_NOK\}}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00225\ enu\_timer1Status\_t\ Timer1\_enuPWMGenerate(Uchar8\_t);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{comment}{/*************************************************************************************************************/}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer2\_enuInit}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *\ Function\ Description\ :\ Initialize\ Timer2\ to\ Fast\ PWM\ Mode}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_enTmerMode\ \ \{TIMER2\_OVF\_MODE,TIMER2\_FAST\_PWM\_MODE,.....\ \}}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer2Status\_t\ \{TIMER2\_OK\ or\ TIMER2\_NOK\}}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00241\ enu\_timer2Status\_t\ Timer2\_enuInit\ (enu\_timer2Mode\_t);}
+\DoxyCodeLine{00242\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer2\_enuSetPrescallar}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ *\ Function\ Description\ :\ Set\ Prescaller}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ Timer2\_enuSetPrescallar\ \ \{TIMER2\_PRE\_1,TIMER2\_PRE\_256,TIMER2\_PRE\_256,.....\ \}}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer2Status\_t\ \{TIMER2\_OK\ or\ TIMER2\_NOK\}}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00249\ enu\_timer2Status\_t\ Timer2\_enuSetPrescallar(enu\_timerPrescalar\_t);}
+\DoxyCodeLine{00250\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer2\_enuFastPWM0Init}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ *\ Function\ Description\ :\ Set\ PWM\ Mode}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_enPWMMode\ \ \{TIMER2\_PWM\_NORMAL,TIMER2\_PWM\_CLR\_ON\_CMP,TIMER2\_PWM\_SET\_ON\_CMP,.....\ \}}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer2Status\_t\ \{TIMER2\_OK\ or\ TIMER2\_NOK\}}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00257\ enu\_timer2Status\_t\ Timer2\_enuFastPWMInit(enu\_pwmMode\_t\ );}
+\DoxyCodeLine{00258\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ *\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Bassel\ Yasser\ Mahmoud}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ *\ Function\ Name\ \ \ \ \ \ \ \ :\ Timer2\_enuPWM0Generate}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ *\ Function\ Description\ :\ Generate\ PWM}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ *\ Arguments\ \ \ \ \ \ \ \ \ \ \ \ :\ copy\_u8DutyCycle\ \ \{1\ \string~\ 100\}}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ *\ Return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ enu\_timer2Status\_t\ \{TIMER2\_OK\ or\ TIMER2\_NOK\}}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00265\ enu\_timer2Status\_t\ Timer2\_enuPWMGenerate(Uchar8\_t);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MCAL\_PWM\_PWM\_INTERFACE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
