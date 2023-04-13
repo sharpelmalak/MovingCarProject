@@ -37,9 +37,6 @@ en_HTIMErrorState_t TIM0_SyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_tim
  */
 en_HTIMErrorState_t TIM0_AsyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_timeUnit, void (*Copy_pvCallbackFn)(void));
 
-
-en_HTIMErrorState_t TIM0__SyncDelay(Uint32_t Copy_delayTime, en_timeUnits_t Copy_timeUnit);
-
 /**
  * \brief Function to end a delay asynchronously 
  *		  (should only be called in an ISR/Callback function)

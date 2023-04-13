@@ -57,7 +57,10 @@ void initMain(void)
 void btn0_callback(void)
 {
 	/* Set the app state to APP_StartState */
-	u8_g_state = APP_StartState;
+	if(u8_g_state == APP_IdleState)
+	{
+		u8_g_state = APP_StartState;
+	}	
 }
 
 void btn1_callback(void)
