@@ -5,7 +5,7 @@
  *  Author: sharpel
  */ 
 
-#include "Ext_Interrupt.h"
+#include "extinterrupt.h"
 
 
 void (*ptrINT0)(void) = 0;
@@ -120,17 +120,17 @@ EN_EXTINT_ERROR EXTINT_CallBack(EN_EXINT_NUMBER INTx,void(*ptrfunc)(void))
 }
 
 
-ISR (INT0_vect)
+ISR (EXT_INT_0)
 {
 	if(ptrINT0) ptrINT0();
 }
 
-ISR (INT1_vect)
+ISR (EXT_INT_1)
 {
 	if(ptrINT1) ptrINT1();
 }
 
-ISR (INT2_vect)
+ISR (EXT_INT_2)
 {
 	if(ptrINT2) ptrINT2();
 }

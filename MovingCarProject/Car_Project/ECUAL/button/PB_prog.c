@@ -16,7 +16,7 @@ Std_ReturnType PUSH_BTN_intialize(const ST_PUSH_BTN_t *btn)
 	}
 	else
 	{
-		ret = GPIO_pin_direction_intialize(&(btn->PUSH_BTN_pin));
+		ret = GPIO_pin_intialize(&(btn->PUSH_BTN_pin));
 	}
 	return ret;
 }
@@ -60,3 +60,30 @@ Std_ReturnType PUSH_BTN_read_state(const ST_PUSH_BTN_t *btn , EN_PUSH_BTN_state_
 
 	return ret;
 }
+
+
+ST_PUSH_BTN_t startBtn =
+{
+	.PUSH_BTN_pin =
+	{
+		.port = GPIO_PORTD_INDEX,
+		.pin = GPIO_PIN3,
+		.direction = GPIO_DIRECTION_INPUT,
+		.logic = GPIO_LOGIC_HIGH
+	},
+	.PUSH_BTN_connection = PUSH_BTN_PULL_UP,
+	.PUSH_BTN_state = PUSH_BTN_STATE_RELEASED
+};
+
+ST_PUSH_BTN_t stopBtn =
+{
+	.PUSH_BTN_pin =
+	{
+		.port = GPIO_PORTD_INDEX,
+		.pin = GPIO_PIN2,
+		.direction = GPIO_DIRECTION_INPUT,
+		.logic = GPIO_LOGIC_HIGH
+	},
+	.PUSH_BTN_connection = PUSH_BTN_PULL_UP,
+	.PUSH_BTN_state = PUSH_BTN_STATE_RELEASED
+};

@@ -10,6 +10,25 @@
 Uint32_t FLAG_OVF = 0;
 Uchar8_t comp_VAL = 0;
 
+
+ST_pin_config_t pwm_left_pin =
+{
+	.port = GPIO_PORTA_INDEX,
+	.pin = GPIO_PIN4,
+	.direction = GPIO_DIRECTION_OUTPUT,
+	.logic = GPIO_LOGIC_HIGH
+};
+
+ST_pin_config_t pwm_right_pin =
+{
+	.port = GPIO_PORTC_INDEX,
+	.pin = GPIO_PIN4,
+	.direction = GPIO_DIRECTION_OUTPUT,
+	.logic = GPIO_LOGIC_HIGH
+};
+
+
+
 void timer2_init(void)
 {
 	//Select Normal Mode
@@ -34,25 +53,28 @@ void timer2_stop(void)
 
 void timer2_set_pwm_normal(Uchar8_t a_dutycycle)
 {
-	
+	GPIO_pin_intialize(&pwm_left_pin);
+	GPIO_pin_intialize(&pwm_right_pin);
 	comp_VAL = ((a_dutycycle*256)/100)-1;
 	TCNT2 = 256 - comp_VAL;
-	
 }
 
-ISR(TIMER2_OVF_vect)
+
+ISR(TIM2_OVF_INT)
 {
 	
 	
 	if(FLAG_OVF==0)
 	{
-		//LED_off(DIO_PIN0,DIO_PORTA);
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_LOW);
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_LOW);
 		FLAG_OVF=1;
 		TCNT2 =comp_VAL;
 	}
 	else if(FLAG_OVF == 1)
 	{
-		//LED_on(DIO_PIN0,DIO_PORTA);
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_HIGH);
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_HIGH);
 		FLAG_OVF=0;
 		TCNT2 =256 - comp_VAL;
 	}

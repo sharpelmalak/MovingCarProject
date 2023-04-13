@@ -36,30 +36,28 @@ SUBDIRS :=  \
 ../Common/ \
 ../ECUAL/ \
 ../ECUAL/button/ \
-../ECUAL/hpwm/ \
 ../ECUAL/led/ \
 ../ECUAL/motor/ \
 ../MCAL/ \
 ../MCAL/dio/ \
 ../MCAL/extint/ \
 ../MCAL/pwm_normal_mode \
-../MCAL/pwm/ \
-../MCAL/timer0/
+../MCAL/timer0/ \
+../APP
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../ECUAL/button/PB_prog.c \
-../ECUAL/hpwm/hpwm.c \
-../ECUAL/led/LED_prog.c \
+../APP/app.c \
+../ECUAL/button/pb_prog.c \
+../ECUAL/led/led_prog.c \
 ../ECUAL/motor/motor.c \
 ../ECUAL/motor/motor_handler.c \
 ../main.c \
-../MCAL/dio/program.c \
-../MCAL/extint/Ext_Interrupt.c \
-../MCAL/pwm/PWM_Source.c \
+../MCAL/dio/dio_prog.c \
+../MCAL/extint/extinterrupt.c \
 ../MCAL/pwm_normal_mode/pwm_normal.c \
-../MCAL/timer0/program.c
+../MCAL/timer0/tim0_program.c
 
 
 PREPROCESSING_SRCS += 
@@ -69,56 +67,52 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-ECUAL/button/PB_prog.o \
-ECUAL/hpwm/hpwm.o \
-ECUAL/led/LED_prog.o \
+APP/app.o \
+ECUAL/button/pb_prog.o \
+ECUAL/led/led_prog.o \
 ECUAL/motor/motor.o \
 ECUAL/motor/motor_handler.o \
 main.o \
-MCAL/dio/program.o \
-MCAL/extint/Ext_Interrupt.o \
-MCAL/pwm/PWM_Source.o \
+MCAL/dio/dio_prog.o \
+MCAL/extint/extinterrupt.o \
 MCAL/pwm_normal_mode/pwm_normal.o \
-MCAL/timer0/program.o
+MCAL/timer0/tim0_program.o
 
 OBJS_AS_ARGS +=  \
-ECUAL/button/PB_prog.o \
-ECUAL/hpwm/hpwm.o \
-ECUAL/led/LED_prog.o \
+APP/app.o \
+ECUAL/button/pb_prog.o \
+ECUAL/led/led_prog.o \
 ECUAL/motor/motor.o \
 ECUAL/motor/motor_handler.o \
 main.o \
-MCAL/dio/program.o \
-MCAL/extint/Ext_Interrupt.o \
-MCAL/pwm/PWM_Source.o \
+MCAL/dio/dio_prog.o \
+MCAL/extint/extinterrupt.o \
 MCAL/pwm_normal_mode/pwm_normal.o \
-MCAL/timer0/program.o
+MCAL/timer0/tim0_program.o
 
 C_DEPS +=  \
-ECUAL/button/PB_prog.d \
-ECUAL/hpwm/hpwm.d \
-ECUAL/led/LED_prog.d \
+APP/app.d \
+ECUAL/button/pb_prog.d \
+ECUAL/led/led_prog.d \
 ECUAL/motor/motor.d \
 ECUAL/motor/motor_handler.d \
 main.d \
-MCAL/dio/program.d \
-MCAL/extint/Ext_Interrupt.d \
-MCAL/pwm/PWM_Source.d \
+MCAL/dio/dio_prog.d \
+MCAL/extint/extinterrupt.d \
 MCAL/pwm_normal_mode/pwm_normal.d \
-MCAL/timer0/program.d
+MCAL/timer0/tim0_program.d
 
 C_DEPS_AS_ARGS +=  \
-ECUAL/button/PB_prog.d \
-ECUAL/hpwm/hpwm.d \
-ECUAL/led/LED_prog.d \
+APP/app.d \
+ECUAL/button/pb_prog.d \
+ECUAL/led/led_prog.d \
 ECUAL/motor/motor.d \
 ECUAL/motor/motor_handler.d \
 main.d \
-MCAL/dio/program.d \
-MCAL/extint/Ext_Interrupt.d \
-MCAL/pwm/PWM_Source.d \
+MCAL/dio/dio_prog.d \
+MCAL/extint/extinterrupt.d \
 MCAL/pwm_normal_mode/pwm_normal.d \
-MCAL/timer0/program.d
+MCAL/timer0/tim0_program.d
 
 OUTPUT_FILE_PATH +=Car_Project.elf
 
@@ -134,21 +128,21 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-ECUAL/button/PB_prog.o: ../ECUAL/button/PB_prog.c
+APP/app.o: ../APP/app.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-ECUAL/hpwm/hpwm.o: ../ECUAL/hpwm/hpwm.c
+ECUAL/button/pb_prog.o: ../ECUAL/button/pb_prog.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-ECUAL/led/LED_prog.o: ../ECUAL/led/LED_prog.c
+ECUAL/led/led_prog.o: ../ECUAL/led/led_prog.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -176,21 +170,14 @@ ECUAL/motor/motor_handler.o: ../ECUAL/motor/motor_handler.c
 	@echo Finished building: $<
 	
 
-MCAL/dio/program.o: ../MCAL/dio/program.c
+MCAL/dio/dio_prog.o: ../MCAL/dio/dio_prog.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-MCAL/extint/Ext_Interrupt.o: ../MCAL/extint/Ext_Interrupt.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/pwm/PWM_Source.o: ../MCAL/pwm/PWM_Source.c
+MCAL/extint/extinterrupt.o: ../MCAL/extint/extinterrupt.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -204,7 +191,7 @@ MCAL/pwm_normal_mode/pwm_normal.o: ../MCAL/pwm_normal_mode/pwm_normal.c
 	@echo Finished building: $<
 	
 
-MCAL/timer0/program.o: ../MCAL/timer0/program.c
+MCAL/timer0/tim0_program.o: ../MCAL/timer0/tim0_program.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

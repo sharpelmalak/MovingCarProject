@@ -4,7 +4,6 @@
 
 #include "tim0_register.h"
 #include "tim0_private.h"
-#include "tim0_config.h"
 #include "tim0_interface.h"
 
 /*========================= Global Variables ========================*/
@@ -159,6 +158,61 @@ en_TIMErrorState_t TIM0_AsyncDelay(Uint32_t u32_a_delay, en_timeUnits_t u8_a_tim
 	return TIM_OK;
 }
 
+
+
+en_TIMErrorState_t TIM0__SyncDelay(Uint32_t Copy_delayTime, en_timeUnits_t Copy_timeUnit)
+{
+	Uchar8_t Local_prescaler, Local_TotalOverFlows, Local_OverFlowCounter=0;
+	Uint16_t Local_TotalTicks;
+	float Local_TickTime;
+	
+	/* Get Value in micro seconds */
+	if(Copy_timeUnit == Seconds)	{Copy_delayTime *= 1000000;}
+	else if(Copy_timeUnit == mSeconds)	{Copy_delayTime *= 1000;}
+	else if(Copy_timeUnit == uSeconds)	{/* Do Nothing */}
+	else return TIM_NOK;
+	
+	/* Get prescaler according to delay time */
+	if(Copy_delayTime>=300000)
+	{
+		Local_prescaler = TIM_DIV_BY_1024;
+	}
+	else if(Copy_delayTime<=5000)
+	{
+		Local_prescaler = TIM_DIV_BY_1;
+	}
+	else
+	{
+		Local_prescaler = TIM_DIV_BY_64;
+	}
+	
+	Local_TickTime = arr_gs_prescalers[Local_prescaler-1]; //CPU Prescaler
+	Local_TotalTicks = (Uint16_t)(Copy_delayTime/Local_TickTime);
+	Local_TotalOverFlows = Local_TotalTicks/TIM0_MAX_TICKS;
+	
+	/* Initialize timer in normal mode */
+	TIM0_voidInit(NormalMode);
+	
+	/* Set timer start value */
+	TIM0_SetValue(TIM0_MAX_TICKS-(Local_TotalTicks%TIM0_MAX_TICKS));
+	
+	/* Start Timer */
+	TIM0_Start(Local_prescaler);
+	
+	while(Local_OverFlowCounter <= Local_TotalOverFlows)
+	{
+		/* Wait until the overflow flag is raised */
+		while(!GET_BIT(TIFR, TIFR_TOV0));
+		
+		/* Clear the overflow flag */
+		SET_BIT(TIFR, TIFR_TOV0);
+		
+		Local_OverFlowCounter++;
+	}
+	
+	TIM0_Stop();
+	return TIM_OK;
+}
 /*========================== ISRs =============================*/
 
 ISR(TIM0_OVF_INT)

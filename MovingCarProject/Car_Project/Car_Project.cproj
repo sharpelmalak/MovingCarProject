@@ -133,37 +133,37 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APP\app.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\app.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Common\BIT_Math.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Common\STD_Types.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\button\PB_config.h">
+    <Compile Include="Common\vect_table.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\button\PB_interface.h">
+    <Compile Include="ECUAL\button\pb_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\button\PB_prog.c">
+    <Compile Include="ECUAL\button\pb_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\hpwm\hpwm.c">
+    <Compile Include="ECUAL\button\pb_prog.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\hpwm\hpwm.h">
+    <Compile Include="ECUAL\led\led_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\hpwm\hpwm_cfg.h">
+    <Compile Include="ECUAL\led\led_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\led\LED_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\led\LED_interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\led\LED_prog.c">
+    <Compile Include="ECUAL\led\led_prog.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\motor\motor.c">
@@ -178,31 +178,28 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\dio\interface.h">
+    <Compile Include="MCAL\dio\dio_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\dio\program.c">
+    <Compile Include="MCAL\dio\dio_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\dio\register.h">
+    <Compile Include="MCAL\dio\dio_private.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\extint\Ext_Interrupt.c">
+    <Compile Include="MCAL\dio\dio_prog.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\extint\Ext_Interrupt.h">
+    <Compile Include="MCAL\extint\extinterrupt.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\pwm\pwm_config.h">
+    <Compile Include="MCAL\extint\extinterrupt.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\pwm\pwm_interface.h">
+    <Compile Include="MCAL\extint\ext_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\pwm\pwm_private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\pwm\pwm_source.c">
+    <Compile Include="MCAL\pwm_normal_mode\pwm_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\pwm_normal_mode\pwm_normal.c">
@@ -228,15 +225,14 @@
     <Folder Include="Common\" />
     <Folder Include="ECUAL\" />
     <Folder Include="ECUAL\button\" />
-    <Folder Include="ECUAL\hpwm\" />
     <Folder Include="ECUAL\led\" />
     <Folder Include="ECUAL\motor\" />
     <Folder Include="MCAL\" />
     <Folder Include="MCAL\dio\" />
     <Folder Include="MCAL\extint\" />
     <Folder Include="MCAL\pwm_normal_mode" />
-    <Folder Include="MCAL\pwm\" />
     <Folder Include="MCAL\timer0\" />
+    <Folder Include="APP" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

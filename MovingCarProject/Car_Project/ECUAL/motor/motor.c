@@ -15,15 +15,15 @@
 
 ST_pin_config_t st_g_Motor1Pin1 = {GPIO_PORTA_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
 ST_pin_config_t st_g_Motor1Pin2 = {GPIO_PORTA_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
-	
-ST_pin_config_t st_g_Motor2Pin1 = {GPIO_PORTB_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
-ST_pin_config_t st_g_Motor2Pin2 = {GPIO_PORTB_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};	
-	
+
 ST_pin_config_t st_g_Motor3Pin1 = {GPIO_PORTC_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
 ST_pin_config_t st_g_Motor3Pin2 = {GPIO_PORTC_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
 	
-ST_pin_config_t st_g_Motor4Pin1 = {GPIO_PORTD_INDEX, GPIO_PIN0, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
-ST_pin_config_t st_g_Motor4Pin2 = {GPIO_PORTD_INDEX, GPIO_PIN1, GPIO_DIRECTION_OUTPUT, GPIO_LOGIC_LOW};
+
+
+st_Motor_t st_g_Motor1 = {&st_g_Motor1Pin1, &st_g_Motor1Pin2, MOTOR_CW};
+st_Motor_t st_g_Motor3 = {&st_g_Motor3Pin1, &st_g_Motor3Pin2, MOTOR_CW};
+
 	
 /*===================================== Function Implementation =====================================*/
 

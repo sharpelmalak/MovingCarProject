@@ -8,16 +8,12 @@
 
 #ifndef EXT_INTERRUPT_H_
 #define EXT_INTERRUPT_H_
+
+#include "../../Common/vect_table.h"
 #include "../../Common/BIT_Math.h"
 #include "../../Common/STD_Types.h"
+#include "ext_config.h"
 
-#include "avr/interrupt.h"
-
-#define SREG    (*(volatile uint8_t*)(0x5F))
-#define GICR    (*(volatile uint8_t*)(0x5B))
-#define GIFR    (*(volatile uint8_t*)(0x5A))
-#define MCUCR   (*(volatile uint8_t*)(0x55))
-#define MCUCSR  (*(volatile uint8_t*)(0x54))
 
 // EXT_INT TYPEDEFS
 typedef enum EN_EXTINT_ERROR {

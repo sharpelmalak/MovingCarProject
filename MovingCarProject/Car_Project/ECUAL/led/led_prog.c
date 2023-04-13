@@ -87,3 +87,31 @@ Std_ReturnType LED_toggle(const ST_led_t *led)
 	}
 	return ret;
 }
+
+ST_led_t longSide =
+{
+	.port_name = GPIO_PORTC_INDEX,
+	.pin = GPIO_PIN2,
+	.led_status = LED_STATUS_OFF
+};
+
+ST_led_t shortSide =
+{
+	.port_name = GPIO_PORTC_INDEX,
+	.pin = GPIO_PIN3,
+	.led_status = LED_STATUS_OFF
+};
+ST_led_t rotate =
+{
+	.port_name = GPIO_PORTA_INDEX,
+	.pin = GPIO_PIN2,
+	.led_status = LED_STATUS_OFF
+};
+
+ST_led_t stop =
+{
+	.port_name = GPIO_PORTA_INDEX,
+	.pin = GPIO_PIN3,
+	.led_status = LED_STATUS_ON
+};
+
