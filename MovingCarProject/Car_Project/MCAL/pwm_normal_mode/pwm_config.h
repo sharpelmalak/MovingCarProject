@@ -17,12 +17,13 @@
 
 
 
-#define NORMAL_MODE 0x00
-#define REG_SIZE    256
-#define ONE_BIT     1
-#define PERCENT     100
-#define ON_TIME     0
-#define OFF_TIME    1
+#define NORMAL_MODE     0x00
+#define REG_SIZE        256
+#define REG_NEW_SIZE    128
+#define ONE_BIT         1
+#define PERCENT         100
+#define ON_TIME         0
+#define OFF_TIME        1
 
 
 // TIMSK bits

@@ -46,4 +46,11 @@ return      : void
 */
 void timer2_set_pwm_normal(Uchar8_t a_dutycycle);
 
+/*
+Description : This function calculate the on time based on duty cycle we need with High freq to meet Hardware Requirement.
+ARGS        : takes the duty cycle THE FREQ MUST BE 8 MEGA HZ
+return      : void
+*/
+void timer2_set_pwm_normal_High_Freq(Uchar8_t a_dutycycle);
+
 #endif /*  PWM_NORMAL_H_ */

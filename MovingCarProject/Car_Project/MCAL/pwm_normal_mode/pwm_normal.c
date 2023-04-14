@@ -7,8 +7,8 @@
 
 #include "pwm_normal.h"
 
-Uint32_t FLAG_OVF = 0;
-Uchar8_t comp_VAL = 0;
+Uint32_t FLAG_OVF = ON_TIME;
+Uchar8_t comp_VAL = ON_TIME;
 
 
 ST_pin_config_t pwm_left_pin =
@@ -84,3 +84,46 @@ ISR(TIM2_OVF_INT)
 	}
 	
 }
+
+// we must Use 8 mega frequency
+void timer2_set_pwm_normal_High_Freq(Uchar8_t a_dutycycle)
+{
+	timer2_init();
+	
+	// no prescaler
+	SET_BIT(TCCR2,CS20);
+	CLEAR_BIT(TCCR2,CS21);
+	CLEAR_BIT(TCCR2,CS22);
+	
+	//GPIO_pin_intialize(&pwm_left_pin);
+	//GPIO_pin_intialize(&pwm_right_pin);
+	comp_VAL = ((a_dutycycle*REG_NEW_SIZE)/PERCENT)-ONE_BIT;
+	TCNT2 = REG_SIZE - comp_VAL ;
+	
+}
+
+// ISR FOR  62500 HZ FREQ
+/*ISR(TIM2_OVF_INT)
+{
+	
+	
+	if(FLAG_OVF==ON_TIME)
+	{
+		// switch level of cycle to LOW
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_LOW);
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_LOW);
+		FLAG_OVF=OFF_TIME;
+		TCNT2 =REG_SIZE - (REG_NEW_SIZE + comp_VAL);
+	}
+	else if(FLAG_OVF == OFF_TIME)
+	{
+		// switch level of cycle to HIGH
+		GPIO_pin_write_logic(&pwm_right_pin,GPIO_LOGIC_HIGH);
+		GPIO_pin_write_logic(&pwm_left_pin,GPIO_LOGIC_HIGH);
+		FLAG_OVF=ON_TIME;
+		TCNT2 =REG_SIZE - comp_VAL;
+	}
+	
+}
+
+*/
